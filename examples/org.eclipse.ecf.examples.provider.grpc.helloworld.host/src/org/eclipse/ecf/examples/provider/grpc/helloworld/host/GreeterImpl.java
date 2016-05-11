@@ -28,7 +28,8 @@ public class GreeterImpl extends AbstractGreeter implements GreeterService {
 
 	@Activate
 	void activate(BundleContext context) throws Exception {
-		// This presents debug output of the endpoint description to system out
+		// This presents debug output of the RSA endpoint description to system out
+		// So that export can be easily verified
 		context.registerService(RemoteServiceAdminListener.class, new DebugRemoteServiceAdminListener(), null);
 	}
 

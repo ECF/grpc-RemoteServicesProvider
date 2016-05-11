@@ -16,23 +16,24 @@ import org.osgi.service.component.annotations.ReferencePolicy;
 import io.grpc.examples.helloworld.GreeterService;
 import io.grpc.examples.helloworld.HelloRequest;
 
-@Component(immediate=true)
+@Component(immediate = true)
 public class GreeterComponent {
 
 	private GreeterService greeterService;
-	
-	@Reference(policy=ReferencePolicy.DYNAMIC)
+
+	@Reference(policy = ReferencePolicy.DYNAMIC)
 	void bindGreeterService(GreeterService greeter) {
 		this.greeterService = greeter;
 	}
-	
+
 	void unbindGreeterService(GreeterService greeter) {
 		this.greeterService = null;
 	}
-	
+
 	@Activate
 	void activate() throws Exception {
 		System.out.println("Calling Greeter Service");
-		System.out.println("Greeter service reply message="+this.greeterService.sayHello(HelloRequest.newBuilder().setName("Scott").build()).getMessage());
+		System.out.println("Greeter service reply message="
+				+ this.greeterService.sayHello(HelloRequest.newBuilder().setName("Scott").build()).getMessage());
 	}
 }

@@ -24,11 +24,12 @@ public class GRPCClientService extends AbstractRSAClientService {
 	@SuppressWarnings("rawtypes")
 	private final io.grpc.stub.AbstractStub blockingStub;
 	private final List<Method> blockingStubMethods = new ArrayList<Method>();
-	
-	public GRPCClientService(AbstractClientContainer container, RemoteServiceClientRegistration registration, @SuppressWarnings("rawtypes") AbstractStub blockingStub) {
+
+	public GRPCClientService(AbstractClientContainer container, RemoteServiceClientRegistration registration,
+			@SuppressWarnings("rawtypes") AbstractStub blockingStub) {
 		super(container, registration);
 		this.blockingStub = blockingStub;
-		for(Method m: this.blockingStub.getClass().getDeclaredMethods()) 
+		for (Method m : this.blockingStub.getClass().getDeclaredMethods())
 			blockingStubMethods.add(m);
 	}
 
@@ -40,12 +41,14 @@ public class GRPCClientService extends AbstractRSAClientService {
 
 	@SuppressWarnings("rawtypes")
 	private boolean compareParameterTypes(Class[] first, Class[] second) {
-		if (first.length != second.length) return false;
-		for(int i=0; i < first.length; i++) 
-			if (!first[i].equals(second[i])) return false;	
+		if (first.length != second.length)
+			return false;
+		for (int i = 0; i < first.length; i++)
+			if (!first[i].equals(second[i]))
+				return false;
 		return true;
 	}
-	
+
 	@Override
 	protected Object invokeSync(RSARemoteCall remoteCall) throws ECFException {
 		Method rcMethod = remoteCall.getReflectMethod();
@@ -53,14 +56,16 @@ public class GRPCClientService extends AbstractRSAClientService {
 		@SuppressWarnings("rawtypes")
 		Class[] rcMethodParameterTypes = rcMethod.getParameterTypes();
 		Method invokeMethod = null;
-		for(Method m: blockingStubMethods) 
-			if (rcMethodName.equals(m.getName()) && compareParameterTypes(rcMethodParameterTypes,m.getParameterTypes()))
+		for (Method m : blockingStubMethods)
+			if (rcMethodName.equals(m.getName())
+					&& compareParameterTypes(rcMethodParameterTypes, m.getParameterTypes()))
 				invokeMethod = m;
-		if (invokeMethod == null) throw new ECFException("Cannot find matching invokeMethod on grpc blockingStub");
+		if (invokeMethod == null)
+			throw new ECFException("Cannot find matching invokeMethod on grpc blockingStub");
 		try {
-			return invokeMethod.invoke(blockingStub,remoteCall.getParameters());
+			return invokeMethod.invoke(blockingStub, remoteCall.getParameters());
 		} catch (Exception e) {
-			ECFException ee = new ECFException("Cannot invoke method on grcp blockingStub",e);
+			ECFException ee = new ECFException("Cannot invoke method on grcp blockingStub", e);
 			ee.setStackTrace(e.getStackTrace());
 			throw ee;
 		}

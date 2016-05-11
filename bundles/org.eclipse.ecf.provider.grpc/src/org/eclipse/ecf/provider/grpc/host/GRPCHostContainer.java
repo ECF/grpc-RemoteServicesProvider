@@ -26,7 +26,7 @@ public class GRPCHostContainer extends AbstractRSAContainer {
 	@SuppressWarnings("rawtypes")
 	private final ServerBuilder serverBuilder;
 	private Server server;
-	
+
 	public GRPCHostContainer(String idString) {
 		super(GRPCNamespace.INSTANCE.createInstance(new Object[] { idString }));
 		this.serverBuilder = ServerBuilder.forPort(((URIID) getID()).toURI().getPort());
@@ -39,22 +39,22 @@ public class GRPCHostContainer extends AbstractRSAContainer {
 			Object service = registration.getService();
 			@SuppressWarnings("rawtypes")
 			Class superClass = service.getClass();
-			while (!Object.class.equals(superClass.getSuperclass())) 
+			while (!Object.class.equals(superClass.getSuperclass()))
 				superClass = superClass.getSuperclass();
 			// This is the Grpc class
 			@SuppressWarnings("rawtypes")
 			Class enclosingClass = superClass.getEnclosingClass();
-			grpcClassname = (enclosingClass != null)?enclosingClass.getName():superClass.getName();
+			grpcClassname = (enclosingClass != null) ? enclosingClass.getName() : superClass.getName();
 			// Actually create and start the server
 			this.server = serverBuilder.addService((BindableService) service).build();
 			this.server.start();
 		} catch (Exception e) {
-			RuntimeException e1 = new RuntimeException("Could not export with grpc provider",e);
+			RuntimeException e1 = new RuntimeException("Could not export with grpc provider", e);
 			e1.setStackTrace(e.getStackTrace());
 			throw e1;
 		}
-		Map<String,Object> newProps = new HashMap<String,Object>();
-		newProps.put(GRPCConstants.GRCP_CLASSNAME_PROP,grpcClassname);
+		Map<String, Object> newProps = new HashMap<String, Object>();
+		newProps.put(GRPCConstants.GRCP_CLASSNAME_PROP, grpcClassname);
 		return newProps;
 	}
 

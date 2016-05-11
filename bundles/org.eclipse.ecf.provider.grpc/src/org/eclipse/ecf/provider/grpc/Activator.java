@@ -30,21 +30,21 @@ public class Activator implements BundleActivator {
 		context.registerService(Namespace.class, new GRPCNamespace(), null);
 		context.registerService(IRemoteServiceDistributionProvider.class,
 				new RemoteServiceDistributionProvider.Builder().setName(GRPCConstants.SERVER_PROVIDER_CONFIG_TYPE)
-						.setInstantiator(new RemoteServiceContainerInstantiator(GRPCConstants.SERVER_PROVIDER_CONFIG_TYPE,
-								GRPCConstants.CLIENT_PROVIDER_CONFIG_TYPE) {
+						.setInstantiator(new RemoteServiceContainerInstantiator(
+								GRPCConstants.SERVER_PROVIDER_CONFIG_TYPE, GRPCConstants.CLIENT_PROVIDER_CONFIG_TYPE) {
 							@Override
-									public IContainer createInstance(ContainerTypeDescription description,
-											Map<String, ?> parameters) {
-										return new GRPCHostContainer(
-												getParameterValue(parameters, GRPCConstants.SERVER_SVCPROP_URICONTEXT,
-														GRPCConstants.SERVER_DEFAULT_URICONTEXT));
-									}
-								}).setServer(true).setHidden(false).build(),
+							public IContainer createInstance(ContainerTypeDescription description,
+									Map<String, ?> parameters) {
+								return new GRPCHostContainer(
+										getParameterValue(parameters, GRPCConstants.SERVER_SVCPROP_URICONTEXT,
+												GRPCConstants.SERVER_DEFAULT_URICONTEXT));
+							}
+						}).setServer(true).setHidden(false).build(),
 				null);
 		context.registerService(IRemoteServiceDistributionProvider.class,
 				new RemoteServiceDistributionProvider.Builder().setName(GRPCConstants.CLIENT_PROVIDER_CONFIG_TYPE)
-						.setInstantiator(new RemoteServiceContainerInstantiator(GRPCConstants.SERVER_PROVIDER_CONFIG_TYPE,
-								GRPCConstants.CLIENT_PROVIDER_CONFIG_TYPE) {
+						.setInstantiator(new RemoteServiceContainerInstantiator(
+								GRPCConstants.SERVER_PROVIDER_CONFIG_TYPE, GRPCConstants.CLIENT_PROVIDER_CONFIG_TYPE) {
 							@Override
 							public IContainer createInstance(ContainerTypeDescription description,
 									Map<String, ?> parameters) {

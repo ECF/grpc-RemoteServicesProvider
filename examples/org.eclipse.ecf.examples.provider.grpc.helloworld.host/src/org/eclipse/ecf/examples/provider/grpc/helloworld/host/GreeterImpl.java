@@ -21,23 +21,23 @@ import io.grpc.examples.helloworld.GreeterGrpc.AbstractGreeter;
 import io.grpc.examples.helloworld.GreeterService;
 import io.grpc.stub.StreamObserver;
 
-@Component(immediate=true, service=GreeterService.class, property = { "service.exported.interfaces=io.grpc.examples.helloworld.GreeterService",
-																	  "service.exported.configs=ecf.grpc.server" })
+@Component(immediate = true, service = GreeterService.class, property = {
+		"service.exported.interfaces=io.grpc.examples.helloworld.GreeterService",
+		"service.exported.configs=ecf.grpc.server" })
 public class GreeterImpl extends AbstractGreeter implements GreeterService {
 
 	@Activate
 	void activate(BundleContext context) throws Exception {
 		// This presents debug output of the endpoint description to system out
-		context.registerService(RemoteServiceAdminListener.class,
-				new DebugRemoteServiceAdminListener(), null);
+		context.registerService(RemoteServiceAdminListener.class, new DebugRemoteServiceAdminListener(), null);
 	}
-	
-    @Override
-    public void sayHello(HelloRequest req, StreamObserver<HelloReply> responseObserver) {
-      HelloReply reply = sayHello(req);
-      responseObserver.onNext(reply);
-      responseObserver.onCompleted();
-    }
+
+	@Override
+	public void sayHello(HelloRequest req, StreamObserver<HelloReply> responseObserver) {
+		HelloReply reply = sayHello(req);
+		responseObserver.onNext(reply);
+		responseObserver.onCompleted();
+	}
 
 	@Override
 	public HelloReply sayHello(HelloRequest req) {

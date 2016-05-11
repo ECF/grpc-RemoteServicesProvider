@@ -25,45 +25,40 @@ import io.grpc.ManagedChannelBuilder;
 public class GRPCClientContainer extends AbstractRSAClientContainer {
 
 	private ManagedChannel channel;
-	
+
 	public GRPCClientContainer() {
-		super(GRPCNamespace.getInstance()
-				.createInstance(new Object[] { "uuid:" + UUID.randomUUID().toString() }));
+		super(GRPCNamespace.getInstance().createInstance(new Object[] { "uuid:" + UUID.randomUUID().toString() }));
 	}
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
-    protected IRemoteService createRemoteService(
-            final RemoteServiceClientRegistration aRegistration) {
-        try {
-        	// Get URI from connected ID
-        	URI uri = ((URIID) getConnectedID()).toURI();
-    		channel = ManagedChannelBuilder.forAddress(uri.getHost(), uri.getPort())
-    	            .usePlaintext(true)
-    	            .build();
-    		// Get grcpClassname from properties
-    		String grcpClassname = (String) aRegistration.getProperty(GRPCConstants.GRCP_CLASSNAME_PROP);
-    		// Load grcpClass
-    		Class grpcClass = Class.forName(grcpClassname,true, this.getClass().getClassLoader());
-    		// Get 'newBlockingStub' static method
-    		Method method = grpcClass.getMethod("newBlockingStub",io.grpc.Channel.class);
-    		// Invoke method with channel to get stub
-    		io.grpc.stub.AbstractStub stub = (io.grpc.stub.AbstractStub) method.invoke(null,channel);
-    		 // Prepare a new client service
-            return new GRPCClientService(this, aRegistration, stub);
-        } catch (final Exception ex) {
-            // TODO: log exception
-            ex.printStackTrace();
-            // Return null in case of error
-            return null;
-        }
-    }
+	protected IRemoteService createRemoteService(final RemoteServiceClientRegistration aRegistration) {
+		try {
+			// Get URI from connected ID
+			URI uri = ((URIID) getConnectedID()).toURI();
+			channel = ManagedChannelBuilder.forAddress(uri.getHost(), uri.getPort()).usePlaintext(true).build();
+			// Get grcpClassname from properties
+			String grcpClassname = (String) aRegistration.getProperty(GRPCConstants.GRCP_CLASSNAME_PROP);
+			// Load grcpClass
+			Class grpcClass = Class.forName(grcpClassname, true, this.getClass().getClassLoader());
+			// Get 'newBlockingStub' static method
+			Method method = grpcClass.getMethod("newBlockingStub", io.grpc.Channel.class);
+			// Invoke method with channel to get stub
+			io.grpc.stub.AbstractStub stub = (io.grpc.stub.AbstractStub) method.invoke(null, channel);
+			// Prepare a new client service
+			return new GRPCClientService(this, aRegistration, stub);
+		} catch (final Exception ex) {
+			// TODO: log exception
+			ex.printStackTrace();
+			// Return null in case of error
+			return null;
+		}
+	}
 
-
-    public void dispose() {
-    	if (channel != null && !channel.isShutdown()) {
-    		channel.shutdown();
-    		channel = null;
-    	}
-    }
+	public void dispose() {
+		if (channel != null && !channel.isShutdown()) {
+			channel.shutdown();
+			channel = null;
+		}
+	}
 }

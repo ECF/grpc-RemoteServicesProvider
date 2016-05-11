@@ -16,5 +16,5 @@ public interface GRPCConstants {
 	public static final String SERVER_SVCPROP_URICONTEXT = "uriContext";
 	public static final String SERVER_DEFAULT_URICONTEXT = "http://localhost:50051";
 	public static final String GRCP_CLASSNAME_PROP = "ecf.grcp.classname";
-	
+
 }

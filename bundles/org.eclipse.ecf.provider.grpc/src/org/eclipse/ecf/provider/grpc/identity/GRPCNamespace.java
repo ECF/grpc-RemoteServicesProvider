@@ -15,7 +15,7 @@ public class GRPCNamespace extends URIIDNamespace {
 
 	private static final long serialVersionUID = -1793395450322816274L;
 	public static GRPCNamespace INSTANCE;
-	
+
 	public GRPCNamespace() {
 		super(GRPCConstants.NAMESPACE_NAME, "Google RPC Namespace");
 		INSTANCE = this;
@@ -24,7 +24,7 @@ public class GRPCNamespace extends URIIDNamespace {
 	public static GRPCNamespace getInstance() {
 		return INSTANCE;
 	}
-	
+
 	public String getScheme() {
 		return "grpc";
 	}

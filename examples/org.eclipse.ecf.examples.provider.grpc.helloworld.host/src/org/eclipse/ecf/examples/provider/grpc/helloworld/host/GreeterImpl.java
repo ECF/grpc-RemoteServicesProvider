@@ -23,7 +23,8 @@ import io.grpc.stub.StreamObserver;
 
 @Component(immediate = true, service = GreeterService.class, property = {
 		"service.exported.interfaces=io.grpc.examples.helloworld.GreeterService",
-		"service.exported.configs=ecf.grpc.server" })
+		"service.exported.configs=ecf.grpc.server",
+		"ecf.grcp.server.urlContext=http://localhost:50001" })
 public class GreeterImpl extends AbstractGreeter implements GreeterService {
 
 	@Activate
@@ -35,6 +36,7 @@ public class GreeterImpl extends AbstractGreeter implements GreeterService {
 
 	@Override
 	public void sayHello(HelloRequest req, StreamObserver<HelloReply> responseObserver) {
+		// Call synchronous version of method to get reply
 		HelloReply reply = sayHello(req);
 		responseObserver.onNext(reply);
 		responseObserver.onCompleted();
@@ -42,6 +44,7 @@ public class GreeterImpl extends AbstractGreeter implements GreeterService {
 
 	@Override
 	public HelloReply sayHello(HelloRequest req) {
+		// Respond with HelloReply with message "Hello there <name"
 		return HelloReply.newBuilder().setMessage("Hello there " + req.getName()).build();
 	}
 }

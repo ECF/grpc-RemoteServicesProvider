@@ -2,6 +2,7 @@
 <scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="activate" immediate="true" name="org.eclipse.ecf.examples.provider.grpc.helloworld.host.GreeterImpl">
    <property name="service.exported.interfaces" value="io.grpc.examples.helloworld.GreeterService"/>
    <property name="service.exported.configs" value="ecf.grpc.server"/>
+   <property name="ecf.grcp.server.urlContext" value="http://localhost:50001"/>
    <service>
       <provide interface="io.grpc.examples.helloworld.GreeterService"/>
    </service>

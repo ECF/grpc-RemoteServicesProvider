@@ -24,7 +24,7 @@ import io.grpc.stub.StreamObserver;
 @Component(immediate = true, service = GreeterService.class, property = {
 		"service.exported.interfaces=io.grpc.examples.helloworld.GreeterService",
 		"service.exported.configs=ecf.grpc.server",
-		"ecf.grcp.server.urlContext=http://localhost:50001" })
+		"ecf.grpc.server.uriContext=http://localhost:50001" })
 public class GreeterImpl extends AbstractGreeter implements GreeterService {
 
 	@Activate

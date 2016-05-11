@@ -38,12 +38,8 @@ Import-Package: org.eclipse.ecf.core;version="3.0.0",
  org.osgi.framework
 Require-Bundle: org.eclipse.equinox.common
 DynamicImport-Package: *
-Export-Package: com.google.common.util.concurrent,
+Export-Package: com.google.common.util.concurrent;version="19.0.0",
  com.google.protobuf,
  io.grpc,
  io.grpc.protobuf,
- io.grpc.stub,
- org.eclipse.ecf.provider.grpc,
- org.eclipse.ecf.provider.grpc.client,
- org.eclipse.ecf.provider.grpc.host,
- org.eclipse.ecf.provider.grpc.identity
+ io.grpc.stub

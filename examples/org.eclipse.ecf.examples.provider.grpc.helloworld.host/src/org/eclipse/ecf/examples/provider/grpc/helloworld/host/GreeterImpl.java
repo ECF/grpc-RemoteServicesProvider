@@ -10,12 +10,28 @@ package org.eclipse.ecf.examples.provider.grpc.helloworld.host;
 
 import io.grpc.examples.helloworld.HelloReply;
 import io.grpc.examples.helloworld.HelloRequest;
+
+import org.eclipse.ecf.osgi.services.remoteserviceadmin.DebugRemoteServiceAdminListener;
+import org.osgi.framework.BundleContext;
+import org.osgi.service.component.annotations.Activate;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.remoteserviceadmin.RemoteServiceAdminListener;
+
 import io.grpc.examples.helloworld.GreeterGrpc.AbstractGreeter;
 import io.grpc.examples.helloworld.GreeterService;
 import io.grpc.stub.StreamObserver;
 
+@Component(immediate=true, service=GreeterService.class, property = { "service.exported.interfaces=io.grpc.examples.helloworld.GreeterService",
+																	  "service.exported.configs=ecf.grpc.server" })
 public class GreeterImpl extends AbstractGreeter implements GreeterService {
 
+	@Activate
+	void activate(BundleContext context) throws Exception {
+		// This presents debug output of the endpoint description to system out
+		context.registerService(RemoteServiceAdminListener.class,
+				new DebugRemoteServiceAdminListener(), null);
+	}
+	
     @Override
     public void sayHello(HelloRequest req, StreamObserver<HelloReply> responseObserver) {
       HelloReply reply = sayHello(req);
@@ -25,6 +41,6 @@ public class GreeterImpl extends AbstractGreeter implements GreeterService {
 
 	@Override
 	public HelloReply sayHello(HelloRequest req) {
-		return HelloReply.newBuilder().setMessage("Hello " + req.getName()).build();
+		return HelloReply.newBuilder().setMessage("Hello there " + req.getName()).build();
 	}
 }

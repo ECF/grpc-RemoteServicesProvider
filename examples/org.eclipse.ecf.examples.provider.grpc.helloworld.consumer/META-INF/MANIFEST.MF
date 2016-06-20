@@ -4,7 +4,7 @@ Bundle-Name: GRPC Helloworld Example Consumer
 Bundle-SymbolicName: org.eclipse.ecf.examples.provider.grpc.helloworld.consumer
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: Eclipse.org - ECF
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: com.google.protobuf,
  io.grpc.examples.helloworld,
  org.osgi.framework,

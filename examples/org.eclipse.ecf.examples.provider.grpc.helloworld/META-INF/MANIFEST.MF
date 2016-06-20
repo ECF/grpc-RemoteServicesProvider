@@ -4,7 +4,7 @@ Bundle-Name: Helloworld Example
 Bundle-SymbolicName: org.eclipse.ecf.examples.provider.grpc.helloworld
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: Google, Inc.
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: com.google.common.util.concurrent,
  com.google.protobuf,
  io.grpc,

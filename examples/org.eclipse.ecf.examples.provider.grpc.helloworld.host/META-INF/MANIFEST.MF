@@ -4,7 +4,7 @@ Bundle-Name: Helloworld Remote Service Host
 Bundle-SymbolicName: org.eclipse.ecf.examples.provider.grpc.helloworld.host
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: Eclipse.org - ECF
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Import-Package: io.grpc.examples.helloworld,
  io.grpc.stub,

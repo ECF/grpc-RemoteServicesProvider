@@ -11,11 +11,15 @@ package org.eclipse.ecf.provider.grpc.client;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.ecf.core.util.ECFException;
 import org.eclipse.ecf.remoteservice.client.AbstractClientContainer;
 import org.eclipse.ecf.remoteservice.client.AbstractRSAClientService;
 import org.eclipse.ecf.remoteservice.client.RemoteServiceClientRegistration;
+import org.eclipse.equinox.concurrent.future.IExecutor;
+import org.eclipse.equinox.concurrent.future.IProgressRunnable;
 
 import io.grpc.stub.AbstractStub;
 
@@ -33,10 +37,38 @@ public class GRPCClientService extends AbstractRSAClientService {
 			blockingStubMethods.add(m);
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	protected Object invokeAsync(RSARemoteCall remoteCall) throws ECFException {
-		// TODO Auto-generated method stub
-		return null;
+		final CompletableFuture cf = new CompletableFuture();
+		IExecutor executor = getIFutureExecutor(remoteCall);
+		if (executor == null)
+			throw new ECFException("no executor available to invoke asynchronously");
+		executor.execute(new IProgressRunnable() {
+			@Override
+			public Object run(IProgressMonitor arg0) throws Exception {
+				try {
+					Object[] params = remoteCall.getParameters();
+					Class[] paramTypes = (params == null) ? new Class[0] : new Class[params.length];
+					if (params != null)
+						for (int i = 0; i < params.length; i++)
+							paramTypes[i] = params[i].getClass();
+					Method invokeMethod = null;
+					String rcMethodName = remoteCall.getMethod();
+					for (Method m : blockingStubMethods)
+						if (rcMethodName.equals(m.getName())
+								&& compareParameterTypes(paramTypes, m.getParameterTypes()))
+							invokeMethod = m;
+					if (invokeMethod == null)
+						throw new ECFException("Cannot find matching invokeMethod on grpc blockingStub");
+					cf.complete(invokeMethod.invoke(blockingStub, remoteCall.getParameters()));
+				} catch (Exception e) {
+					cf.completeExceptionally(e);
+				}
+				return null;
+			}
+		}, null);
+		return cf;
 	}
 
 	@SuppressWarnings("rawtypes")

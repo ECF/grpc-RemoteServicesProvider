@@ -36,7 +36,7 @@ public class GRPCClientContainer extends AbstractRSAClientContainer {
 		try {
 			// Get URI from connected ID
 			URI uri = ((URIID) getConnectedID()).toURI();
-			channel = ManagedChannelBuilder.forAddress(uri.getHost(), uri.getPort()).usePlaintext(true).build();
+			channel = ManagedChannelBuilder.forAddress(uri.getHost(), uri.getPort()).usePlaintext().build();
 			// Get grcpClassname from properties
 			String grcpClassname = (String) aRegistration.getProperty(GRPCConstants.GRCP_CLASSNAME_PROP);
 			// Load grcpClass

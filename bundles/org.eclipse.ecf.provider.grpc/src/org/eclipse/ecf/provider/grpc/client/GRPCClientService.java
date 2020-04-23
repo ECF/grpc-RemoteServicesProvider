@@ -10,8 +10,10 @@ package org.eclipse.ecf.provider.grpc.client;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.ecf.core.util.ECFException;
@@ -33,8 +35,7 @@ public class GRPCClientService extends AbstractRSAClientService {
 			@SuppressWarnings("rawtypes") AbstractStub blockingStub) {
 		super(container, registration);
 		this.blockingStub = blockingStub;
-		for (Method m : this.blockingStub.getClass().getDeclaredMethods())
-			blockingStubMethods.add(m);
+		Arrays.asList(blockingStub.getClass().getDeclaredMethods()).forEach(m -> blockingStubMethods.add(m));
 	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
@@ -49,18 +50,18 @@ public class GRPCClientService extends AbstractRSAClientService {
 			public Object run(IProgressMonitor arg0) throws Exception {
 				try {
 					Object[] params = remoteCall.getParameters();
-					Class[] paramTypes = (params == null) ? new Class[0] : new Class[params.length];
-					if (params != null)
-						for (int i = 0; i < params.length; i++)
-							paramTypes[i] = params[i].getClass();
-					Method invokeMethod = null;
-					String rcMethodName = remoteCall.getMethod();
-					for (Method m : blockingStubMethods)
-						if (rcMethodName.equals(m.getName())
-								&& compareParameterTypes(paramTypes, m.getParameterTypes()))
-							invokeMethod = m;
+					// Get type of params as class array
+					Class[] paramTypes = (params == null) ? new Class[0]
+							: Arrays.asList(params).stream().map(p -> p.getClass()).collect(Collectors.toList())
+									.toArray(new Class[params.length]);
+					// Get invokeMethod by comparing against blockingStubMethods
+					Method invokeMethod = blockingStubMethods.stream().filter(m -> {
+						return remoteCall.getMethod().equals(m.getName())
+								&& compareParameterTypes(paramTypes, m.getParameterTypes());
+					}).findFirst().get();
 					if (invokeMethod == null)
 						throw new ECFException("Cannot find matching invokeMethod on grpc blockingStub");
+					// invoke and set result as cf result
 					cf.complete(invokeMethod.invoke(blockingStub, remoteCall.getParameters()));
 				} catch (Exception e) {
 					cf.completeExceptionally(e);

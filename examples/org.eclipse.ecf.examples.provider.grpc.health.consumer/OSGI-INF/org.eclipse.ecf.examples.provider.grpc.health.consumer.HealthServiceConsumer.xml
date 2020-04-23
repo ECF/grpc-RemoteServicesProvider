@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.eclipse.ecf.examples.provider.grpc.health.consumer.HealthServiceConsumer">
+   <reference bind="bindHealthService" interface="io.grpc.health.v1.HealthCheck" name="HealthService" policy="dynamic" unbind="unbindHealthService"/>
+   <implementation class="org.eclipse.ecf.examples.provider.grpc.health.consumer.HealthServiceConsumer"/>
+</scr:component>

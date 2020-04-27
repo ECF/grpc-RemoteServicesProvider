@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private HealthCheckRequest() {
-    service_ = "";
+    message_ = "";
   }
 
   @java.lang.Override
@@ -52,7 +52,7 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            service_ = s;
+            message_ = s;
             break;
           }
           default: {
@@ -87,36 +87,36 @@ private static final long serialVersionUID = 0L;
             io.grpc.health.v1.HealthCheckRequest.class, io.grpc.health.v1.HealthCheckRequest.Builder.class);
   }
 
-  public static final int SERVICE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object service_;
+  public static final int MESSAGE_FIELD_NUMBER = 1;
+  private volatile java.lang.Object message_;
   /**
-   * <code>string service = 1;</code>
-   * @return The service.
+   * <code>string message = 1;</code>
+   * @return The message.
    */
-  public java.lang.String getService() {
-    java.lang.Object ref = service_;
+  public java.lang.String getMessage() {
+    java.lang.Object ref = message_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      service_ = s;
+      message_ = s;
       return s;
     }
   }
   /**
-   * <code>string service = 1;</code>
-   * @return The bytes for service.
+   * <code>string message = 1;</code>
+   * @return The bytes for message.
    */
   public com.google.protobuf.ByteString
-      getServiceBytes() {
-    java.lang.Object ref = service_;
+      getMessageBytes() {
+    java.lang.Object ref = message_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      service_ = b;
+      message_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -137,8 +137,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getServiceBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, service_);
+    if (!getMessageBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, message_);
     }
     unknownFields.writeTo(output);
   }
@@ -149,8 +149,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getServiceBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, service_);
+    if (!getMessageBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, message_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -167,8 +167,8 @@ private static final long serialVersionUID = 0L;
     }
     io.grpc.health.v1.HealthCheckRequest other = (io.grpc.health.v1.HealthCheckRequest) obj;
 
-    if (!getService()
-        .equals(other.getService())) return false;
+    if (!getMessage()
+        .equals(other.getMessage())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -180,8 +180,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + SERVICE_FIELD_NUMBER;
-    hash = (53 * hash) + getService().hashCode();
+    hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
+    hash = (53 * hash) + getMessage().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -315,7 +315,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      service_ = "";
+      message_ = "";
 
       return this;
     }
@@ -343,7 +343,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.grpc.health.v1.HealthCheckRequest buildPartial() {
       io.grpc.health.v1.HealthCheckRequest result = new io.grpc.health.v1.HealthCheckRequest(this);
-      result.service_ = service_;
+      result.message_ = message_;
       onBuilt();
       return result;
     }
@@ -392,8 +392,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(io.grpc.health.v1.HealthCheckRequest other) {
       if (other == io.grpc.health.v1.HealthCheckRequest.getDefaultInstance()) return this;
-      if (!other.getService().isEmpty()) {
-        service_ = other.service_;
+      if (!other.getMessage().isEmpty()) {
+        message_ = other.message_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -425,78 +425,78 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object service_ = "";
+    private java.lang.Object message_ = "";
     /**
-     * <code>string service = 1;</code>
-     * @return The service.
+     * <code>string message = 1;</code>
+     * @return The message.
      */
-    public java.lang.String getService() {
-      java.lang.Object ref = service_;
+    public java.lang.String getMessage() {
+      java.lang.Object ref = message_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        service_ = s;
+        message_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string service = 1;</code>
-     * @return The bytes for service.
+     * <code>string message = 1;</code>
+     * @return The bytes for message.
      */
     public com.google.protobuf.ByteString
-        getServiceBytes() {
-      java.lang.Object ref = service_;
+        getMessageBytes() {
+      java.lang.Object ref = message_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        service_ = b;
+        message_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string service = 1;</code>
-     * @param value The service to set.
+     * <code>string message = 1;</code>
+     * @param value The message to set.
      * @return This builder for chaining.
      */
-    public Builder setService(
+    public Builder setMessage(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      service_ = value;
+      message_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string service = 1;</code>
+     * <code>string message = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearService() {
+    public Builder clearMessage() {
       
-      service_ = getDefaultInstance().getService();
+      message_ = getDefaultInstance().getMessage();
       onChanged();
       return this;
     }
     /**
-     * <code>string service = 1;</code>
-     * @param value The bytes for service to set.
+     * <code>string message = 1;</code>
+     * @param value The bytes for message to set.
      * @return This builder for chaining.
      */
-    public Builder setServiceBytes(
+    public Builder setMessageBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      service_ = value;
+      message_ = value;
       onChanged();
       return this;
     }

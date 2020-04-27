@@ -8,14 +8,14 @@ public interface HealthCheckRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string service = 1;</code>
-   * @return The service.
+   * <code>string message = 1;</code>
+   * @return The message.
    */
-  java.lang.String getService();
+  java.lang.String getMessage();
   /**
-   * <code>string service = 1;</code>
-   * @return The bytes for service.
+   * <code>string message = 1;</code>
+   * @return The bytes for message.
    */
   com.google.protobuf.ByteString
-      getServiceBytes();
+      getMessageBytes();
 }

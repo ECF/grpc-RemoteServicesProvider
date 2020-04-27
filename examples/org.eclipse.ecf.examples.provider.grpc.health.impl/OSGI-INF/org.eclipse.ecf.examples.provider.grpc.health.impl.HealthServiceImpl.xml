@@ -4,7 +4,7 @@
    <property name="service.exported.configs" value="ecf.grpc.server"/>
    <property name="ecf.grpc.server.uriContext" value="http://localhost:50001"/>
    <service>
-      <provide interface="io.grpc.health.v1.HealthCheck"/>
+      <provide interface="io.grpc.health.v1.HealthCheckIntf"/>
    </service>
    <implementation class="org.eclipse.ecf.examples.provider.grpc.health.impl.HealthServiceImpl"/>
 </scr:component>

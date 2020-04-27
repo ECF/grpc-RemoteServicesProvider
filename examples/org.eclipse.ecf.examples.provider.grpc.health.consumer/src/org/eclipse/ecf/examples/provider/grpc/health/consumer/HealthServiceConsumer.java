@@ -8,28 +8,29 @@
  ******************************************************************************/
 package org.eclipse.ecf.examples.provider.grpc.health.consumer;
 
-import io.grpc.health.v1.HealthCheckRequest;
-import io.grpc.health.v1.HealthCheck;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ReferencePolicy;
 
+import io.grpc.health.v1.HealthCheckIntf;
+import io.grpc.health.v1.HealthCheckRequest;
+
 @Component(immediate = true)
 public class HealthServiceConsumer {
 
-	private HealthCheck healthService;
+	private HealthCheckIntf healthService;
 	
 	@Reference(policy = ReferencePolicy.DYNAMIC)
-	void bindHealthService(HealthCheck hs) {
+	void bindHealthService(HealthCheckIntf hs) {
 		this.healthService = hs;
 	}
 	
-	void unbindHealthService(HealthCheck hs) {
+	void unbindHealthService(HealthCheckIntf hs) {
 		this.healthService = hs;
 	}
 	
 	void activate() {
 		System.out.println("got health check response="
-				+ healthService.check(HealthCheckRequest.newBuilder().setService("health request service").build()));
+				+ healthService.check(HealthCheckRequest.newBuilder().setMessage("health request service").build()));
 	}
 }

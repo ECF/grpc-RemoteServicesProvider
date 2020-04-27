@@ -2,11 +2,12 @@ package io.grpc.health.v1;
 
 import io.grpc.stub.StreamObserver;
 
-public abstract class AbstractHealthCheckImpl extends HealthCheckGrpc.HealthCheckImplBase implements HealthCheck {
+public abstract class AbstractHealthCheckImpl extends HealthCheckGrpc.HealthCheckImplBase implements HealthCheckIntf {
 
-    public abstract HealthCheckResponse check(HealthCheckRequest request);
+    @Override
+    public abstract io.grpc.health.v1.HealthCheckResponse check(io.grpc.health.v1.HealthCheckRequest request);
 
-    public void check(HealthCheckRequest request, StreamObserver<HealthCheckResponse> responseObserver) {
+    public void check(io.grpc.health.v1.HealthCheckRequest request, StreamObserver<io.grpc.health.v1.HealthCheckResponse> responseObserver) {
         responseObserver.onNext(check(request));
         responseObserver.onCompleted();
     }

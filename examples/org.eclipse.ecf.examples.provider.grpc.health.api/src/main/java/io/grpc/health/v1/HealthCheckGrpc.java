@@ -31,7 +31,7 @@ public final class HealthCheckGrpc {
       io.grpc.health.v1.HealthCheckResponse> getCheckMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "check",
+      fullMethodName = SERVICE_NAME + '/' + "Check",
       requestType = io.grpc.health.v1.HealthCheckRequest.class,
       responseType = io.grpc.health.v1.HealthCheckResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
@@ -44,13 +44,13 @@ public final class HealthCheckGrpc {
           HealthCheckGrpc.getCheckMethod = getCheckMethod =
               io.grpc.MethodDescriptor.<io.grpc.health.v1.HealthCheckRequest, io.grpc.health.v1.HealthCheckResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "check"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "Check"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   io.grpc.health.v1.HealthCheckRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   io.grpc.health.v1.HealthCheckResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new HealthCheckMethodDescriptorSupplier("check"))
+              .setSchemaDescriptor(new HealthCheckMethodDescriptorSupplier("Check"))
               .build();
         }
       }
@@ -139,8 +139,7 @@ public final class HealthCheckGrpc {
 
     /**
      * <pre>
-     * If the requested service is unknown, the call will fail with status
-     * NOT_FOUND.
+     * Unary method
      * </pre>
      */
     public void check(io.grpc.health.v1.HealthCheckRequest request,
@@ -150,19 +149,7 @@ public final class HealthCheckGrpc {
 
     /**
      * <pre>
-     * Performs a watch for the serving status of the requested service.
-     * The server will immediately send back a message indicating the current
-     * serving status.  It will then subsequently send a new message whenever
-     * the service's serving status changes.
-     * If the requested service is unknown when the call is received, the
-     * server will send a message setting the serving status to
-     * SERVICE_UNKNOWN but will *not* terminate the call.  If at some
-     * future point, the serving status of the service becomes known, the
-     * server will send a new message with the service's serving status.
-     * If the call terminates with status UNIMPLEMENTED, then clients
-     * should assume this method is not supported and should not retry the
-     * call.  If the call terminates with any other status (including OK),
-     * clients should retry the call with appropriate exponential backoff.
+     * Streaming method
      * </pre>
      */
     public void watch(io.grpc.health.v1.HealthCheckRequest request,
@@ -206,8 +193,7 @@ public final class HealthCheckGrpc {
 
     /**
      * <pre>
-     * If the requested service is unknown, the call will fail with status
-     * NOT_FOUND.
+     * Unary method
      * </pre>
      */
     public void check(io.grpc.health.v1.HealthCheckRequest request,
@@ -218,19 +204,7 @@ public final class HealthCheckGrpc {
 
     /**
      * <pre>
-     * Performs a watch for the serving status of the requested service.
-     * The server will immediately send back a message indicating the current
-     * serving status.  It will then subsequently send a new message whenever
-     * the service's serving status changes.
-     * If the requested service is unknown when the call is received, the
-     * server will send a message setting the serving status to
-     * SERVICE_UNKNOWN but will *not* terminate the call.  If at some
-     * future point, the serving status of the service becomes known, the
-     * server will send a new message with the service's serving status.
-     * If the call terminates with status UNIMPLEMENTED, then clients
-     * should assume this method is not supported and should not retry the
-     * call.  If the call terminates with any other status (including OK),
-     * clients should retry the call with appropriate exponential backoff.
+     * Streaming method
      * </pre>
      */
     public void watch(io.grpc.health.v1.HealthCheckRequest request,
@@ -256,8 +230,7 @@ public final class HealthCheckGrpc {
 
     /**
      * <pre>
-     * If the requested service is unknown, the call will fail with status
-     * NOT_FOUND.
+     * Unary method
      * </pre>
      */
     public io.grpc.health.v1.HealthCheckResponse check(io.grpc.health.v1.HealthCheckRequest request) {
@@ -267,19 +240,7 @@ public final class HealthCheckGrpc {
 
     /**
      * <pre>
-     * Performs a watch for the serving status of the requested service.
-     * The server will immediately send back a message indicating the current
-     * serving status.  It will then subsequently send a new message whenever
-     * the service's serving status changes.
-     * If the requested service is unknown when the call is received, the
-     * server will send a message setting the serving status to
-     * SERVICE_UNKNOWN but will *not* terminate the call.  If at some
-     * future point, the serving status of the service becomes known, the
-     * server will send a new message with the service's serving status.
-     * If the call terminates with status UNIMPLEMENTED, then clients
-     * should assume this method is not supported and should not retry the
-     * call.  If the call terminates with any other status (including OK),
-     * clients should retry the call with appropriate exponential backoff.
+     * Streaming method
      * </pre>
      */
     public java.util.Iterator<io.grpc.health.v1.HealthCheckResponse> watch(
@@ -305,8 +266,7 @@ public final class HealthCheckGrpc {
 
     /**
      * <pre>
-     * If the requested service is unknown, the call will fail with status
-     * NOT_FOUND.
+     * Unary method
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<io.grpc.health.v1.HealthCheckResponse> check(

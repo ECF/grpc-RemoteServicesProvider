@@ -39,7 +39,7 @@ public final class HealthProto {
       "lth.v1.HealthCheckResponse.ServingStatus" +
       "\"O\n\rServingStatus\022\013\n\007UNKNOWN\020\000\022\013\n\007SERVIN" +
       "G\020\001\022\017\n\013NOT_SERVING\020\002\022\023\n\017SERVICE_UNKNOWN\020" +
-      "\0032\263\001\n\013HealthCheck\022P\n\005check\022\".grpc.health" +
+      "\0032\263\001\n\013HealthCheck\022P\n\005Check\022\".grpc.health" +
       ".v1.HealthCheckRequest\032#.grpc.health.v1." +
       "HealthCheckResponse\022R\n\005Watch\022\".grpc.heal" +
       "th.v1.HealthCheckRequest\032#.grpc.health.v" +

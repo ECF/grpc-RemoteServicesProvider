@@ -10,17 +10,17 @@ package org.eclipse.ecf.examples.provider.grpc.health.impl;
 
 import org.osgi.service.component.annotations.Component;
 
-import io.grpc.health.v1.AbstractHealthCheckImpl;
-import io.grpc.health.v1.HealthCheckIntf;
+import io.grpc.health.v1.AbstractHealthCheckServiceImpl;
 import io.grpc.health.v1.HealthCheckRequest;
 import io.grpc.health.v1.HealthCheckResponse;
 import io.grpc.health.v1.HealthCheckResponse.ServingStatus;
+import io.grpc.health.v1.HealthCheckService;
 
 @Component(property = {
 		"service.exported.interfaces=*",
 		"service.exported.configs=ecf.grpc.server",
 		"ecf.grpc.server.uriContext=http://localhost:50001" })
-public class HealthServiceImpl extends AbstractHealthCheckImpl implements HealthCheckIntf {
+public class HealthServiceImpl extends AbstractHealthCheckServiceImpl implements HealthCheckService {
 
 	@Override
 	public HealthCheckResponse check(HealthCheckRequest request) {

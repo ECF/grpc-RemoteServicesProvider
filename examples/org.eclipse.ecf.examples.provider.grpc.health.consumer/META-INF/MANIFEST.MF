@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: ECF Grcp Remote Services Health Consumer
+Bundle-Name: ECF Remote Services Grpc Proveder Health Example Consumer
 Bundle-SymbolicName: org.eclipse.ecf.examples.provider.grpc.health.consumer
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 1.1.0.qualifier
 Bundle-Vendor: Eclipse.org - ECF
 Automatic-Module-Name: org.eclipse.ecf.examples.provider.grpc.health.consumer
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

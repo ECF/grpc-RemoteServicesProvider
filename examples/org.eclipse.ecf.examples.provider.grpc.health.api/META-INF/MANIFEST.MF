@@ -2,11 +2,16 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ECF Remote Services Grpc Provider Health Example API
 Bundle-SymbolicName: org.eclipse.ecf.examples.provider.grpc.health.api
-Bundle-Version: 1.1.0.qualifier
+Bundle-Version: 1.2.0.qualifier
 Bundle-Vendor: Eclipse.org - ECF
 Automatic-Module-Name: org.eclipse.ecf.examples.provider.grcp.health.api
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Import-Package: com.google.protobuf;version="3.11.0"
-Require-Bundle: org.eclipse.ecf.provider.grpc;bundle-version="1.1.0",
- com.google.guava;bundle-version="28.1.0"
+Import-Package: com.google.protobuf,
+ com.salesforce.reactivegrpc.common;version="1.0.0",
+ com.salesforce.rxgrpc.stub;version="1.0.0",
+ io.reactivex;version="2.1.10"
+Require-Bundle: org.eclipse.ecf.provider.grpc;bundle-version="1.2.0",
+ com.google.guava
 Export-Package: io.grpc.health.v1
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ClassPath: .

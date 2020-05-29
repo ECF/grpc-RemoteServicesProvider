@@ -39,12 +39,17 @@ public final class HealthProto {
       "lth.v1.HealthCheckResponse.ServingStatus" +
       "\"O\n\rServingStatus\022\013\n\007UNKNOWN\020\000\022\013\n\007SERVIN" +
       "G\020\001\022\017\n\013NOT_SERVING\020\002\022\023\n\017SERVICE_UNKNOWN\020" +
-      "\0032\263\001\n\013HealthCheck\022P\n\005Check\022\".grpc.health" +
+      "\0032\355\002\n\013HealthCheck\022P\n\005Check\022\".grpc.health" +
       ".v1.HealthCheckRequest\032#.grpc.health.v1." +
-      "HealthCheckResponse\022R\n\005Watch\022\".grpc.heal" +
-      "th.v1.HealthCheckRequest\032#.grpc.health.v" +
-      "1.HealthCheckResponse0\001B\"\n\021io.grpc.healt" +
-      "h.v1B\013HealthProtoP\001b\006proto3"
+      "HealthCheckResponse\022X\n\013WatchServer\022\".grp" +
+      "c.health.v1.HealthCheckRequest\032#.grpc.he" +
+      "alth.v1.HealthCheckResponse0\001\022X\n\013WatchCl" +
+      "ient\022\".grpc.health.v1.HealthCheckRequest" +
+      "\032#.grpc.health.v1.HealthCheckResponse(\001\022" +
+      "X\n\tWatchBidi\022\".grpc.health.v1.HealthChec" +
+      "kRequest\032#.grpc.health.v1.HealthCheckRes" +
+      "ponse(\0010\001B\"\n\021io.grpc.health.v1B\013HealthPr" +
+      "otoP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

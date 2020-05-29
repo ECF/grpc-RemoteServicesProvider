@@ -8,6 +8,7 @@ Automatic-Module-Name: org.eclipse.ecf.examples.provider.grpc.health.impl
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: io.grpc,
  io.grpc.health.v1,
+ io.reactivex;version="2.1.10",
  org.osgi.service.component.annotations;version="1.2.0";resolution:=optional
 Service-Component: OSGI-INF/org.eclipse.ecf.examples.provider.grpc.health.impl.HealthServiceImpl.xml
 Bundle-ActivationPolicy: lazy

@@ -23,5 +23,6 @@
 <repository location="http://download.eclipse.org/releases/photon"/>
 </location>
 	<location path="${project_loc:org.eclipse.ecf.provider.grpc.target}/lib/deps" type="Directory"/>
+	<location path="${project_loc:org.eclipse.ecf.provider.grpc.target}/lib/reactive" type="Directory"/>
 </locations>
 </target>

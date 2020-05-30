@@ -60,8 +60,12 @@ message HealthCheckResponse {
 service HealthCheck {
   // Unary method
   rpc Check(HealthCheckRequest) returns (HealthCheckResponse);
-  // Streaming method
-  rpc Watch(HealthCheckRequest) returns (stream HealthCheckResponse);
+  // Server streaming method
+  rpc WatchServer(HealthCheckRequest) returns (stream HealthCheckResponse);
+  // Client streaming method
+  rpc WatchClient(stream HealthCheckRequest) returns (HealthCheckResponse);
+  // bidi streaming method
+  rpc WatchBidi(stream HealthCheckRequest) returns (stream HealthCheckResponse);
 }
 ```
 

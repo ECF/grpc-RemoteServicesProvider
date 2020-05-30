@@ -10,21 +10,23 @@ package org.eclipse.ecf.examples.provider.grpc.health.impl;
 
 import org.osgi.service.component.annotations.Component;
 
-import io.grpc.health.v1.AbstractHealthCheckServiceImpl;
 import io.grpc.health.v1.HealthCheckRequest;
 import io.grpc.health.v1.HealthCheckResponse;
 import io.grpc.health.v1.HealthCheckResponse.ServingStatus;
 import io.grpc.health.v1.HealthCheckService;
+import io.grpc.health.v1.RxHealthCheckGrpc;
+import io.reactivex.Single;
 
 @Component(property = {
 		"service.exported.interfaces=*",
 		"service.exported.configs=ecf.grpc.server",
 		"ecf.grpc.server.uriContext=http://localhost:50001" })
-public class HealthServiceImpl extends AbstractHealthCheckServiceImpl implements HealthCheckService {
+public class HealthServiceImpl extends RxHealthCheckGrpc.HealthCheckImplBase implements HealthCheckService {
 
 	@Override
-	public HealthCheckResponse check(HealthCheckRequest request) {
-		return HealthCheckResponse.newBuilder().setStatus(ServingStatus.SERVING).build();
+	public Single<HealthCheckResponse> check(Single<HealthCheckRequest> request) {
+		System.out.println("check request="+request);
+		return Single.just(HealthCheckResponse.newBuilder().setStatus(ServingStatus.SERVING).build());
 	}
-
+	
 }

@@ -14,6 +14,7 @@ import org.osgi.service.component.annotations.ReferencePolicy;
 
 import io.grpc.health.v1.HealthCheckRequest;
 import io.grpc.health.v1.HealthCheckService;
+import io.reactivex.Single;
 
 @Component(immediate = true)
 public class HealthServiceConsumer {
@@ -31,6 +32,6 @@ public class HealthServiceConsumer {
 	
 	void activate() {
 		System.out.println("got health check response="
-				+ healthService.check(HealthCheckRequest.newBuilder().setMessage("health request service").build()));
+				+ healthService.check(Single.just(HealthCheckRequest.newBuilder().setMessage("health request service").build())).blockingGet());
 	}
 }

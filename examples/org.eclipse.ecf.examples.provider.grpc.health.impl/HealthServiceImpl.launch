@@ -35,6 +35,8 @@
         <setEntry value="com.mycorp.examples.timeservice.consumer.source"/>
         <setEntry value="com.mycorp.examples.timeservice.host.source"/>
         <setEntry value="com.mycorp.examples.timeservice.source"/>
+        <setEntry value="com.salesforce.servicelibs.reactive-grpc-common@default:default"/>
+        <setEntry value="com.salesforce.servicelibs.rxgrpc-stub@default:default"/>
         <setEntry value="com.sun.el.source"/>
         <setEntry value="io.netty.buffer@default:default"/>
         <setEntry value="io.netty.codec-http2@default:default"/>

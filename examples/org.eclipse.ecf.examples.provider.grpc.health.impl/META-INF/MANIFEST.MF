@@ -12,4 +12,5 @@ Import-Package: io.grpc,
  org.osgi.service.component.annotations;version="1.2.0";resolution:=optional
 Service-Component: OSGI-INF/org.eclipse.ecf.examples.provider.grpc.health.impl.HealthServiceImpl.xml
 Bundle-ActivationPolicy: lazy
-Require-Bundle: org.eclipse.ecf.provider.grpc
+Require-Bundle: org.eclipse.ecf.provider.grpc,
+ com.google.protobuf;bundle-version="3.9.0"

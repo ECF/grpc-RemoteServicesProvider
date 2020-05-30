@@ -42,7 +42,7 @@ public class GRPCClientContainer extends AbstractRSAClientContainer {
 			// Load grcpClass
 			Class grpcClass = Class.forName(grcpClassname, true, this.getClass().getClassLoader());
 			// Get 'newBlockingStub' static method
-			Method method = grpcClass.getMethod("newBlockingStub", io.grpc.Channel.class);
+			Method method = grpcClass.getMethod("newRxStub", io.grpc.Channel.class);
 			// Invoke method with channel to get stub
 			io.grpc.stub.AbstractStub stub = (io.grpc.stub.AbstractStub) method.invoke(null, channel);
 			// Prepare a new client service
@@ -55,6 +55,7 @@ public class GRPCClientContainer extends AbstractRSAClientContainer {
 		}
 	}
 
+	@Override
 	public void dispose() {
 		if (channel != null && !channel.isShutdown()) {
 			channel.shutdown();

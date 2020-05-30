@@ -12,6 +12,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
@@ -82,24 +83,24 @@ public class GRPCClientService extends AbstractRSAClientService {
 		return true;
 	}
 
+	private Method findInvokeMethod(RSARemoteCall remoteCall) throws ECFException {
+		Method rcMethod = remoteCall.getReflectMethod();
+		Optional<Method> optInvokeMethod = stubMethods.stream().filter(m -> {
+			return rcMethod.getName().equals(m.getName())
+					&& compareParameterTypes(rcMethod.getParameterTypes(), m.getParameterTypes());
+		}).findFirst();
+		if (!optInvokeMethod.isPresent()) {
+			throw new ECFException("Cannot find matching invokeMethod on grpc stub="+stub);
+		}
+		return optInvokeMethod.get();
+	}
+	
 	@Override
 	protected Object invokeSync(RSARemoteCall remoteCall) throws ECFException {
-		Method rcMethod = remoteCall.getReflectMethod();
-		String rcMethodName = rcMethod.getName();
-		@SuppressWarnings("rawtypes")
-		Class[] rcMethodParameterTypes = rcMethod.getParameterTypes();
-		Method invokeMethod = null;
-		for (Method m : stubMethods)
-			if (rcMethodName.equals(m.getName())
-					&& compareParameterTypes(rcMethodParameterTypes, m.getParameterTypes()))
-				invokeMethod = m;
-		if (invokeMethod == null)
-			throw new ECFException("Cannot find matching invokeMethod on grpc blockingStub");
 		try {
-			 Object result = invokeMethod.invoke(stub, remoteCall.getParameters());
-			 return result;
+			 return findInvokeMethod(remoteCall).invoke(stub, remoteCall.getParameters());
 		} catch (Exception e) {
-			ECFException ee = new ECFException("Cannot invoke method on grcp blockingStub", e);
+			ECFException ee = new ECFException("Cannot invoke method on grcp stub="+stub, e);
 			ee.setStackTrace(e.getStackTrace());
 			throw ee;
 		}

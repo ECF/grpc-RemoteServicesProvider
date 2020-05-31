@@ -53,12 +53,12 @@ public class GRPCClientContainer extends AbstractRSAClientContainer {
 		try {
 			// Get URI from connected ID
 			URI uri = ((URIID) getConnectedID()).toURI();
-			this.channel = createChannel(uri.getHost(), uri.getPort());
-			Class grpcClass = loadGrpcStubClass(registration);
-			Method method = findNewStubStaticMethod(grpcClass, GRPCConstants.GRPC_STUB_METHOD_NAME);
+			Method method = findNewStubStaticMethod(loadGrpcStubClass(registration),
+					GRPCConstants.GRPC_STUB_METHOD_NAME);
 			if (method == null) {
 				throw new NoSuchMethodError("No method=" + GRPCConstants.GRPC_STUB_METHOD_NAME);
 			}
+			this.channel = createChannel(uri.getHost(), uri.getPort());
 			// Invoke method with channel to get stub
 			io.grpc.stub.AbstractStub stub = (io.grpc.stub.AbstractStub) method.invoke(null, channel);
 			// Prepare a new client service

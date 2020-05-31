@@ -11,3 +11,5 @@ dist: trusty
 
 jdk:
   - oraclejdk8
+
+  

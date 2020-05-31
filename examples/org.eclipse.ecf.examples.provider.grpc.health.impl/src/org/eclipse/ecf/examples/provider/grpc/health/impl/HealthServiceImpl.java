@@ -20,7 +20,7 @@ import io.reactivex.Single;
 @Component(property = {
 		"service.exported.interfaces=*",
 		"service.exported.configs=ecf.grpc.server",
-		"ecf.grpc.server.uriContext=http://localhost:50001" })
+		"ecf.grpc.server.port=50001"})
 public class HealthServiceImpl extends RxHealthCheckGrpc.HealthCheckImplBase implements HealthCheckService {
 
 	@Override

@@ -10,11 +10,14 @@ package org.eclipse.ecf.provider.grpc;
 
 public interface GRPCConstants {
 
+	public static final String GRPC_STUB_METHOD_NAME = "newRxStub";
+
 	public static final String NAMESPACE_NAME = "ecf.namespace.grpc";
 	public static final String SERVER_PROVIDER_CONFIG_TYPE = "ecf.grpc.server";
 	public static final String CLIENT_PROVIDER_CONFIG_TYPE = "ecf.grpc.client";
-	public static final String SERVER_SVCPROP_URICONTEXT = "uriContext";
-	public static final String SERVER_DEFAULT_URICONTEXT = "http://localhost:50051";
-	public static final String GRCP_CLASSNAME_PROP = "ecf.grcp.classname";
-
+	public static final String SERVER_HOSTNAME = "serverHostname";
+	public static final String SERVER_HOSTNAME_DEFAULT = "localhost";
+	public static final String SERVER_PORT = "serverPort";
+	public static final String SERVER_PORT_DEFAULT = "50021";
+	public static final String GRPC_STUB_CLASS_PROP = "ecf.grpc.stub.class";
 }

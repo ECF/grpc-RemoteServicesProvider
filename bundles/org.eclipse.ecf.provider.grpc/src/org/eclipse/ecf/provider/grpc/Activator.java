@@ -8,6 +8,7 @@
  ******************************************************************************/
 package org.eclipse.ecf.provider.grpc;
 
+import java.net.URI;
 import java.util.Map;
 
 import org.eclipse.ecf.core.ContainerTypeDescription;
@@ -35,9 +36,12 @@ public class Activator implements BundleActivator {
 							@Override
 							public IContainer createInstance(ContainerTypeDescription description,
 									Map<String, ?> parameters) {
-								return new GRPCHostContainer(
-										getParameterValue(parameters, GRPCConstants.SERVER_SVCPROP_URICONTEXT,
-												GRPCConstants.SERVER_DEFAULT_URICONTEXT));
+								int serverPort = getParameterValue(parameters, GRPCConstants.SERVER_PORT, Integer.class,
+										Integer.valueOf(GRPCConstants.SERVER_PORT_DEFAULT));
+								String hostname = getParameterValue(parameters, GRPCConstants.SERVER_HOSTNAME,
+										GRPCConstants.SERVER_HOSTNAME_DEFAULT);
+								return new GRPCHostContainer(URI.create(
+										GRPCNamespace.INSTANCE.getScheme() + "://" + hostname + ":" + serverPort));
 							}
 						}).setServer(true).setHidden(false).build(),
 				null);

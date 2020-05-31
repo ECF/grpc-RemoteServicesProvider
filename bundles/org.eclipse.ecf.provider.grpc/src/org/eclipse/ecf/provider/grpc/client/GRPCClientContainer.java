@@ -30,23 +30,39 @@ public class GRPCClientContainer extends AbstractRSAClientContainer {
 		super(GRPCNamespace.getInstance().createInstance(new Object[] { "uuid:" + UUID.randomUUID().toString() }));
 	}
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	protected Method findNewStubStaticMethod(Class<?> grpcClass, String methodName)
+			throws NoSuchMethodException, SecurityException {
+		// Get 'newBlockingStub' static method
+		return grpcClass.getMethod(methodName, io.grpc.Channel.class);
+	}
+
+	protected Class<?> loadGrpcStubClass(RemoteServiceClientRegistration registration) throws ClassNotFoundException {
+		// Get grcpStubClassname from properties
+		String grcpClassname = (String) registration.getProperty(GRPCConstants.GRPC_STUB_CLASS_PROP);
+		// Load grcpStubClass
+		return Class.forName(grcpClassname, true, this.getClass().getClassLoader());
+	}
+
+	protected ManagedChannel createChannel(String host, int port) {
+		return ManagedChannelBuilder.forAddress(host, port).usePlaintext().build();
+	}
+
+	@SuppressWarnings({ "rawtypes" })
 	@Override
-	protected IRemoteService createRemoteService(final RemoteServiceClientRegistration aRegistration) {
+	protected IRemoteService createRemoteService(final RemoteServiceClientRegistration registration) {
 		try {
 			// Get URI from connected ID
 			URI uri = ((URIID) getConnectedID()).toURI();
-			channel = ManagedChannelBuilder.forAddress(uri.getHost(), uri.getPort()).usePlaintext().build();
-			// Get grcpClassname from properties
-			String grcpClassname = (String) aRegistration.getProperty(GRPCConstants.GRCP_CLASSNAME_PROP);
-			// Load grcpClass
-			Class grpcClass = Class.forName(grcpClassname, true, this.getClass().getClassLoader());
-			// Get 'newBlockingStub' static method
-			Method method = grpcClass.getMethod("newRxStub", io.grpc.Channel.class);
+			this.channel = createChannel(uri.getHost(), uri.getPort());
+			Class grpcClass = loadGrpcStubClass(registration);
+			Method method = findNewStubStaticMethod(grpcClass, GRPCConstants.GRPC_STUB_METHOD_NAME);
+			if (method == null) {
+				throw new NoSuchMethodError("No method=" + GRPCConstants.GRPC_STUB_METHOD_NAME);
+			}
 			// Invoke method with channel to get stub
 			io.grpc.stub.AbstractStub stub = (io.grpc.stub.AbstractStub) method.invoke(null, channel);
 			// Prepare a new client service
-			return new GRPCClientService(this, aRegistration, stub);
+			return new GRPCClientService(this, registration, stub);
 		} catch (final Exception ex) {
 			// TODO: log exception
 			ex.printStackTrace();

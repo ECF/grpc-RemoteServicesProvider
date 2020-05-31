@@ -90,17 +90,17 @@ public class GRPCClientService extends AbstractRSAClientService {
 					&& compareParameterTypes(rcMethod.getParameterTypes(), m.getParameterTypes());
 		}).findFirst();
 		if (!optInvokeMethod.isPresent()) {
-			throw new ECFException("Cannot find matching invokeMethod on grpc stub="+stub);
+			throw new ECFException("Cannot find matching invokeMethod on grpc stub=" + stub);
 		}
 		return optInvokeMethod.get();
 	}
-	
+
 	@Override
 	protected Object invokeSync(RSARemoteCall remoteCall) throws ECFException {
 		try {
-			 return findInvokeMethod(remoteCall).invoke(stub, remoteCall.getParameters());
+			return findInvokeMethod(remoteCall).invoke(stub, remoteCall.getParameters());
 		} catch (Exception e) {
-			ECFException ee = new ECFException("Cannot invoke method on grcp stub="+stub, e);
+			ECFException ee = new ECFException("Cannot invoke method on grcp stub=" + stub, e);
 			ee.setStackTrace(e.getStackTrace());
 			throw ee;
 		}

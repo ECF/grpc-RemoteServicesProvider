@@ -1,53 +1,81 @@
 <features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0"
-	name="ecf-remoteservices-grpc-1.1.0">
+	name="ecf-remoteservices-grpc-1.2.0">
 
     <repository>http://download.eclipse.org/rt/ecf/RELEASE/site.p2/karaf-features.xml</repository>
 
-	<feature name="ecf-rs-distribution-grpc-support" version="1.1.0"
+	<feature name="ecf-rs-distribution-grpc-support" version="1.2.0"
 		description="ECF Remote Services Grpc Distribution Provider Support. See https://github.com/ECF/grpc-RemoteServicesProvider">
 		<feature>ecf-rs-rsa</feature>
 		<feature>ecf-rs-console</feature>
 		
-		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/com.google.gson_2.8.5.jar
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/com.google.gson_2.7.0.jar
 		</bundle>
-		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/com.google.guava_28.1.0.android.jar
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/com.google.guava_26.0.0.android.jar
 		</bundle>
 		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/com.google.guava.failureaccess_1.0.1.jar
 		</bundle>
-		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/com.google.protobuf_3.11.0.jar
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/com.google.protobuf_3.9.0.jar
+		</bundle>
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/com.salesforce.servicelibs.reactive-grpc-common_1.0.0.jar
+		</bundle>
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/com.salesforce.servicelibs.rxgrpc-stub_1.0.0.jar
+		</bundle>
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/io.netty.buffer_4.1.38.Final.jar
+		</bundle>
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/io.netty.codec_4.1.38.Final.jar
+		</bundle>
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/io.netty.codec-http_4.1.38.Final.jar
+		</bundle>
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/io.netty.codec-http2_4.1.38.Final.jar
+		</bundle>
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/io.netty.codec-socks_4.1.38.Final.jar
+		</bundle>
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/io.netty.common_4.1.38.Final.jar
+		</bundle>
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/io.netty.handler_4.1.38.Final.jar
+		</bundle>
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/io.netty.handler-proxy_4.1.38.Final.jar
+		</bundle>
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/io.netty.resolver_4.1.38.Final.jar
+		</bundle>
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/io.netty.transport_4.1.38.Final.jar
+		</bundle>
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/io.reactivex.rxjava2.rxjava_2.2.19.jar
+		</bundle>
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.reactivestreams.reactive-streams_1.0.2.jar
 		</bundle>
 		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.jsr-305_3.0.2.jar
 		</bundle>
 	</feature>
 
 	<feature name="ecf-rs-distribution-grpc"
-		version="1.1.0"
+		version="1.2.0"
 		description="ECF Remote Services Grpc Distribution Provider. See https://github.com/ECF/grpc-RemoteServicesProvider">
-		<feature version="1.1.0">ecf-rs-distribution-grpc-support</feature>
-		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.eclipse.ecf.provider.grpc_1.1.0.202005051505.jar
+		<feature version="1.2.0">ecf-rs-distribution-grpc-support</feature>
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.eclipse.ecf.provider.grpc_1.2.0.202005311428.jar
 		</bundle>
 	</feature>
 
-	<feature name="ecf-rs-examples-grpc-healthcheck-api" version="1.1.0"
+	<feature name="ecf-rs-examples-grpc-healthcheck-api" version="1.2.0"
 		description="ECF Remote Services Grpc HealthCheck Example Service API.  See https://github.com/ECF/grpc-RemoteServicesProvider">
-		<feature version="1.1.0">ecf-rs-distribution-grpc</feature>
-		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.eclipse.ecf.examples.provider.grpc.health.api_1.1.0.202005051505.jar
+		<feature version="1.2.0">ecf-rs-distribution-grpc</feature>
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.eclipse.ecf.examples.provider.grpc.health.api_1.2.0.202005311428.jar
 		</bundle>
 	</feature>
 
-	<feature name="ecf-rs-examples-grpc-healthcheck-host"
-		version="1.1.0"
+	<feature name="ecf-rs-examples-grpc-healthcheck-impl"
+		version="1.2.0"
 		description="ECF Remote Services Grpc HealthCheck Example Service Host.  See https://github.com/ECF/grpc-RemoteServicesProvider">
-		<feature version="1.1.0">ecf-rs-examples-grpc-healthcheck-api</feature>
-		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.eclipse.ecf.examples.provider.grpc.health.impl_1.1.0.202005051505.jar
+		<feature version="1.2.0">ecf-rs-examples-grpc-healthcheck-api</feature>
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.eclipse.ecf.examples.provider.grpc.health.impl_1.1.0.202005311428.jar
 		</bundle>
 	</feature>
 
 	<feature name="ecf-rs-examples-grpc-healthcheck-consumer"
-		version="1.1.0"
+		version="1.2.0"
 		description="ECF Remote Services Grpc HealthCheck Example Service Consumer.  See https://github.com/ECF/grpc-RemoteServicesProvider">
-		<feature version="1.1.0">ecf-rs-examples-grpc-healthcheck-api</feature>
-		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.eclipse.ecf.examples.provider.grpc.health.consumer_1.1.0.202005051505.jar
+		<feature version="1.2.0">ecf-rs-examples-grpc-healthcheck-api</feature>
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.eclipse.ecf.examples.provider.grpc.health.consumer_1.1.0.202005311428.jar
 		</bundle>
 	</feature>
 

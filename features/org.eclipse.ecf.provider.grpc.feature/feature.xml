@@ -17,6 +17,10 @@
       [Enter License Description here.]
    </license>
 
+   <requires>
+      <import feature="org.eclipse.ecf.remoteservice.sdk.feature" version="3.14.7" match="compatible"/>
+   </requires>
+
    <plugin
          id="org.eclipse.ecf.provider.grpc"
          download-size="0"

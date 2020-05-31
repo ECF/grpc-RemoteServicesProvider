@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.eclipse.ecf.examples.provider.grpc.health.consumer.HealthServiceConsumer">
-   <reference bind="bindHealthService" interface="io.grpc.health.v1.HealthCheckService" name="HealthService" policy="dynamic" unbind="unbindHealthService"/>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.3.0" immediate="true" name="org.eclipse.ecf.examples.provider.grpc.health.consumer.HealthServiceConsumer">
+   <reference cardinality="1..1" field="healthService" interface="io.grpc.health.v1.HealthCheckService" name="healthService"/>
    <implementation class="org.eclipse.ecf.examples.provider.grpc.health.consumer.HealthServiceConsumer"/>
 </scr:component>

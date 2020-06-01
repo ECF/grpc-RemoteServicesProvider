@@ -127,6 +127,6 @@ Starting bundles:
 check request=io.reactivex.internal.operators.single.SingleJust@7eac4cfb
 got health check response=status: SERVING
 ```
-The text of the bottom line 'got health check response=status: SERVING is produced by the consumer implementation class [here](https://github.com/ECF/grpc-RemoteServicesProvider/blob/master/examples/org.eclipse.ecf.examples.provider.grpc.health.consumer/src/org/eclipse/ecf/examples/provider/grpc/health/consumer/HealthServiceConsumer.java) located in [this project](https://github.com/ECF/grpc-RemoteServicesProvider/tree/master/examples/org.eclipse.ecf.examples.provider.grpc.health.consumer).   Note that 'SERVING' is the server's response to the consumer's invoking the check remote service method on the declarative-services-injected HealthCheckService instance. 
+The text of the bottom line 'got health check response=status: SERVING' is produced by the consumer implementation class [here](https://github.com/ECF/grpc-RemoteServicesProvider/blob/master/examples/org.eclipse.ecf.examples.provider.grpc.health.consumer/src/org/eclipse/ecf/examples/provider/grpc/health/consumer/HealthServiceConsumer.java) located in [this project](https://github.com/ECF/grpc-RemoteServicesProvider/tree/master/examples/org.eclipse.ecf.examples.provider.grpc.health.consumer).   Note that SERVING is the server's response to the consumer's invoking the check remote service method on the declarative-services-injected HealthCheckService instance. 
 ```
 

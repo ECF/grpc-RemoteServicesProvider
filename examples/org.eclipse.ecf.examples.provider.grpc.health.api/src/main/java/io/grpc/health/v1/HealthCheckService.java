@@ -4,7 +4,7 @@ import io.reactivex.Flowable;
 import io.reactivex.Single;
 
 @javax.annotation.Generated(
-value = "by grpc-osgi-generator - A protoc plugin for ECF's grpc remote services distribution provider at https://github.com/ECF/grpc-RemoteServiceSProvider ",
+value = "by grpc-osgi-generator (REACTIVEX) - A protoc plugin for ECF's grpc remote services distribution provider at https://github.com/ECF/grpc-RemoteServiceSProvider ",
 comments = "Source: health.proto.  ")
 public interface HealthCheckService {
 

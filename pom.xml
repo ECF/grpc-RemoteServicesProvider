@@ -104,6 +104,7 @@
 		</module>
 		<module>examples/org.eclipse.ecf.examples.provider.grpc.health.consumer
 		</module>
+		<module>features/org.eclipse.ecf.examples.grpc.feature</module>
 	</modules>
 
 	<dependencies>

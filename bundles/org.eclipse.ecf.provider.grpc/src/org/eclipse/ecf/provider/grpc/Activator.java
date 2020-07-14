@@ -36,8 +36,8 @@ public class Activator implements BundleActivator {
 							@Override
 							public IContainer createInstance(ContainerTypeDescription description,
 									Map<String, ?> parameters) {
-								int serverPort = getParameterValue(parameters, GRPCConstants.SERVER_PORT, Integer.class,
-										Integer.valueOf(GRPCConstants.SERVER_PORT_DEFAULT));
+								String serverPort = getParameterValue(parameters, GRPCConstants.SERVER_PORT, String.class,
+										GRPCConstants.SERVER_PORT_DEFAULT);
 								String hostname = getParameterValue(parameters, GRPCConstants.SERVER_HOSTNAME,
 										GRPCConstants.SERVER_HOSTNAME_DEFAULT);
 								return new GRPCHostContainer(URI.create(

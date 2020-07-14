@@ -2,7 +2,7 @@
 <scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.eclipse.ecf.examples.provider.grpc.health.impl.HealthServiceImpl">
    <property name="service.exported.interfaces" value="*"/>
    <property name="service.exported.configs" value="ecf.grpc.server"/>
-   <property name="ecf.grpc.server.port" value="50001"/>
+   <property name="ecf.grpc.server.port" value="50002"/>
    <service>
       <provide interface="io.grpc.health.v1.HealthCheckService"/>
    </service>

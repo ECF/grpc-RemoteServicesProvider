@@ -17,7 +17,7 @@ public interface GRPCConstants {
 	public static final String CLIENT_PROVIDER_CONFIG_TYPE = "ecf.grpc.client";
 	public static final String SERVER_HOSTNAME = "serverHostname";
 	public static final String SERVER_HOSTNAME_DEFAULT = "localhost";
-	public static final String SERVER_PORT = "serverPort";
+	public static final String SERVER_PORT = "port";
 	public static final String SERVER_PORT_DEFAULT = "50021";
 	public static final String GRPC_STUB_CLASS_PROP = "ecf.grpc.stub.class";
 }

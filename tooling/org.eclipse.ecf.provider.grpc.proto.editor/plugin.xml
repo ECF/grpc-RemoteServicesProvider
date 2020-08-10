@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="org.eclipse.ecf.provider.grpc.proto.editor.Editor"
+            contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
+            extensions="proto"
+            id="org.eclipse.ecf.provider.grpc.proto.editor.Editor"
+            name="grpc/protobuf Editor">
+      </editor>
+   </extension>
+
+  <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="org.eclipse.ecf.provider.grpc.proto.editor.EditorPreferenceInitializer">
+      </initializer>
+  </extension>
+
+</plugin>

@@ -6,7 +6,7 @@ package io.grpc.health.v1;
 /**
  * Protobuf type {@code grpc.health.v1.HealthCheckResponse}
  */
-public  final class HealthCheckResponse extends
+public final class HealthCheckResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:grpc.health.v1.HealthCheckResponse)
     HealthCheckResponseOrBuilder {
@@ -183,6 +183,10 @@ private static final long serialVersionUID = 0L;
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -223,14 +227,14 @@ private static final long serialVersionUID = 0L;
    * <code>.grpc.health.v1.HealthCheckResponse.ServingStatus status = 1;</code>
    * @return The enum numeric value on the wire for status.
    */
-  public int getStatusValue() {
+  @java.lang.Override public int getStatusValue() {
     return status_;
   }
   /**
    * <code>.grpc.health.v1.HealthCheckResponse.ServingStatus status = 1;</code>
    * @return The status.
    */
-  public io.grpc.health.v1.HealthCheckResponse.ServingStatus getStatus() {
+  @java.lang.Override public io.grpc.health.v1.HealthCheckResponse.ServingStatus getStatus() {
     @SuppressWarnings("deprecation")
     io.grpc.health.v1.HealthCheckResponse.ServingStatus result = io.grpc.health.v1.HealthCheckResponse.ServingStatus.valueOf(status_);
     return result == null ? io.grpc.health.v1.HealthCheckResponse.ServingStatus.UNRECOGNIZED : result;
@@ -542,7 +546,7 @@ private static final long serialVersionUID = 0L;
      * <code>.grpc.health.v1.HealthCheckResponse.ServingStatus status = 1;</code>
      * @return The enum numeric value on the wire for status.
      */
-    public int getStatusValue() {
+    @java.lang.Override public int getStatusValue() {
       return status_;
     }
     /**
@@ -551,6 +555,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStatusValue(int value) {
+      
       status_ = value;
       onChanged();
       return this;
@@ -559,6 +564,7 @@ private static final long serialVersionUID = 0L;
      * <code>.grpc.health.v1.HealthCheckResponse.ServingStatus status = 1;</code>
      * @return The status.
      */
+    @java.lang.Override
     public io.grpc.health.v1.HealthCheckResponse.ServingStatus getStatus() {
       @SuppressWarnings("deprecation")
       io.grpc.health.v1.HealthCheckResponse.ServingStatus result = io.grpc.health.v1.HealthCheckResponse.ServingStatus.valueOf(status_);

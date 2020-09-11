@@ -42,7 +42,7 @@ public final class RxHealthCheckGrpc {
                     public void accept(io.grpc.health.v1.HealthCheckRequest request, io.grpc.stub.StreamObserver<io.grpc.health.v1.HealthCheckResponse> observer) {
                         delegateStub.check(request, observer);
                     }
-                });
+                }, getCallOptions());
         }
 
         /**
@@ -57,7 +57,7 @@ public final class RxHealthCheckGrpc {
                     public void accept(io.grpc.health.v1.HealthCheckRequest request, io.grpc.stub.StreamObserver<io.grpc.health.v1.HealthCheckResponse> observer) {
                         delegateStub.watchServer(request, observer);
                     }
-                });
+                }, getCallOptions());
         }
 
         /**
@@ -72,7 +72,7 @@ public final class RxHealthCheckGrpc {
                     public io.grpc.stub.StreamObserver<io.grpc.health.v1.HealthCheckRequest> apply(io.grpc.stub.StreamObserver<io.grpc.health.v1.HealthCheckResponse> observer) {
                         return delegateStub.watchClient(observer);
                     }
-                });
+                }, getCallOptions());
         }
 
         /**
@@ -87,7 +87,7 @@ public final class RxHealthCheckGrpc {
                     public io.grpc.stub.StreamObserver<io.grpc.health.v1.HealthCheckRequest> apply(io.grpc.stub.StreamObserver<io.grpc.health.v1.HealthCheckResponse> observer) {
                         return delegateStub.watchBidi(observer);
                     }
-                });
+                }, getCallOptions());
         }
 
         public io.reactivex.Single<io.grpc.health.v1.HealthCheckResponse> check(io.grpc.health.v1.HealthCheckRequest rxRequest) {
@@ -97,7 +97,7 @@ public final class RxHealthCheckGrpc {
                     public void accept(io.grpc.health.v1.HealthCheckRequest request, io.grpc.stub.StreamObserver<io.grpc.health.v1.HealthCheckResponse> observer) {
                         delegateStub.check(request, observer);
                     }
-                });
+                }, getCallOptions());
         }
 
         /**
@@ -112,7 +112,7 @@ public final class RxHealthCheckGrpc {
                     public void accept(io.grpc.health.v1.HealthCheckRequest request, io.grpc.stub.StreamObserver<io.grpc.health.v1.HealthCheckResponse> observer) {
                         delegateStub.watchServer(request, observer);
                     }
-                });
+                }, getCallOptions());
         }
 
     }
@@ -182,12 +182,17 @@ public final class RxHealthCheckGrpc {
                                             this, METHODID_WATCH_BIDI)))
                     .build();
         }
+
+        protected io.grpc.CallOptions getCallOptions(int methodId) {
+            return null;
+        }
+
     }
 
-    private static final int METHODID_CHECK = 0;
-    private static final int METHODID_WATCH_SERVER = 1;
-    private static final int METHODID_WATCH_CLIENT = 2;
-    private static final int METHODID_WATCH_BIDI = 3;
+    public static final int METHODID_CHECK = 0;
+    public static final int METHODID_WATCH_SERVER = 1;
+    public static final int METHODID_WATCH_CLIENT = 2;
+    public static final int METHODID_WATCH_BIDI = 3;
 
     private static final class MethodHandlers<Req, Resp> implements
             io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -238,11 +243,11 @@ public final class RxHealthCheckGrpc {
                 case METHODID_WATCH_CLIENT:
                     return (io.grpc.stub.StreamObserver<Req>) com.salesforce.rxgrpc.stub.ServerCalls.manyToOne(
                             (io.grpc.stub.StreamObserver<io.grpc.health.v1.HealthCheckResponse>) responseObserver,
-                            serviceImpl::watchClient);
+                            serviceImpl::watchClient, serviceImpl.getCallOptions(methodId));
                 case METHODID_WATCH_BIDI:
                     return (io.grpc.stub.StreamObserver<Req>) com.salesforce.rxgrpc.stub.ServerCalls.manyToMany(
                             (io.grpc.stub.StreamObserver<io.grpc.health.v1.HealthCheckResponse>) responseObserver,
-                            serviceImpl::watchBidi);
+                            serviceImpl::watchBidi, serviceImpl.getCallOptions(methodId));
                 default:
                     throw new java.lang.AssertionError();
             }

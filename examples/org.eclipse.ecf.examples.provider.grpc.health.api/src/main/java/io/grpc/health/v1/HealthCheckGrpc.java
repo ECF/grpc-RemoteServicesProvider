@@ -18,7 +18,7 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 /**
  */
 @javax.annotation.Generated(
-    value = "by gRPC proto compiler (version 1.23.0)",
+    value = "by gRPC proto compiler (version 1.31.1)",
     comments = "Source: health.proto")
 public final class HealthCheckGrpc {
 
@@ -155,7 +155,14 @@ public final class HealthCheckGrpc {
    * Creates a new async stub that supports all call types for the service
    */
   public static HealthCheckStub newStub(io.grpc.Channel channel) {
-    return new HealthCheckStub(channel);
+    io.grpc.stub.AbstractStub.StubFactory<HealthCheckStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<HealthCheckStub>() {
+        @java.lang.Override
+        public HealthCheckStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new HealthCheckStub(channel, callOptions);
+        }
+      };
+    return HealthCheckStub.newStub(factory, channel);
   }
 
   /**
@@ -163,7 +170,14 @@ public final class HealthCheckGrpc {
    */
   public static HealthCheckBlockingStub newBlockingStub(
       io.grpc.Channel channel) {
-    return new HealthCheckBlockingStub(channel);
+    io.grpc.stub.AbstractStub.StubFactory<HealthCheckBlockingStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<HealthCheckBlockingStub>() {
+        @java.lang.Override
+        public HealthCheckBlockingStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new HealthCheckBlockingStub(channel, callOptions);
+        }
+      };
+    return HealthCheckBlockingStub.newStub(factory, channel);
   }
 
   /**
@@ -171,7 +185,14 @@ public final class HealthCheckGrpc {
    */
   public static HealthCheckFutureStub newFutureStub(
       io.grpc.Channel channel) {
-    return new HealthCheckFutureStub(channel);
+    io.grpc.stub.AbstractStub.StubFactory<HealthCheckFutureStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<HealthCheckFutureStub>() {
+        @java.lang.Override
+        public HealthCheckFutureStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new HealthCheckFutureStub(channel, callOptions);
+        }
+      };
+    return HealthCheckFutureStub.newStub(factory, channel);
   }
 
   /**
@@ -254,19 +275,15 @@ public final class HealthCheckGrpc {
 
   /**
    */
-  public static final class HealthCheckStub extends io.grpc.stub.AbstractStub<HealthCheckStub> {
-    private HealthCheckStub(io.grpc.Channel channel) {
-      super(channel);
-    }
-
-    private HealthCheckStub(io.grpc.Channel channel,
-        io.grpc.CallOptions callOptions) {
+  public static final class HealthCheckStub extends io.grpc.stub.AbstractAsyncStub<HealthCheckStub> {
+    private HealthCheckStub(
+        io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected HealthCheckStub build(io.grpc.Channel channel,
-        io.grpc.CallOptions callOptions) {
+    protected HealthCheckStub build(
+        io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       return new HealthCheckStub(channel, callOptions);
     }
 
@@ -317,19 +334,15 @@ public final class HealthCheckGrpc {
 
   /**
    */
-  public static final class HealthCheckBlockingStub extends io.grpc.stub.AbstractStub<HealthCheckBlockingStub> {
-    private HealthCheckBlockingStub(io.grpc.Channel channel) {
-      super(channel);
-    }
-
-    private HealthCheckBlockingStub(io.grpc.Channel channel,
-        io.grpc.CallOptions callOptions) {
+  public static final class HealthCheckBlockingStub extends io.grpc.stub.AbstractBlockingStub<HealthCheckBlockingStub> {
+    private HealthCheckBlockingStub(
+        io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected HealthCheckBlockingStub build(io.grpc.Channel channel,
-        io.grpc.CallOptions callOptions) {
+    protected HealthCheckBlockingStub build(
+        io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       return new HealthCheckBlockingStub(channel, callOptions);
     }
 
@@ -357,19 +370,15 @@ public final class HealthCheckGrpc {
 
   /**
    */
-  public static final class HealthCheckFutureStub extends io.grpc.stub.AbstractStub<HealthCheckFutureStub> {
-    private HealthCheckFutureStub(io.grpc.Channel channel) {
-      super(channel);
-    }
-
-    private HealthCheckFutureStub(io.grpc.Channel channel,
-        io.grpc.CallOptions callOptions) {
+  public static final class HealthCheckFutureStub extends io.grpc.stub.AbstractFutureStub<HealthCheckFutureStub> {
+    private HealthCheckFutureStub(
+        io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected HealthCheckFutureStub build(io.grpc.Channel channel,
-        io.grpc.CallOptions callOptions) {
+    protected HealthCheckFutureStub build(
+        io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       return new HealthCheckFutureStub(channel, callOptions);
     }
 

@@ -83,7 +83,7 @@
 		<protoc.version>4.0.0-rc-2</protoc.version>
 		<jprotoc.version>1.0.1</jprotoc.version>
 		<netty.version>4.1.52.Final</netty.version>
-		<grpc.osgi.generator.version>1.5.4</grpc.osgi.generator.version>
+		<grpc.osgi.generator.version>1.5.6</grpc.osgi.generator.version>
 		<project.build.java.target>9</project.build.java.target>
 	</properties>
 

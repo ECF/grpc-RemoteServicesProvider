@@ -98,12 +98,12 @@
 		<module>releng/org.eclipse.ecf.provider.grcp.target</module>
 		<module>features/org.eclipse.ecf.provider.grpc.feature</module>
 		<module>bundles/org.eclipse.ecf.provider.grpc</module>
-		<module>tooling/org.eclipse.ecf.provider.grpc.proto.editor</module>
+		<!--  module>tooling/org.eclipse.ecf.provider.grpc.proto.editor</module> -->
 		<module>examples/org.eclipse.ecf.examples.provider.grpc.health.api</module>
 		<module>examples/org.eclipse.ecf.examples.provider.grpc.health.impl</module>
 		<module>examples/org.eclipse.ecf.examples.provider.grpc.health.consumer</module>
 		<module>features/org.eclipse.ecf.examples.grpc.feature</module>
-		<module>features/org.eclipse.ecf.provider.grpc.tooling.feature</module>
+		<!-- <module>features/org.eclipse.ecf.provider.grpc.tooling.feature</module> -->
 	</modules>
 
 	<dependencies>

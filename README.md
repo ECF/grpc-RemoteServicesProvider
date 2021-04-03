@@ -100,10 +100,9 @@ This will result in install of all of the necessary gRPC Remote Service Provider
 In console type:
 ```console
 karaf@root()> feature:install -v ecf-rs-examples-grpc-healthcheck-impl
-Adding features: ecf-rs-examples-grpc-healthcheck-impl/[1.2.0,1.2.0]
-...
-The source code for this HealthCheckService implementation is [here](https://github.com/ECF/grpc-RemoteServicesProvider/blob/master/examples/org.eclipse.ecf.examples.provider.grpc.health.impl/src/org/eclipse/ecf/examples/provider/grpc/health/impl/HealthServiceImpl.java) in [this project](https://github.com/ECF/grpc-RemoteServicesProvider/tree/master/examples/org.eclipse.ecf.examples.provider.grpc.health.impl)
 ```
+The source code for this HealthCheckService implementation is [here](https://github.com/ECF/grpc-RemoteServicesProvider/blob/master/examples/org.eclipse.ecf.examples.provider.grpc.health.impl/src/org/eclipse/ecf/examples/provider/grpc/health/impl/HealthServiceImpl.java) in [this project](https://github.com/ECF/grpc-RemoteServicesProvider/tree/master/examples/org.eclipse.ecf.examples.provider.grpc.health.impl)
+
 ## Install and Start the HealthCheck Example Consumer (Client)
 In console type:
 ```console

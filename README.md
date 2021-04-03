@@ -87,12 +87,6 @@ Finally, the health check [service consumer is here](https://github.com/ECF/grpc
 # Installing and Running the Example on Apache Karaf
 ## Install the gRPC Remote Services Distribution Provider
 1. Start Karaf
-1. At karaf prompt type the following to add and refresh the ECF Remote Services SDK
-```console
-karaf@root()> repo-add ecf; repo-refresh ecf
-Adding feature url http://download.eclipse.org/rt/ecf/RELEASE/site.p2/karaf-features.xml
-Refreshing feature url: http://download.eclipse.org/rt/ecf/RELEASE/site.p2/karaf-features.xml
-```
 1.  At prompt type
 ```console
 karaf@root()> repo-add https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/karaf-features.xml

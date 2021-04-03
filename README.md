@@ -90,7 +90,6 @@ Finally, the health check [service consumer is here](https://github.com/ECF/grpc
 1.  At prompt type
 ```console
 karaf@root()> repo-add https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/karaf-features.xml
-Adding feature url https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/karaf-features.xml
 ```
 1.  Install the ECF gRPC Distribution Provider type
 ```console

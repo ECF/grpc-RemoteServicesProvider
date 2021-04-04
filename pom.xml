@@ -78,7 +78,7 @@
 		<rxjava.version>2.2.19</rxjava.version>
 		<reactive.grpc.version>1.0.1</reactive.grpc.version>
 		<grpc.contrib.version>0.8.0</grpc.contrib.version>
-		<grpc.version>1.31.1</grpc.version>
+		<grpc.version>1.36.1</grpc.version>
 		<guava.version>26.0-android</guava.version>
 		<protoc.version>4.0.0-rc-2</protoc.version>
 		<jprotoc.version>1.0.1</jprotoc.version>

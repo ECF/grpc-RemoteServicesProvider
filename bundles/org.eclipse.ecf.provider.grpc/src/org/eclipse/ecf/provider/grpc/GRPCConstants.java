@@ -19,5 +19,11 @@ public interface GRPCConstants {
 	public static final String SERVER_HOSTNAME_DEFAULT = "localhost";
 	public static final String SERVER_PORT = "port";
 	public static final String SERVER_PORT_DEFAULT = "50021";
+	public static final String SERVER_STOP_TIMEOUT = "stopTimeout";
+	public static final String SERVER_STOP_TIMEOUT_DEFAULT = System
+			.getProperty(SERVER_PROVIDER_CONFIG_TYPE + "." + SERVER_STOP_TIMEOUT, "5000");
 	public static final String GRPC_STUB_CLASS_PROP = "ecf.grpc.stub.class";
+	public static final String SERVER_PROTOREFLECTIONSERVICE = "protoReflectionService";
+	public static final String SERVER_PROTOREFLECTIONSERVICE_DEFAULT = System
+			.getProperty(SERVER_PROVIDER_CONFIG_TYPE + "." + SERVER_PROTOREFLECTIONSERVICE, "false");
 }

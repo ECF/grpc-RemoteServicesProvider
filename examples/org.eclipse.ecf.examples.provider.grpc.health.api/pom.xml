@@ -13,6 +13,6 @@
 	<artifactId>org.eclipse.ecf.examples.provider.grpc.health.api
 	</artifactId>
 	<packaging>eclipse-plugin</packaging>
-	<version>1.2.0-SNAPSHOT</version>
+	<version>1.3.0-SNAPSHOT</version>
 
 </project>

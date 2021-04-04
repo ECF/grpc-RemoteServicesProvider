@@ -12,11 +12,13 @@
     <intAttribute key="default_start_level" value="4"/>
     <setAttribute key="deselected_workspace_bundles"/>
     <booleanAttribute key="includeOptional" value="false"/>
+    <booleanAttribute key="org.eclipse.jdt.launching.ATTR_ATTR_USE_ARGFILE" value="false"/>
+    <booleanAttribute key="org.eclipse.jdt.launching.ATTR_SHOW_CODEDETAILS_IN_EXCEPTION_MESSAGES" value="true"/>
     <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_START_ON_FIRST_THREAD" value="true"/>
     <stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-9"/>
     <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-os ${target.os} -ws ${target.ws} -arch ${target.arch} -nl ${target.nl} -consoleLog -console"/>
     <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.pde.ui.workbenchClasspathProvider"/>
-    <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Declipse.ignoreApp=true -Dosgi.noShutdown=true"/>
+    <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Declipse.ignoreApp=true -Dosgi.noShutdown=true -Decf.grpc.server.stopTimeout=6000 -Decf.grpc.server.protoReflectionService=true"/>
     <stringAttribute key="pde.version" value="3.3"/>
     <setAttribute key="selected_target_bundles">
         <setEntry value="ch.ethz.iks.r_osgi.remote.source"/>
@@ -330,7 +332,7 @@
         <setEntry value="org.junit.platform.suite.api.source"/>
         <setEntry value="org.junit.source"/>
         <setEntry value="org.junit.vintage.engine.source"/>
-        <setEntry value="org.objectweb.asm.source*7.2.0.v20191010-1910"/>
+        <setEntry value="org.objectweb.asm.source"/>
         <setEntry value="org.objectweb.asm.tree.source"/>
         <setEntry value="org.opentest4j.source"/>
         <setEntry value="org.reactivestreams.reactive-streams@default:default"/>

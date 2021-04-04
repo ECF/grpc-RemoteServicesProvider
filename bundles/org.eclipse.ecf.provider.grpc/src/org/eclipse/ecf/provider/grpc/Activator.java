@@ -8,9 +8,11 @@
  ******************************************************************************/
 package org.eclipse.ecf.provider.grpc;
 
+import java.io.IOException;
 import java.net.URI;
 import java.util.Map;
 
+import org.eclipse.ecf.core.ContainerCreateException;
 import org.eclipse.ecf.core.ContainerTypeDescription;
 import org.eclipse.ecf.core.IContainer;
 import org.eclipse.ecf.core.identity.Namespace;
@@ -35,13 +37,27 @@ public class Activator implements BundleActivator {
 								GRPCConstants.SERVER_PROVIDER_CONFIG_TYPE, GRPCConstants.CLIENT_PROVIDER_CONFIG_TYPE) {
 							@Override
 							public IContainer createInstance(ContainerTypeDescription description,
-									Map<String, ?> parameters) {
-								String serverPort = getParameterValue(parameters, GRPCConstants.SERVER_PORT, String.class,
-										GRPCConstants.SERVER_PORT_DEFAULT);
+									Map<String, ?> parameters) throws ContainerCreateException {
+								String serverPort = getParameterValue(parameters, GRPCConstants.SERVER_PORT,
+										String.class, GRPCConstants.SERVER_PORT_DEFAULT);
 								String hostname = getParameterValue(parameters, GRPCConstants.SERVER_HOSTNAME,
 										GRPCConstants.SERVER_HOSTNAME_DEFAULT);
-								return new GRPCHostContainer(URI.create(
-										GRPCNamespace.INSTANCE.getScheme() + "://" + hostname + ":" + serverPort));
+								String stopTimeout = getParameterValue(parameters, GRPCConstants.SERVER_STOP_TIMEOUT,
+										GRPCConstants.SERVER_STOP_TIMEOUT_DEFAULT);
+								String protoReflectionService = getParameterValue(parameters,
+										GRPCConstants.SERVER_PROTOREFLECTIONSERVICE,
+										GRPCConstants.SERVER_PROTOREFLECTIONSERVICE_DEFAULT);
+								GRPCHostContainer c = new GRPCHostContainer(
+										URI.create(GRPCNamespace.INSTANCE.getScheme() + "://" + hostname + ":"
+												+ serverPort),
+										Long.valueOf(stopTimeout), Boolean.valueOf(protoReflectionService));
+								try {
+									c.startGrpcServer();
+									return c;
+								} catch (IOException e) {
+									throw new ContainerCreateException(
+											"Cannot start grpc server hostname=" + hostname + ",port=" + serverPort, e);
+								}
 							}
 						}).setServer(true).setHidden(false).build(),
 				null);

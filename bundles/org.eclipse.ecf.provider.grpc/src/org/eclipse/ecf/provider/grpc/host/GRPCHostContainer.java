@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 Composent, Inc. and others. All rights reserved. This
+ * Copyright (c) 2021 Composent, Inc. and others. All rights reserved. This
  * program and the accompanying materials are made available under the terms of
  * the Eclipse Public License v1.0 which accompanies this distribution, and is
  * available at http://www.eclipse.org/legal/epl-v10.html
@@ -8,6 +8,7 @@
  ******************************************************************************/
 package org.eclipse.ecf.provider.grpc.host;
 
+import java.io.IOException;
 import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
@@ -24,30 +25,85 @@ import io.grpc.BindableService;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.ServerServiceDefinition;
+import io.grpc.protobuf.services.ProtoReflectionService;
 import io.grpc.util.MutableHandlerRegistry;
 
 public class GRPCHostContainer extends AbstractRSAContainer {
 
-	// shutdown timeout in milliseconds
-	private static final long GRPC_SERVER_SHUTDOWN_TIMEOUT = Long
-			.valueOf(System.getProperty(GRPCHostContainer.class.getName() + ".shutdownTimeout", "3000"));
-
-	@SuppressWarnings("rawtypes")
-	protected final ServerBuilder serverBuilder;
-
-	protected Map<RSARemoteServiceRegistration, ServerServiceDefinition> registrationToDefinitionMap;
-	protected MutableHandlerRegistry serviceHandlerRegistry;
+	protected final Map<RSARemoteServiceRegistration, ServerServiceDefinition> registrationToDefinitionMap;
+	protected final MutableHandlerRegistry serviceHandlerRegistry;
 
 	protected Server server;
-
-	public GRPCHostContainer(URI uri) {
+	protected final long stopTimeout;
+	
+	public GRPCHostContainer(URI uri, long stopTimeout, boolean serverReflection) {
 		super(GRPCNamespace.INSTANCE.createInstance(new Object[] { uri }));
-		this.serverBuilder = ServerBuilder.forPort(((URIID) getID()).toURI().getPort());
+		ServerBuilder<?> serverBuilder = ServerBuilder.forPort(((URIID) getID()).toURI().getPort());
 		this.serviceHandlerRegistry = new MutableHandlerRegistry();
-		this.serverBuilder.fallbackHandlerRegistry(serviceHandlerRegistry);
+		serverBuilder.fallbackHandlerRegistry(serviceHandlerRegistry);
 		this.registrationToDefinitionMap = new ConcurrentHashMap<RSARemoteServiceRegistration, ServerServiceDefinition>();
+		this.stopTimeout = stopTimeout;
+		if (serverReflection) {
+			serverBuilder.addService(ProtoReflectionService.newInstance());
+		}
+		initializeServer(serverBuilder);
 	}
 
+	protected void initializeServer(ServerBuilder<?> serverBuilder) {
+		this.server = serverBuilder.build();
+	}
+	
+	public void startGrpcServer() throws IOException {
+		synchronized (this) {
+			if (!server.isShutdown()) {
+				this.server.start();
+			}
+		}
+	}
+	
+	protected void shutdownGrpcServer() {
+		synchronized (this) {
+			if (!server.isShutdown()) {
+				server.shutdown();
+				try {
+					server.awaitTermination(stopTimeout, TimeUnit.MILLISECONDS);
+				} catch (InterruptedException e) {
+				}
+				if (!server.isTerminated()) {
+					server.shutdownNow();
+				}
+			}
+		}
+	}
+	
+	protected boolean addMutableService(RSARemoteServiceRegistration registration) {
+		Object service = registration.getService();
+		if (service instanceof BindableService) {
+			BindableService bs = (BindableService) service;
+			synchronized (this) {
+				if (!this.server.isShutdown()) {
+						ServerServiceDefinition serviceDef = bs.bindService();
+						this.serviceHandlerRegistry.addService(serviceDef);
+						this.registrationToDefinitionMap.put(registration, serviceDef);
+						return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+	protected boolean removeMutableService(RSARemoteServiceRegistration registration) {
+		synchronized (this) {
+			if (!this.server.isShutdown()) {
+				ServerServiceDefinition serviceDefinition = this.registrationToDefinitionMap.remove(registration);
+				if (serviceDefinition != null) {
+					return this.serviceHandlerRegistry.removeService(serviceDefinition);
+				}
+			}
+		}
+		return false;
+	}
+	
 	private String getGrpcStubClassname(RSARemoteServiceRegistration registration) {
 		String stubClassNameFromRegistration = (String) registration.getProperty(GRPCConstants.GRPC_STUB_CLASS_PROP);
 		if (stubClassNameFromRegistration != null) {
@@ -66,71 +122,24 @@ public class GRPCHostContainer extends AbstractRSAContainer {
 
 	@Override
 	protected Map<String, Object> exportRemoteService(RSARemoteServiceRegistration registration) {
-		Map<String, Object> newProps = new HashMap<String, Object>();
-		try {
-			// get grpc stub classname from registration or from service class
-			String grpcStubClassname = getGrpcStubClassname(registration);
-			// get service from registration
-			Object service = registration.getService();
-			ServerServiceDefinition serviceDefinition = null;
-			synchronized (this) {
-				// If server is null we add the service to the service builder, build, and start
-				if (this.server == null) {
-					this.serverBuilder.addService((BindableService) service);
-					this.server = serverBuilder.build();
-					this.server.start();
-					// There should be only one service add at this point
-					serviceDefinition = this.server.getServices().iterator().next();
-				} else {
-					// Add the service via the serviceHandlerRegistry
-					serviceDefinition = this.serviceHandlerRegistry.addService((BindableService) service);
-				}
-				// put registration -> serviceDefinition in map so can be used to unexport
-				this.registrationToDefinitionMap.put(registration, serviceDefinition);
-			}
-			// Put the grpc stub classname into the properties
-			newProps.put(GRPCConstants.GRPC_STUB_CLASS_PROP, grpcStubClassname);
-		} catch (Exception e) {
-			RuntimeException e1 = new RuntimeException("Could not export with grpc provider", e);
-			e1.setStackTrace(e.getStackTrace());
-			throw e1;
+		if (!addMutableService(registration)) {
+			throw new RuntimeException(
+					"Failed to add remote service with registration=" + registration + " to grpc server=" + this.server);
 		}
+		Map<String, Object> newProps = new HashMap<String, Object>();
+		// Put the grpc stub classname into the properties
+		newProps.put(GRPCConstants.GRPC_STUB_CLASS_PROP, getGrpcStubClassname(registration));
 		return newProps;
 	}
 
 	@Override
 	protected void unexportRemoteService(RSARemoteServiceRegistration registration) {
-		Server server = null;
-		synchronized (this) {
-			server = this.server;
-			if (server != null) {
-				ServerServiceDefinition serviceDefinition = this.registrationToDefinitionMap.remove(registration);
-				if (serviceDefinition != null) {
-					this.serviceHandlerRegistry.removeService(serviceDefinition);
-				}
-			}
-		}
-	}
-
-	protected void shutdownServer(long timeoutInSeconds) {
-		if (server != null) {
-			if (!server.isShutdown()) {
-				server.shutdown();
-				try {
-					server.awaitTermination(timeoutInSeconds, TimeUnit.MILLISECONDS);
-				} catch (InterruptedException e) {
-				}
-				if (!server.isTerminated()) {
-					server.shutdownNow();
-				}
-				server = null;
-			}
-		}
+		removeMutableService(registration);
 	}
 
 	@Override
 	public void dispose() {
 		super.dispose();
-		shutdownServer(GRPC_SERVER_SHUTDOWN_TIMEOUT);
+		shutdownGrpcServer();
 	}
 }

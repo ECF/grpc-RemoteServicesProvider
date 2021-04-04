@@ -87,16 +87,9 @@ Finally, the health check [service consumer is here](https://github.com/ECF/grpc
 # Installing and Running the Example on Apache Karaf
 ## Install the gRPC Remote Services Distribution Provider
 1. Start Karaf
-1. At karaf prompt type the following to add and refresh the ECF Remote Services SDK
-```console
-karaf@root()> repo-add ecf; repo-refresh ecf
-Adding feature url http://download.eclipse.org/rt/ecf/RELEASE/site.p2/karaf-features.xml
-Refreshing feature url: http://download.eclipse.org/rt/ecf/RELEASE/site.p2/karaf-features.xml
-```
 1.  At prompt type
 ```console
 karaf@root()> repo-add https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/karaf-features.xml
-Adding feature url https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/karaf-features.xml
 ```
 1.  Install the ECF gRPC Distribution Provider type
 ```console
@@ -107,10 +100,9 @@ This will result in install of all of the necessary gRPC Remote Service Provider
 In console type:
 ```console
 karaf@root()> feature:install -v ecf-rs-examples-grpc-healthcheck-impl
-Adding features: ecf-rs-examples-grpc-healthcheck-impl/[1.2.0,1.2.0]
-...
-The source code for this HealthCheckService implementation is [here](https://github.com/ECF/grpc-RemoteServicesProvider/blob/master/examples/org.eclipse.ecf.examples.provider.grpc.health.impl/src/org/eclipse/ecf/examples/provider/grpc/health/impl/HealthServiceImpl.java) in [this project](https://github.com/ECF/grpc-RemoteServicesProvider/tree/master/examples/org.eclipse.ecf.examples.provider.grpc.health.impl)
 ```
+The source code for this HealthCheckService implementation is [here](https://github.com/ECF/grpc-RemoteServicesProvider/blob/master/examples/org.eclipse.ecf.examples.provider.grpc.health.impl/src/org/eclipse/ecf/examples/provider/grpc/health/impl/HealthServiceImpl.java) in [this project](https://github.com/ECF/grpc-RemoteServicesProvider/tree/master/examples/org.eclipse.ecf.examples.provider.grpc.health.impl)
+
 ## Install and Start the HealthCheck Example Consumer (Client)
 In console type:
 ```console

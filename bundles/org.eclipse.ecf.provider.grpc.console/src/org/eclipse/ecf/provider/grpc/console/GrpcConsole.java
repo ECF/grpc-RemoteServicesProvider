@@ -189,7 +189,6 @@ public class GrpcConsole extends AbstractCommand implements Converter {
 		return container;
 	}
 
-
 	protected static final String GRPCHOSTCONTAINER_LINE_FORMAT = "%1$-45s|%2$-35s\n"; //$NON-NLS-1$
 
 	protected String formatGRPCContainer(GRPCHostContainer c, int level, Converter escape) {

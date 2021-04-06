@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ECF GRPC Remote Services Provider Console
+Bundle-SymbolicName: org.eclipse.ecf.provider.grpc.console
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Eclipse.org - ECF
+Automatic-Module-Name: org.eclipse.ecf.provider.grpc.console
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.equinox.common,
+ org.eclipse.ecf,
+ org.apache.felix.gogo.runtime;bundle-version="1.1.0"
+Service-Component: OSGI-INF/org.eclipse.ecf.provider.grpc.console.GrpcConsole.xml
+Import-Package: org.eclipse.ecf.console;version="1.0.0",
+ org.eclipse.ecf.provider.grpc;version="1.4.0",
+ org.eclipse.ecf.provider.grpc.host;version="1.4.0",
+ org.eclipse.ecf.provider.grpc.identity;version="1.4.0",
+ org.eclipse.ecf.remoteservice;version="7.4.0"

@@ -18,7 +18,7 @@
     <stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-9"/>
     <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-os ${target.os} -ws ${target.ws} -arch ${target.arch} -nl ${target.nl} -consoleLog -console"/>
     <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.pde.ui.workbenchClasspathProvider"/>
-    <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Declipse.ignoreApp=true -Dosgi.noShutdown=true -Decf.grpc.server.stopTimeout=6000 -Decf.grpc.server.protoReflectionService=true"/>
+    <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Declipse.ignoreApp=true -Dosgi.noShutdown=true -Decf.grpc.server.stopTimeout=6000"/>
     <stringAttribute key="pde.version" value="3.3"/>
     <setAttribute key="selected_target_bundles">
         <setEntry value="ch.ethz.iks.r_osgi.remote.source"/>
@@ -345,6 +345,7 @@
     <setAttribute key="selected_workspace_bundles">
         <setEntry value="org.eclipse.ecf.examples.provider.grpc.health.api@default:default"/>
         <setEntry value="org.eclipse.ecf.examples.provider.grpc.health.impl@default:default"/>
+        <setEntry value="org.eclipse.ecf.provider.grpc.console@default:default"/>
         <setEntry value="org.eclipse.ecf.provider.grpc@default:default"/>
     </setAttribute>
     <booleanAttribute key="show_selected_only" value="false"/>

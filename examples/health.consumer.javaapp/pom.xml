@@ -1,0 +1,42 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.eclipse.ecf.provider.grpc</groupId>
+  <artifactId>healthcheck.consumer.javaapp</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+      <properties>
+        <rxjava.version>2.1.10</rxjava.version>
+        <reactive.grpc.version>1.0.0</reactive.grpc.version>
+        <grpc.version>1.36.1</grpc.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.reactivex.rxjava2</groupId>
+            <artifactId>rxjava</artifactId>
+            <version>${rxjava.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.grpc</groupId>
+            <artifactId>grpc-netty</artifactId>
+            <version>${grpc.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.grpc</groupId>
+            <artifactId>grpc-protobuf</artifactId>
+            <version>${grpc.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.grpc</groupId>
+            <artifactId>grpc-services</artifactId>
+            <version>${grpc.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.salesforce.servicelibs</groupId>
+            <artifactId>rxgrpc-stub</artifactId>
+            <version>${reactive.grpc.version}</version>
+        </dependency>
+    </dependencies>
+
+  
+</project>

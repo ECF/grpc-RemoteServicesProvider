@@ -4,9 +4,9 @@
 	<repository>http://download.eclipse.org/rt/ecf/RELEASE/site.p2/karaf-features.xml
 	</repository>
 
-	<feature name="ecf-rs-distribution-grpc-support"
+	<feature name="ecf-rs-distribution-grpc"
 		version="1.4.0"
-		description="ECF Remote Services Grpc Distribution Provider Support. See https://github.com/ECF/grpc-RemoteServicesProvider">
+		description="ECF Remote Services Grpc Distribution Provider. See https://github.com/ECF/grpc-RemoteServicesProvider">
 		<feature>ecf-rs-rsa</feature>
 		<feature>ecf-rs-console</feature>
 		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/com.google.gson_2.8.6.jar
@@ -47,20 +47,8 @@
 		</bundle>
 		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.jsr-305_3.0.2.jar
 		</bundle>
-	</feature>
-
-	<feature name="ecf-rs-distribution-grpc-noconsole"
-		version="1.4.0"
-		description="ECF Remote Services Grpc Distribution Provider. See https://github.com/ECF/grpc-RemoteServicesProvider">
-		<feature>ecf-rs-distribution-grpc-support</feature>
 		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.eclipse.ecf.provider.grpc_1.4.0.202104081550.jar
 		</bundle>
-	</feature>
-
-	<feature name="ecf-rs-distribution-grpc" version="1.4.0"
-		description="ECF Remote Services Grpc Distribution Provider. See https://github.com/ECF/grpc-RemoteServicesProvider">
-		<feature>ecf-rs-distribution-grpc-support</feature>
-		<feature version="1.4.0">ecf-rs-distribution-grpc-noconsole</feature>
 		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.eclipse.ecf.provider.grpc.console_1.0.0.202104081550.jar
 		</bundle>
 	</feature>

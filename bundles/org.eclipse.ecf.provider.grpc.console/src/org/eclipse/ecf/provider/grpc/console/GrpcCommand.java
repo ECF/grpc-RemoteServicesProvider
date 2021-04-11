@@ -34,8 +34,8 @@ import org.osgi.service.component.annotations.Reference;
 		"osgi.command.function=addreflection",
 		"osgi.command.function=arf",
 		"osgi.command.function=removereflection",
-		"osgi.command.function=rrf" }, service = { GrpcConsole.class, Converter.class })
-public class GrpcConsole extends AbstractCommand implements Converter {
+		"osgi.command.function=rrf" }, service = { GrpcCommand.class, Converter.class })
+public class GrpcCommand extends AbstractCommand implements Converter {
 
 	private IContainerManager containerManager;
 	private IIDFactory idFactory;
@@ -116,11 +116,7 @@ public class GrpcConsole extends AbstractCommand implements Converter {
 
 	@Descriptor("Toggle (active/inactive) GRPC ProtoReflectionService")
 	public List<GRPCHostContainer> trf(CommandSession cs) {
-		List<GRPCHostContainer> ghcs = getHostContainers();
-		ghcs.forEach(c -> {
-			c.toggleProtoReflectionServiceDef();
-		});
-		return ghcs;
+		return togglereflection(cs);
 	}
 
 	public GRPCHostContainer togglereflection(
@@ -144,11 +140,7 @@ public class GrpcConsole extends AbstractCommand implements Converter {
 
 	@Descriptor("Add/activate GRPC ProtoReflectionService")
 	public List<GRPCHostContainer> arf(CommandSession cs) {
-		List<GRPCHostContainer> ghcs = getHostContainers();
-		ghcs.forEach(c -> {
-			c.addProtoReflectionServiceDef();
-		});
-		return ghcs;
+		return addreflection(cs);
 	}
 
 	public GRPCHostContainer addreflection(
@@ -172,34 +164,24 @@ public class GrpcConsole extends AbstractCommand implements Converter {
 
 	@Descriptor("Add/activate GRPC ProtoReflectionService")
 	public List<GRPCHostContainer> rrf(CommandSession cs) {
-		List<GRPCHostContainer> ghcs = getHostContainers();
-		ghcs.forEach(c -> {
-			c.removeProtoReflectionServiceDef();
-		});
-		return ghcs;
+		return removereflection(cs);
 	}
 
 	public GRPCHostContainer removereflection(
-			@Descriptor("GRPC port of container to deactivate reflection") GRPCHostContainer container) {
+			@Descriptor("GRPC port of container to remove reflection") GRPCHostContainer container) {
 		return container;
 	}
 
 	public GRPCHostContainer rrf(
-			@Descriptor("GRPC port of container to deactivate reflection") GRPCHostContainer container) {
+			@Descriptor("GRPC port of container to remove reflection") GRPCHostContainer container) {
 		return container;
 	}
 
-	protected static final String GRPCHOSTCONTAINER_LINE_FORMAT = "%1$-45s|%2$-35s\n"; //$NON-NLS-1$
+	protected static final String GRPCHOSTCONTAINER_LINE_FORMAT = "%1$-45s| %2$-35s\n"; //$NON-NLS-1$
 
 	protected String formatGRPCContainer(GRPCHostContainer c, int level, Converter escape) {
-		ID cID = c.getID();
-		switch (level) {
-		case Converter.LINE:
-			return formatLine(GRPCHOSTCONTAINER_LINE_FORMAT, cID.getName(),
-					c.isProtoReflectionServiceDef() ? "active" : "inactive");
-		default:
-			return null;
-		}
+		return formatLine(GRPCHOSTCONTAINER_LINE_FORMAT, c.getID().getName(),
+				c.isProtoReflectionServiceDef() ? "active" : "inactive");
 	}
 
 	public Object convert(Class<?> desiredType, Object in) throws Exception {
@@ -208,7 +190,7 @@ public class GrpcConsole extends AbstractCommand implements Converter {
 		return null;
 	}
 
-	private Object getGRPCContainerForId(String in) {
+	private GRPCHostContainer getGRPCContainerForId(String in) {
 		Optional<GRPCHostContainer> optional = getHostContainers().stream().filter(g -> {
 			ID gid = g.getID();
 			int port = ((URIID) gid).toURI().getPort();

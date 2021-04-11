@@ -2,14 +2,28 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ECF Remote Services Grpc Health Example Impl
 Bundle-SymbolicName: org.eclipse.ecf.examples.provider.grpc.health.impl
-Bundle-Version: 1.1.0.qualifier
+Bundle-Version: 1.2.0.qualifier
 Bundle-Vendor: Eclipse.org - ECF
 Automatic-Module-Name: org.eclipse.ecf.examples.provider.grpc.health.impl
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: io.grpc,
  io.grpc.health.v1,
- io.reactivex;version="2.1.10",
- org.osgi.service.component.annotations;version="1.2.0";resolution:=optional
+ io.reactivex;version="2.2.19",
+ io.reactivex.annotations;version="2.2.19",
+ io.reactivex.disposables;version="2.2.19",
+ io.reactivex.exceptions;version="2.2.19",
+ io.reactivex.flowables;version="2.2.19",
+ io.reactivex.functions;version="2.2.19",
+ io.reactivex.observables;version="2.2.19",
+ io.reactivex.observers;version="2.2.19",
+ io.reactivex.parallel;version="2.2.19",
+ io.reactivex.plugins;version="2.2.19",
+ io.reactivex.processors;version="2.2.19",
+ io.reactivex.schedulers;version="2.2.19",
+ io.reactivex.subjects;version="2.2.19",
+ io.reactivex.subscribers;version="2.2.19",
+ org.osgi.service.component.annotations;version="1.2.0";resolution:=optional,
+ org.reactivestreams;version="1.0.3"
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.ecf.provider.grpc,
  com.google.protobuf;bundle-version="3.9.0"

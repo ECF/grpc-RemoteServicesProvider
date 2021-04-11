@@ -12,5 +12,5 @@
 	</parent>
 	<artifactId>org.eclipse.ecf.examples.provider.grpc.health.consumer</artifactId>
 	<packaging>eclipse-plugin</packaging>
-	<version>1.1.0-SNAPSHOT</version>
+	<version>1.2.0-SNAPSHOT</version>
 </project>

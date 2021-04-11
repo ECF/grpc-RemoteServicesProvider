@@ -12,6 +12,8 @@
     <intAttribute key="default_start_level" value="4"/>
     <setAttribute key="deselected_workspace_bundles"/>
     <booleanAttribute key="includeOptional" value="false"/>
+    <booleanAttribute key="org.eclipse.jdt.launching.ATTR_ATTR_USE_ARGFILE" value="false"/>
+    <booleanAttribute key="org.eclipse.jdt.launching.ATTR_SHOW_CODEDETAILS_IN_EXCEPTION_MESSAGES" value="true"/>
     <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_START_ON_FIRST_THREAD" value="true"/>
     <stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-9"/>
     <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-os ${target.os} -ws ${target.ws} -arch ${target.arch} -nl ${target.nl} -consoleLog -console"/>
@@ -62,8 +64,7 @@
         <setEntry value="org.apache.commons.codec.source"/>
         <setEntry value="org.apache.commons.io.source"/>
         <setEntry value="org.apache.commons.jxpath.source"/>
-        <setEntry value="org.apache.commons.logging.source*1.1.1.v201101211721"/>
-        <setEntry value="org.apache.commons.logging.source*1.2.0.v20180409-1502"/>
+        <setEntry value="org.apache.commons.logging.source"/>
         <setEntry value="org.apache.felix.gogo.command.source"/>
         <setEntry value="org.apache.felix.gogo.command@default:default"/>
         <setEntry value="org.apache.felix.gogo.runtime.source"/>
@@ -144,8 +145,6 @@
         <setEntry value="org.eclipse.ecf.osgi.services.remoteserviceadmin.proxy@default:default"/>
         <setEntry value="org.eclipse.ecf.osgi.services.remoteserviceadmin.source"/>
         <setEntry value="org.eclipse.ecf.osgi.services.remoteserviceadmin@default:default"/>
-        <setEntry value="org.eclipse.ecf.provider.filetransfer.httpclient4.source"/>
-        <setEntry value="org.eclipse.ecf.provider.filetransfer.httpclient4.ssl.source"/>
         <setEntry value="org.eclipse.ecf.provider.filetransfer.source"/>
         <setEntry value="org.eclipse.ecf.provider.filetransfer.ssl.source"/>
         <setEntry value="org.eclipse.ecf.provider.jmdns.source"/>
@@ -155,9 +154,7 @@
         <setEntry value="org.eclipse.ecf.provider.remoteservice.source"/>
         <setEntry value="org.eclipse.ecf.provider.source"/>
         <setEntry value="org.eclipse.ecf.provider.zookeeper.source"/>
-        <setEntry value="org.eclipse.ecf.remoteservice.asyncproxy*2.1.2.v20191031-1433@default:default"/>
-        <setEntry value="org.eclipse.ecf.remoteservice.asyncproxy.source*1.1.101.v20191024-1546"/>
-        <setEntry value="org.eclipse.ecf.remoteservice.asyncproxy.source*2.1.2.v20191031-1433"/>
+        <setEntry value="org.eclipse.ecf.remoteservice.asyncproxy*2.1.100.v20200611-2220@default:default"/>
         <setEntry value="org.eclipse.ecf.remoteservice.eventadmin.source"/>
         <setEntry value="org.eclipse.ecf.remoteservice.rest.source"/>
         <setEntry value="org.eclipse.ecf.remoteservice.servlet.source"/>
@@ -184,8 +181,6 @@
         <setEntry value="org.eclipse.equinox.concurrent@default:default"/>
         <setEntry value="org.eclipse.equinox.console.source"/>
         <setEntry value="org.eclipse.equinox.console@default:default"/>
-        <setEntry value="org.eclipse.equinox.ds.source"/>
-        <setEntry value="org.eclipse.equinox.ds@1:true"/>
         <setEntry value="org.eclipse.equinox.event.source"/>
         <setEntry value="org.eclipse.equinox.event@default:default"/>
         <setEntry value="org.eclipse.equinox.frameworkadmin.equinox.source"/>
@@ -230,13 +225,10 @@
         <setEntry value="org.eclipse.equinox.security.win32.x86_64.source"/>
         <setEntry value="org.eclipse.equinox.simpleconfigurator.manipulator.source"/>
         <setEntry value="org.eclipse.equinox.simpleconfigurator.source"/>
-        <setEntry value="org.eclipse.equinox.util.source"/>
         <setEntry value="org.eclipse.help.base.source"/>
         <setEntry value="org.eclipse.help.source"/>
         <setEntry value="org.eclipse.help.ui.source"/>
         <setEntry value="org.eclipse.help.webapp.source"/>
-        <setEntry value="org.eclipse.jdt.annotation.source*1.1.200.v20171205-1334"/>
-        <setEntry value="org.eclipse.jdt.annotation.source*2.2.0.v20180417-0931"/>
         <setEntry value="org.eclipse.jdt.apt.core.source"/>
         <setEntry value="org.eclipse.jdt.apt.pluggable.core.source"/>
         <setEntry value="org.eclipse.jdt.apt.ui.source"/>
@@ -330,7 +322,6 @@
         <setEntry value="org.eclipse.update.configurator.source"/>
         <setEntry value="org.hamcrest.core.source"/>
         <setEntry value="org.json@default:default"/>
-        <setEntry value="org.jsr-305@default:default"/>
         <setEntry value="org.junit.jupiter.api.source"/>
         <setEntry value="org.junit.jupiter.engine.source"/>
         <setEntry value="org.junit.jupiter.migrationsupport.source"/>
@@ -342,8 +333,7 @@
         <setEntry value="org.junit.platform.suite.api.source"/>
         <setEntry value="org.junit.source"/>
         <setEntry value="org.junit.vintage.engine.source"/>
-        <setEntry value="org.objectweb.asm.source*6.1.1.v20180414-0329"/>
-        <setEntry value="org.objectweb.asm.source*7.2.0.v20191010-1910"/>
+        <setEntry value="org.objectweb.asm.source"/>
         <setEntry value="org.objectweb.asm.tree.source"/>
         <setEntry value="org.opentest4j.source"/>
         <setEntry value="org.reactivestreams.reactive-streams@default:default"/>

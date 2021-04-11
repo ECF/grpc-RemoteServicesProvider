@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.ecf.provider.grpc.feature"
       label="ECF Grcp Remote Services Provider Feature"
-      version="1.4.0.qualifier"
+      version="1.4.1.qualifier"
       provider-name="Eclipse.org - ECF">
 
    <description url="https://github.com/ECF/grpc-RemoteServicesProvider/README.md">
@@ -250,13 +250,6 @@
 
    <plugin
          id="com.google.guava"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.jsr-305"
          download-size="0"
          install-size="0"
          version="0.0.0"

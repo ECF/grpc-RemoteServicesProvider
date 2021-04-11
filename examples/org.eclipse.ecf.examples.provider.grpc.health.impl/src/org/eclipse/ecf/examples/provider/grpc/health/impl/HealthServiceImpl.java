@@ -8,6 +8,8 @@
  ******************************************************************************/
 package org.eclipse.ecf.examples.provider.grpc.health.impl;
 
+import java.util.concurrent.TimeUnit;
+
 import org.osgi.service.component.annotations.Component;
 
 import io.grpc.health.v1.HealthCheckRequest;
@@ -22,43 +24,47 @@ import io.reactivex.Single;
 		"ecf.grpc.server.port=50002" })
 public class HealthServiceImpl extends RxHealthCheckGrpc.HealthCheckImplBase implements HealthCheckService {
 
-	private Single<HealthCheckResponse> getSingle() {
-		return Single.just(HealthCheckResponse.newBuilder().setStatus(ServingStatus.SERVING).build());
+	private HealthCheckResponse createServingResponse() {
+		return HealthCheckResponse.newBuilder().setStatus(ServingStatus.SERVING).build();
 	}
 
 	@Override
 	public Single<HealthCheckResponse> check(Single<HealthCheckRequest> request) {
-		return getSingle();
-	}
-
-	private Flowable<HealthCheckResponse> getResponseFlowable(int count) {
-		HealthCheckResponse[] responses = new HealthCheckResponse[count];
-		for (int i = 0; i < count; i++) {
-			responses[i] = HealthCheckResponse.newBuilder().setStatus(ServingStatus.SERVING).build();
-		}
-		return Flowable.fromArray(responses);
+		return request.map(r -> {
+			System.out.println("check received=" + r.getMessage());
+			return r;
+		}).map(r -> createServingResponse());
 	}
 
 	@Override
-	public io.reactivex.Flowable<io.grpc.health.v1.HealthCheckResponse> watchServer(
-			io.reactivex.Single<io.grpc.health.v1.HealthCheckRequest> request) {
-		return getResponseFlowable(30);
+	public Flowable<HealthCheckResponse> watchServer(Single<HealthCheckRequest> request) {
+		return request.map(r -> {
+			System.out.println("watchServer received=" + r.getMessage());
+			return r;
+		}).toFlowable().flatMap(r -> {
+			// Send 30 responses for each request
+			HealthCheckResponse[] responses = new HealthCheckResponse[30];
+			for (int i = 0; i < 30; i++) {
+				responses[i] = createServingResponse();
+			}
+			// delay one second between each response
+			return Flowable.fromArray(responses).delay(500, TimeUnit.MILLISECONDS);
+		}).map(r -> createServingResponse());
 	}
 
 	@Override
-	public io.reactivex.Single<io.grpc.health.v1.HealthCheckResponse> watchClient(
-			io.reactivex.Flowable<io.grpc.health.v1.HealthCheckRequest> request) {
-		request.subscribe(c -> {
-			System.out.println("watchClient received=" + c.getMessage());
+	public Single<HealthCheckResponse> watchClient(Flowable<HealthCheckRequest> requests) {
+		requests.subscribe(request -> {
+			System.out.println("watchClient received=" + request.getMessage());
 		});
-		return getSingle();
+		return Single.just(createServingResponse());
 	}
 
 	@Override
 	public Flowable<HealthCheckResponse> watchBidi(Flowable<HealthCheckRequest> request) {
-		request.subscribe(c -> {
-			System.out.println("watchBidi received=" + c.getMessage());
-		});
-		return getResponseFlowable(50);
+		return request.map(r -> {
+			System.out.println("watchBidi request received=" + r.getMessage());
+			return r;
+		}).map(r -> createServingResponse());
 	}
 }

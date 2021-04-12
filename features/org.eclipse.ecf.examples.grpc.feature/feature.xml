@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.ecf.examples.grpc.feature"
       label="Grpc Remote Services Examples Feature"
-      version="1.4.1.qualifier"
+      version="1.4.2.qualifier"
       provider-name="Eclipse.org - ECF">
 
    <description url="http://www.example.com/description">

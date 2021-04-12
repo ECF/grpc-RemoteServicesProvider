@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.ecf.provider.grpc.feature"
       label="ECF Grcp Remote Services Provider Feature"
-      version="1.4.1.qualifier"
+      version="1.4.2.qualifier"
       provider-name="Eclipse.org - ECF">
 
    <description url="https://github.com/ECF/grpc-RemoteServicesProvider/README.md">

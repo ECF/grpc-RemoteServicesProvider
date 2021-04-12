@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.eclipse.ecf.provider.grpc.console.GrpcCommand">
    <property name="osgi.command.scope" value="ecf-grpc"/>
-   <property name="osgi.command.function">listservers
-lsvr
-togglereflection
-trf
+   <property name="osgi.command.function">listreflection
+lr
 addreflection
-arf
+ar
 removereflection
-rrf
+rr
    </property>
    <service>
       <provide interface="org.eclipse.ecf.provider.grpc.console.GrpcCommand"/>
-      <provide interface="org.apache.felix.service.command.Converter"/>
    </service>
    <reference bind="bindContainerManager" interface="org.eclipse.ecf.core.IContainerManager" name="ContainerManager" unbind="unbindContainerManager"/>
    <reference bind="bindIdentityFactory" interface="org.eclipse.ecf.core.identity.IIDFactory" name="IdentityFactory" unbind="unbindIdentityFactory"/>

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ECF GRPC Remote Services Provider Console
 Bundle-SymbolicName: org.eclipse.ecf.provider.grpc.console
-Bundle-Version: 1.0.2.qualifier
+Bundle-Version: 1.0.3.qualifier
 Bundle-Vendor: Eclipse.org - ECF
 Automatic-Module-Name: org.eclipse.ecf.provider.grpc.console
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

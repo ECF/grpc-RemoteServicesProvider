@@ -10,7 +10,6 @@ package org.eclipse.ecf.provider.grpc.console;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.apache.felix.service.command.CommandSession;
@@ -27,15 +26,13 @@ import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
 @Component(property = { "osgi.command.scope=ecf-grpc", 
-		"osgi.command.function=listservers", 
-		"osgi.command.function=lsvr",
-		"osgi.command.function=togglereflection",
-		"osgi.command.function=trf",
+		"osgi.command.function=listreflection", 
+		"osgi.command.function=lr",
 		"osgi.command.function=addreflection",
-		"osgi.command.function=arf",
+		"osgi.command.function=ar",
 		"osgi.command.function=removereflection",
-		"osgi.command.function=rrf" }, service = { GrpcCommand.class, Converter.class })
-public class GrpcCommand extends AbstractCommand implements Converter {
+		"osgi.command.function=rr"}, service = { GrpcCommand.class })
+public class GrpcCommand extends AbstractCommand {
 
 	private IContainerManager containerManager;
 	private IIDFactory idFactory;
@@ -85,124 +82,56 @@ public class GrpcCommand extends AbstractCommand implements Converter {
 		}).collect(Collectors.toList());
 	}
 
-	@Descriptor("List ECF GRPC Host Containers")
-	public List<GRPCHostContainer> listservers(CommandSession cs) {
-		consoleLine(cs, GRPCHOSTCONTAINER_LINE_FORMAT, "ID", "ProtoReflectionService");
-		return getHostContainers();
+	private List<String> formatGRPCContainers(List<GRPCHostContainer> containers, CommandSession cs) {
+		consoleLine(cs, GRPCHOSTCONTAINER_LINE_FORMAT, "Server", "Reflection");
+		return containers.stream().map(g -> {
+			return formatGRPCContainer(g, 0, null);
+		}).collect(Collectors.toList());
+	}
+	
+	@Descriptor("List Reflection state of gRPC servers")
+	public List<String> listreflection(CommandSession cs) {
+		return formatGRPCContainers(getHostContainers(),cs);
 	}
 
-	@Descriptor("List ECF GRPC Host Containers")
-	public List<GRPCHostContainer> lsvr(CommandSession cs) {
-		consoleLine(cs, GRPCHOSTCONTAINER_LINE_FORMAT, "ID", "ProtoReflectionService");
-		return getHostContainers();
+	@Descriptor("List Reflection state of gRPC servers")
+	public List<String> lr(CommandSession cs) {
+		return formatGRPCContainers(getHostContainers(), cs);
 	}
 
-	public GRPCHostContainer listservers(@Descriptor("GRPC port of container to list") GRPCHostContainer container) {
-		return container;
-	}
-
-	public GRPCHostContainer lsvr(@Descriptor("GRPC port of container to list") GRPCHostContainer container) {
-		return container;
-	}
-
-	@Descriptor("Toggle (active/inactive) GRPC ProtoReflectionService")
-	public List<GRPCHostContainer> togglereflection(CommandSession cs) {
-		List<GRPCHostContainer> ghcs = getHostContainers();
-		ghcs.forEach(c -> {
-			c.toggleProtoReflectionServiceDef();
-		});
-		return ghcs;
-	}
-
-	@Descriptor("Toggle (active/inactive) GRPC ProtoReflectionService")
-	public List<GRPCHostContainer> trf(CommandSession cs) {
-		return togglereflection(cs);
-	}
-
-	public GRPCHostContainer togglereflection(
-			@Descriptor("GRPC port of container to toggle reflection") GRPCHostContainer container) {
-		return container;
-	}
-
-	public GRPCHostContainer trf(
-			@Descriptor("GRPC port of container to toggle reflection") GRPCHostContainer container) {
-		return container;
-	}
-
-	@Descriptor("Add/activate GRPC ProtoReflectionService")
-	public List<GRPCHostContainer> addreflection(CommandSession cs) {
+	@Descriptor("Add/activate Reflection of gRPC servers")
+	public List<String> addreflection(CommandSession cs) {
 		List<GRPCHostContainer> ghcs = getHostContainers();
 		ghcs.forEach(c -> {
 			c.addProtoReflectionServiceDef();
 		});
-		return ghcs;
+		return formatGRPCContainers(ghcs, cs);
 	}
 
-	@Descriptor("Add/activate GRPC ProtoReflectionService")
-	public List<GRPCHostContainer> arf(CommandSession cs) {
+	@Descriptor("Add/activate Reflection of gRPC servers")
+	public List<String> ar(CommandSession cs) {
 		return addreflection(cs);
 	}
 
-	public GRPCHostContainer addreflection(
-			@Descriptor("GRPC port of container to activate reflection") GRPCHostContainer container) {
-		return container;
-	}
-
-	public GRPCHostContainer arf(
-			@Descriptor("GRPC port of container to activate reflection") GRPCHostContainer container) {
-		return container;
-	}
-
-	@Descriptor("Remove/deactivate GRPC ProtoReflectionService")
-	public List<GRPCHostContainer> removereflection(CommandSession cs) {
+	@Descriptor("Remove/deactivate Reflection of gRPC servers")
+	public List<String> removereflection(CommandSession cs) {
 		List<GRPCHostContainer> ghcs = getHostContainers();
 		ghcs.forEach(c -> {
 			c.removeProtoReflectionServiceDef();
 		});
-		return ghcs;
+		return formatGRPCContainers(ghcs, cs);
 	}
 
-	@Descriptor("Add/activate GRPC ProtoReflectionService")
-	public List<GRPCHostContainer> rrf(CommandSession cs) {
+	@Descriptor("Remove/deactivate Reflection of gRPC servers")
+	public List<String> rr(CommandSession cs) {
 		return removereflection(cs);
 	}
 
-	public GRPCHostContainer removereflection(
-			@Descriptor("GRPC port of container to remove reflection") GRPCHostContainer container) {
-		return container;
-	}
-
-	public GRPCHostContainer rrf(
-			@Descriptor("GRPC port of container to remove reflection") GRPCHostContainer container) {
-		return container;
-	}
-
-	protected static final String GRPCHOSTCONTAINER_LINE_FORMAT = "%1$-45s| %2$-35s\n"; //$NON-NLS-1$
+	protected static final String GRPCHOSTCONTAINER_LINE_FORMAT = "%1$-45s|%2$-35s\n"; //$NON-NLS-1$
 
 	protected String formatGRPCContainer(GRPCHostContainer c, int level, Converter escape) {
 		return formatLine(GRPCHOSTCONTAINER_LINE_FORMAT, c.getID().getName(),
 				c.isProtoReflectionServiceDef() ? "active" : "inactive");
-	}
-
-	public Object convert(Class<?> desiredType, Object in) throws Exception {
-		if (desiredType == GRPCHostContainer.class && in instanceof String)
-			return getGRPCContainerForId((String) in);
-		return null;
-	}
-
-	private GRPCHostContainer getGRPCContainerForId(String in) {
-		Optional<GRPCHostContainer> optional = getHostContainers().stream().filter(g -> {
-			ID gid = g.getID();
-			int port = ((URIID) gid).toURI().getPort();
-			return gid.getName().equals(in) || in.equals(String.valueOf(port));
-		}).findFirst();
-		return optional.get();
-	}
-
-	public String format(Object target, int level, Converter escape) {
-		if (target instanceof GRPCHostContainer)
-			return formatGRPCContainer((GRPCHostContainer) target, level, escape);
-		return null;
 	}
 
 }

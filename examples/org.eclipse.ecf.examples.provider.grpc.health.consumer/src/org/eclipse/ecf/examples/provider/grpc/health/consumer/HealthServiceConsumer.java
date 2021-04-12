@@ -8,6 +8,8 @@
  ******************************************************************************/
 package org.eclipse.ecf.examples.provider.grpc.health.consumer;
 
+import java.util.concurrent.TimeUnit;
+
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
@@ -31,7 +33,7 @@ public class HealthServiceConsumer {
 		for (int i = 0; i < count; i++) {
 			requests[i] = HealthCheckRequest.newBuilder().setMessage(message + " #" + String.valueOf(i)).build();
 		}
-		return Flowable.fromArray(requests);
+		return Flowable.fromArray(requests).delay(500,TimeUnit.MILLISECONDS);
 	}
 
 	void activate() {
@@ -44,12 +46,12 @@ public class HealthServiceConsumer {
 			System.out.println("watchServer received=" + resp.getStatus());
 		});
 
-		// Test watchClient
-		getRequestFlowable(40, "watchClient client message").as(healthService::watchClient).subscribe(resp -> {
+		// Test watchClient: multiple client requests, single server response
+		healthService.watchClient(getRequestFlowable(40, "watchClient client message")).subscribe(resp -> {
 			System.out.println("watchClient response=" + resp.getStatus());
 		});
 
-		// Test watchBidi: multiple client messages, multiple server responses
+		// Test watchBidi: multiple client requests, multiple server responses
 		// Make flowable of 30 requests for watchClient
 		healthService.watchBidi(getRequestFlowable(30, "watchBidi client message")).subscribe(resp -> {
 			System.out.println("watchBidi received=" + resp.getStatus());

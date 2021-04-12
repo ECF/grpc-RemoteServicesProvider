@@ -54,10 +54,10 @@ public class HealthServiceImpl extends RxHealthCheckGrpc.HealthCheckImplBase imp
 
 	@Override
 	public Single<HealthCheckResponse> watchClient(Flowable<HealthCheckRequest> requests) {
-		requests.subscribe(request -> {
-			System.out.println("watchClient received=" + request.getMessage());
-		});
-		return Single.just(createServingResponse());
+		return requests.map(HealthCheckRequest::getMessage).map(m -> {
+			System.out.println("watchClient received="+m);
+			return m;
+		}).toList().map(names -> createServingResponse());
 	}
 
 	@Override

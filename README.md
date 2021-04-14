@@ -138,6 +138,7 @@ Then add the ECF Remote Services Distribution Provider and tooling repo:
 2. Click *Add...* button on right of dialog
 
   > Name:  ECF gRPC Distribution Provider and Tooling
+  > 
   > Location:  https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/
   
 3. Uncheck the 'Group Items by Category' radio button newr bottom

@@ -22,6 +22,8 @@ In OSGi the **service api** is often separated into a distinct bundle from both 
 
 ## Generating the Protobuf/Grpc Service API with protoc and protoc plugins:  grpc-java, reactive-grpc, grpc-osgi-generator
 
+NOTE:  Below describes how to use maven to run the protoc code generation with the grpc-java, reactive-grpc, ang grpc-osgi-generator.  Another, much simpler/easier way to do this code generation is to use the [ECF Bndtools Remote Service Workspace Template](https://github.com/ECF/bndtools.workspace) that uses Bndtools.  There is a video showing this method [here](https://www.youtube.com/watch?v=4-f4xQBlKr0).
+
 For Protobuf + grpc-java, typically a service is defined by a .proto file with a service entry.  For example, [here](https://github.com/ECF/grpc-RemoteServicesProvider/blob/master/examples/org.eclipse.ecf.examples.provider.grpc.health.api/src/main/proto/health.proto) is a proto file for a simple 'HealthCheck' service
 
 ```proto

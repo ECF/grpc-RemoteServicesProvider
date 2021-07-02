@@ -13,6 +13,7 @@ package org.eclipse.ecf.provider.grpc.proto.editor;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
@@ -99,7 +100,7 @@ public class Activator extends AbstractUIPlugin {
      * @return the active workbench window
      */
     public static IWorkbenchWindow getActiveWorkbenchWindow() {
-        return getDefault().getWorkbench().getActiveWorkbenchWindow();
+    	return PlatformUI.getWorkbench().getActiveWorkbenchWindow();
     }
 
 }

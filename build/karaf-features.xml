@@ -1,11 +1,11 @@
 <features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0"
-	name="ecf-remoteservices-grpc-1.4.2">
+	name="ecf-remoteservices-grpc-1.4.3">
 
 	<repository>http://download.eclipse.org/rt/ecf/RELEASE/site.p2/karaf-features.xml
 	</repository>
 
 	<feature name="ecf-rs-distribution-grpc"
-		version="1.4.2"
+		version="1.4.3"
 		description="ECF Remote Services Grpc Distribution Provider. See https://github.com/ECF/grpc-RemoteServicesProvider">
 		<feature>ecf-rs-rsa</feature>
 		<feature>ecf-rs-console</feature>
@@ -45,33 +45,33 @@
 		</bundle>
 		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.reactivestreams.reactive-streams_1.0.3.jar
 		</bundle>
-		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.eclipse.ecf.provider.grpc_1.4.0.202104121538.jar
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.eclipse.ecf.provider.grpc_1.4.0.202107021308.jar
 		</bundle>
-		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.eclipse.ecf.provider.grpc.console_1.0.3.202104121538.jar
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.eclipse.ecf.provider.grpc.console_1.0.3.202107021308.jar
 		</bundle>
 	</feature>
 
 	<feature name="ecf-rs-examples-grpc-healthcheck-api"
-		version="1.4.2"
+		version="1.4.3"
 		description="ECF Remote Services Grpc HealthCheck Example Service API.  See https://github.com/ECF/grpc-RemoteServicesProvider">
-		<feature version="1.4.2">ecf-rs-distribution-grpc</feature>
-		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.eclipse.ecf.examples.provider.grpc.health.api_1.3.0.202104121538.jar
+		<feature version="1.4.3">ecf-rs-distribution-grpc</feature>
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.eclipse.ecf.examples.provider.grpc.health.api_1.3.0.202107021308.jar
 		</bundle>
 	</feature>
 
 	<feature name="ecf-rs-examples-grpc-healthcheck-impl"
-		version="1.4.2"
+		version="1.4.3"
 		description="ECF Remote Services Grpc HealthCheck Example Service Impl.  See https://github.com/ECF/grpc-RemoteServicesProvider">
-		<feature version="1.4.2">ecf-rs-examples-grpc-healthcheck-api</feature>
-		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.eclipse.ecf.examples.provider.grpc.health.impl_1.2.0.202104121538.jar
+		<feature version="1.4.3">ecf-rs-examples-grpc-healthcheck-api</feature>
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.eclipse.ecf.examples.provider.grpc.health.impl_1.2.0.202107021308.jar
 		</bundle>
 	</feature>
 
 	<feature name="ecf-rs-examples-grpc-healthcheck-consumer"
-		version="1.4.2"
+		version="1.4.3"
 		description="ECF Remote Services Grpc HealthCheck Example Service Consumer.  See https://github.com/ECF/grpc-RemoteServicesProvider">
-		<feature version="1.4.2">ecf-rs-examples-grpc-healthcheck-api</feature>
-		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.eclipse.ecf.examples.provider.grpc.health.consumer_1.2.0.202104121538.jar
+		<feature version="1.4.3">ecf-rs-examples-grpc-healthcheck-api</feature>
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.eclipse.ecf.examples.provider.grpc.health.consumer_1.2.0.202107021308.jar
 		</bundle>
 	</feature>
 

@@ -1,7 +1,14 @@
 # gRPC-RemoteServicesProvider
 This project provides an [ECF Remote Services](https://wiki.eclipse.org/ECF) [Distribution Provider](https://wiki.eclipse.org/Distribution_Providers) based upon [Google RPC for Java (grpc-java)](https://github.com/grpc/grpc-java).   See http://www.grpc.io, https://github.com/grpc, and https://github.com/grpc/grpc-java for information on grpc-java, and https://wiki.eclipse.org/ECF for information about ECF's implentation of OSGi Remote Services.
 
-This distribution provider uses grpc-java to export and import OSGi Remote Services and make them available for remote access as full OSGi services; with all of the dynamics, versioning, security, management, extensibility, and other features that come with the [OSGi Remote Services](https://docs.osgi.org/specification/osgi.cmpn/7.0.0/service.remoteservices.html) and [OSGi Remote Service Admin specification](https://docs.osgi.org/specification/osgi.cmpn/7.0.0/service.remoteserviceadmin.html).   
+This distribution provider uses grpc-java to export (server) and import (clients) OSGi Remote Services and make them available for remote access as full OSGi services; with all of the dynamics, versioning, async, security, management, extensibility, and other features that come with the [OSGi Remote Services](https://docs.osgi.org/specification/osgi.cmpn/7.0.0/service.remoteservices.html) and [OSGi Remote Service Admin](https://docs.osgi.org/specification/osgi.cmpn/7.0.0/service.remoteserviceadmin.html).   
+
+## New and Noteworthy ##
+
+1. **Use of gRPC version 1.36.1**.  The version of grpc now being used by the grpc distribution provider is now 1.36.1.
+1. **Support for gRPC ProtoReflectionService**.  gRPC 1.36 introduced a new service that allows clients to reflect on other services exposed by a server.  This is very helpful for testing and debugging.   There's a grpc tutorial for the proto reflection service [here](https://github.com/grpc/grpc-java/blob/master/documentation/server-reflection-tutorial.md).  The proto reflection service has been built in to the grpc remote services provider, and can be dynamically added/removed from an exported remote service via gogo console commands.  See [this wiki page](https://github.com/ECF/grpc-RemoteServicesProvider/wiki/Using-the-gRPC-ProtoReflectionService-in-a-gRPC-Remote-Service) for documentation.
+1. **Example Non-OSGi and Non-Java clients**.  One of the features of gRPC is the ability to use multiple languages for accessing a service.   This capability also exists with this distribution provider, so that it's possible for OSGi servers to be accessed by Java-only clients (not OSGi)...or [other languages supported by grpc](https://grpc.io/docs/languages/).  There is now an [example project](https://github.com/ECF/grpc-RemoteServicesProvider/tree/master/examples/health.consumer.javaapp) showing a Java-only (not OSGi) client for the HealthCheck service.  This client works with the [health check service impl example](https://github.com/ECF/grpc-RemoteServicesProvider/tree/master/examples/org.eclipse.ecf.examples.provider.grpc.health.impl), which runs as a remote service in an OSGi environment (such as Karaf).  See also this [issue](https://github.com/ECF/grpc-RemoteServicesProvider/issues/10) for other language example.
+1. **Bndtools Workspace** - This distribution provider and examples are included as part of the [ECF bndtools workspace template](https://github.com/ECF/bndtools.workspace).   The workspace template also includes 3 project templates:  the gRPC HealthCheck API template, the gRPC HealthCheck Impl template and the gRPC HealthCheck Consumer template.  The API project template has only an example proto file, from which bndtools will generate the java source code as part of the background compile sequence in Eclipse/bndtools.  This makes it very easy to create an API and quickly modify proto files in an editor...and Eclipse/bndtools will immediately re-generate (and then compile) the java source code from the proto file.  A video of using bndtools and these project templates is available [here](https://www.youtube.com/watch?v=4-f4xQBlKr0).
 
 ## NEW:  Simple Proto3 Editor Tooling
 
@@ -22,6 +29,8 @@ See [here](https://wiki.eclipse.org/Tutorial:_Building_your_first_OSGi_Remote_Se
 In OSGi the **service api** is often separated into a distinct bundle from both the **implementation** classes (i.e. the service 'host' that actually implements and exports the service) and the **service consumer** that discovers, imports, and uses the service (i.e. calls methods).
 
 ## Generating the Protobuf/Grpc Service API with protoc and protoc plugins:  grpc-java, reactive-grpc, grpc-osgi-generator
+
+NOTE:  Below describes how to use maven to run the protoc code generation with the grpc-java, reactive-grpc, ang grpc-osgi-generator.  Another, much simpler/easier way to do this code generation is to use the [ECF Bndtools Remote Service Workspace Template](https://github.com/ECF/bndtools.workspace) that uses Bndtools.  There is a video showing this method [here](https://www.youtube.com/watch?v=4-f4xQBlKr0).
 
 For Protobuf + grpc-java, typically a service is defined by a .proto file with a service entry.  For example, [here](https://github.com/ECF/grpc-RemoteServicesProvider/blob/master/examples/org.eclipse.ecf.examples.provider.grpc.health.api/src/main/proto/health.proto) is a proto file for a simple 'HealthCheck' service
 
@@ -95,11 +104,11 @@ Finally, the health check [service consumer is here](https://github.com/ECF/grpc
 # Installing and Running the Example on Apache Karaf
 ## Install the gRPC Remote Services Distribution Provider
 1. Start Karaf
-1.  At prompt type
+2.  At prompt type
 ```console
 karaf@root()> repo-add https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/karaf-features.xml
 ```
-1.  Install the ECF gRPC Distribution Provider type
+3.  Install the ECF gRPC Distribution Provider type
 ```console
 karaf@root()> feature:install -v ecf-rs-distribution-grpc
 ```
@@ -128,5 +137,32 @@ check request=io.reactivex.internal.operators.single.SingleJust@7eac4cfb
 got health check response=status: SERVING
 ```
 The text of the bottom line 'got health check response=status: SERVING' is produced by the consumer implementation class [here](https://github.com/ECF/grpc-RemoteServicesProvider/blob/master/examples/org.eclipse.ecf.examples.provider.grpc.health.consumer/src/org/eclipse/ecf/examples/provider/grpc/health/consumer/HealthServiceConsumer.java) located in [this project](https://github.com/ECF/grpc-RemoteServicesProvider/tree/master/examples/org.eclipse.ecf.examples.provider.grpc.health.consumer).   Note that SERVING is the server's response to the consumer's invoking the check remote service method on the declarative-services-injected HealthCheckService instance. 
-```
+
+# Installing in Eclipse
+
+First the ECF Remote Services SDK must be installed.   See [here](https://www.eclipse.org/ecf/downloads.php) under *Install via p2 Repository*
+
+Then add the ECF Remote Services Distribution Provider and tooling repo:
+
+1. In Eclipse goto menu:  *Help->Install New Software...*
+2. Click *Add...* button on right of dialog
+
+  > Name:  ECF gRPC Distribution Provider and Tooling
+  > 
+  > Location:  https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/
+
+3. Uncheck the 'Group Items by Category' radio button near bottom
+
+This should display 3 features, each listed twice
+
+ECF Grpc Remote Services Provider Feature (actual distribution provider)
+ECF Grpc Remote Services Provider Feature  (source code)
+ECF Grpc Remote Services Provider Tooling Feature (Eclipse editor for .proto file editing with syntax coloring)
+ECF Grpc Remote Services Provider Tooling Feature (source code)
+ECF Grpc Remote Services Examples Feature (HealthCheck API, IMpl, Consumer bundles)
+ECF Grpc Remote Services Examples Feature (source code)
+
+Only the first feature is required to use the distribution provider.
+
+Once the desired feature is selected, continue through the feature installation process to complete the install.
 

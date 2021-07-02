@@ -3,6 +3,14 @@ This project provides an [ECF Remote Services](https://wiki.eclipse.org/ECF) [Di
 
 This distribution provider uses grpc-java to export and import OSGi Remote Services and make them available for remote access as full OSGi services; with all of the dynamics, versioning, security, management, extensibility, and other features that come with the [OSGi Remote Services](https://docs.osgi.org/specification/osgi.cmpn/7.0.0/service.remoteservices.html) and [OSGi Remote Service Admin specification](https://docs.osgi.org/specification/osgi.cmpn/7.0.0/service.remoteserviceadmin.html).   
 
+## NEW:  Simple Proto3 Editor Tooling
+
+Present in the p2 repository here:  [https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/](https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/) is a Eclipse plugin with an editor for proto3 file syntax.  This editor may be used to create and update proto3 files
+within Eclipse.   To install into Eclipse goto Help -> Install New Software...->Add...
+
+'''Name''':  ECF gRPC Distribution Provider and Tooling
+'''URL''':  https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/
+
 ## OSGi Remote Service API
 
 OSGi Remote Services are typically declared by a Java interface representing the service contract.  This service interface (and any classes referenced by this interface) is created by the programmer to match the desired call-return semantics of the service.  The service interface and referenced classes represent the **service api**.   

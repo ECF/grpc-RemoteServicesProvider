@@ -1,26 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.eclipse.ecf.provider.grpc.feature"
-      label="ECF Grcp Remote Services Provider Feature"
-      version="1.4.2.qualifier"
-      provider-name="Eclipse.org - ECF">
+      label="%featureName"
+      version="1.4.3.qualifier"
+      provider-name="%providerName">
 
    <description url="https://github.com/ECF/grpc-RemoteServicesProvider/README.md">
-      This feature provides an Distribution Provider based upon Google RPC for 
+      This feature provides a Remote Services distribution provider based upon Google RPC for 
       Java (grpc-java). See http://www.grpc.io&gt;, https://github.com/grpc&gt;, and 
       https://github.com/grpc/grpc-java for information on grpc-java, and https://wiki.eclipse.org/ECF&gt; 
       for information about ECF&apos;s implentation of OSGi Remote Services.
    </description>
 
-   <copyright url="https://github.com/ECF/grpc-RemoteServicesProvider">
-      Copyright (c) 2020 Composent, Inc. and others. All rights reserved. This
-     program and the accompanying materials are made available under the terms of
-     the Apache License v2.0 which accompanies this distribution, and is
-     available at https://github.com/ECF/grpc-RemoteServicesProvider/LICENSE
+   <copyright>
+   	%copyright
    </copyright>
 
    <license url="https://github.com/ECF/grpc-RemoteServicesProvider/LICENSE">
-      Apache License
+      							Apache License
                            Version 2.0, January 2004
                         http://www.apache.org/licenses/
 

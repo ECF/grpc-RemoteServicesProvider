@@ -127,18 +127,7 @@ The source code for this HealthCheckService implementation is [here](https://git
 In console type:
 ```console
 karaf@root()> feature:install -v ecf-rs-examples-grpc-healthcheck-consumer
-Adding features: ecf-rs-examples-grpc-healthcheck-consumer/[1.2.0,1.2.0]
-Changes to perform:
-  Region: root
-    Bundles to install:
-      https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.eclipse.ecf.examples.provider.grpc.health.consumer_1.1.0.202005311428.jar
-Installing bundles:
-  https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.eclipse.ecf.examples.provider.grpc.health.consumer_1.1.0.202005311428.jar
-Starting bundles:
-  org.eclipse.ecf.examples.provider.grpc.health.consumer/1.1.0.202005311428
-check request=io.reactivex.internal.operators.single.SingleJust@7eac4cfb
-got health check response=status: SERVING
 ```
-The text of the bottom line 'got health check response=status: SERVING' is produced by the consumer implementation class [here](https://github.com/ECF/grpc-RemoteServicesProvider/blob/master/examples/org.eclipse.ecf.examples.provider.grpc.health.consumer/src/org/eclipse/ecf/examples/provider/grpc/health/consumer/HealthServiceConsumer.java) located in [this project](https://github.com/ECF/grpc-RemoteServicesProvider/tree/master/examples/org.eclipse.ecf.examples.provider.grpc.health.consumer).   Note that SERVING is the server's response to the consumer's invoking the check remote service method on the declarative-services-injected HealthCheckService instance. 
+The consumer implementation class [here](https://github.com/ECF/grpc-RemoteServicesProvider/blob/master/examples/org.eclipse.ecf.examples.provider.grpc.health.consumer/src/org/eclipse/ecf/examples/provider/grpc/health/consumer/HealthServiceConsumer.java) will be activated by calling the [activate method](https://github.com/ECF/grpc-RemoteServicesProvider/blob/master/examples/org.eclipse.ecf.examples.provider.grpc.health.consumer/src/org/eclipse/ecf/examples/provider/grpc/health/consumer/HealthServiceConsumer.java#L48) and the consumer will start making remote calls to the healthService.   
 
 

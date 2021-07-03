@@ -1,7 +1,7 @@
 # gRPC-RemoteServicesProvider
 This project provides an [ECF Remote Services](https://wiki.eclipse.org/ECF) [Distribution Provider](https://wiki.eclipse.org/Distribution_Providers) based upon [Google RPC for Java (grpc-java)](https://github.com/grpc/grpc-java).   See http://www.grpc.io, https://github.com/grpc, and https://github.com/grpc/grpc-java for information on grpc-java, and https://wiki.eclipse.org/ECF for information about ECF's implentation of OSGi Remote Services.
 
-This distribution provider uses grpc-java to export (server) and import (clients) OSGi Remote Services and make them available for remote access as full OSGi services; with all of the dynamics, versioning, async, security, management, extensibility, and other features that come with the [OSGi Remote Services](https://docs.osgi.org/specification/osgi.cmpn/7.0.0/service.remoteservices.html) and [OSGi Remote Service Admin](https://docs.osgi.org/specification/osgi.cmpn/7.0.0/service.remoteserviceadmin.html).   
+This distribution provider uses grpc-java to export (server) and import (clients) OSGi Remote Services and make them available for remote access as full OSGi services; with all of the service dynamics, versioning, async, security, management, extensibility, and other features that come with the [OSGi Remote Services](https://docs.osgi.org/specification/osgi.cmpn/7.0.0/service.remoteservices.html) and [OSGi Remote Service Admin](https://docs.osgi.org/specification/osgi.cmpn/7.0.0/service.remoteserviceadmin.html).   
 
 ## NEW:  Proto3 Editor for Eclipse
 
@@ -12,9 +12,9 @@ within Eclipse.   To install into Eclipse goto Help -> Install New Software...->
 
 *URL*:  https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/
 
-Once added, select repository and *uncheck* the Group items by category checkbox in lower left.  Then add (at least) the feature named: ECF gRPC Remote Services Tooling Feature
+Once added, select the added repository and *uncheck* the Group items by category checkbox in lower left.  Then add (at least) the feature named: ECF gRPC Remote Services Tooling Feature, and if desired the other two features.
 
-## Noteworthy ##
+## New and Noteworthy ##
 
 1. **Use of gRPC version 1.36.1**.  The version of grpc now being used by the grpc distribution provider is now 1.36.1.
 1. **Support for gRPC ProtoReflectionService**.  gRPC 1.36 introduced a new service that allows clients to reflect on other services exposed by a server.  This is very helpful for testing and debugging.   There's a grpc tutorial for the proto reflection service [here](https://github.com/grpc/grpc-java/blob/master/documentation/server-reflection-tutorial.md).  The proto reflection service has been built in to the grpc remote services provider, and can be dynamically added/removed from an exported remote service via gogo console commands.  See [this wiki page](https://github.com/ECF/grpc-RemoteServicesProvider/wiki/Using-the-gRPC-ProtoReflectionService-in-a-gRPC-Remote-Service) for documentation.
@@ -23,19 +23,19 @@ Once added, select repository and *uncheck* the Group items by category checkbox
 
 ## OSGi Remote Service API
 
-OSGi Remote Services are typically declared by a Java interface representing the service contract.  This service interface (and any classes referenced by this interface) is created by the programmer to match the desired call-return semantics of the service.  The service interface and referenced classes represent the **service api**.   
+OSGi Remote Services are typically declared by one or more Java interfaces representing the service contract(s).  This service interface (and any classes referenced by this interface) is usually created by the service programmer to match the desired semantics of the service.  The service interface and referenced classes represent the **service api**.   
 
 An implementation of this interface is typically created by the programmer and exported at runtime via one or more distribution providers.   
 
 See [here](https://wiki.eclipse.org/Tutorial:_Building_your_first_OSGi_Remote_Service) for a short tutorial describing how to [Create the Remote Service](https://wiki.eclipse.org/Tutorial:_Building_your_first_OSGi_Remote_Service#Common_to_Host_and_Consumer:_Create_the_Service_Interface) and [Implement the Service](https://wiki.eclipse.org/Tutorial:_Building_your_first_OSGi_Remote_Service#Service_Host:_Implement_the_Service).
 
-In OSGi the **service api** is often separated into a distinct bundle from both the **implementation** classes (i.e. the service 'host' that actually implements and exports the service) and the **service consumer** that discovers, imports, and uses the service (i.e. calls methods).
+In OSGi the **service api** is often separated into a distinct bundle from both the **implementation** classes (i.e. the service 'host' that actually implements and exports the service) and the **service consumer** that discovers, imports, and uses the service (i.e. calls methods).  This separation between contract (service api) and implementation is a very strong approach to remote service development as it weakends the contract between the service implementer and the service consumer.
 
 ## Generating the Protobuf/Grpc Service API with protoc and protoc plugins:  grpc-java, reactive-grpc, grpc-osgi-generator
 
-NOTE:  Below describes how to use maven to run the protoc code generation with the grpc-java, reactive-grpc, ang grpc-osgi-generator.  Another, much simpler/easier way to do this code generation is to use the [ECF Bndtools Remote Service Workspace Template](https://github.com/ECF/bndtools.workspace) that uses Bndtools.  There is a video showing this method [here](https://www.youtube.com/watch?v=4-f4xQBlKr0).
+NOTE:  Below describes how to use maven to run the protoc code generation with the grpc-java, reactive-grpc, ang grpc-osgi-generator.  Another simpler and easier way to do code generation is to use the [ECF Bndtools Remote Service Workspace Template](https://github.com/ECF/bndtools.workspace) that uses Bndtools.  There is a video showing this method [here](https://www.youtube.com/watch?v=4-f4xQBlKr0).
 
-For Protobuf + grpc-java, typically a service is defined by a .proto file with a service entry.  For example, [here](https://github.com/ECF/grpc-RemoteServicesProvider/blob/master/examples/org.eclipse.ecf.examples.provider.grpc.health.api/src/main/proto/health.proto) is a proto file for a simple 'HealthCheck' service
+For Protobuf + grpc-java, a service is defined by a .proto file with a service entry.  For example, [here](https://github.com/ECF/grpc-RemoteServicesProvider/blob/master/examples/org.eclipse.ecf.examples.provider.grpc.health.api/src/main/proto/health.proto) is a proto file for a simple 'HealthCheck' service
 
 ```proto
 // Copyright 2015 The gRPC Authors
@@ -91,19 +91,19 @@ service HealthCheck {
 
 ## Service API Generation
 
-Using protoc and the three following protoc plugins: [grpc-java compiler](https://github.com/grpc/grpc-java), [reactive-grpc](https://github.com/salesforce/reactive-grpc), and the [grpc-osgi-generator](https://github.com/ECF/grpc-osgi-generator) plugin it's possible to have protoc generate the complete service api in a single generate-sources phase for maven.   See the docs for [grpc-osgi-generator](https://github.com/ECF/grpc-osgi-generator) for explanation of how to invoke protoc and these protoc plugins via maven.
+Using protoc and the three following protoc plugins: [grpc-java compiler](https://github.com/grpc/grpc-java), [reactive-grpc](https://github.com/salesforce/reactive-grpc), and the [grpc-osgi-generator](https://github.com/ECF/grpc-osgi-generator) plugin protoc will **generate the complete service api** in a single maven generate-sources phase.   See the docs for [grpc-osgi-generator](https://github.com/ECF/grpc-osgi-generator) for explanation of how to invoke protoc and these protoc plugins via maven.
 
-The directory [here](https://github.com/ECF/grpc-RemoteServicesProvider/tree/master/examples/org.eclipse.ecf.examples.provider.grpc.health.api/src/main/java/io/grpc/health/v1) has Java classes generated by using the protobuf-maven-plugin with protoc, grpc-java, and grpc-osgi-generator together.  Note that there are classes generated by protoc (HealthCheckRequest, HealthCheckResponse), classes generated by grpc-java (HealthCheckGrpc), classes generated by reactive-grpc (RxHealthCheckGrpc), and classes generated by grpc-osgi-generator (HealthCheckService).  All of these classes, however, are generated via the protoc compile/generation against [src/main/proto/health.proto](https://github.com/salesforce/reactive-grpc).
+The directory [here](https://github.com/ECF/grpc-RemoteServicesProvider/tree/master/examples/org.eclipse.ecf.examples.provider.grpc.health.api/src/main/java/io/grpc/health/v1) has Java classes generated by using the protobuf-maven-plugin with protoc, grpc-java, and grpc-osgi-generator.  Note that there are classes generated by protoc (HealthCheckRequest, HealthCheckResponse), classes generated by grpc-java (HealthCheckGrpc), classes generated by reactive-grpc (RxHealthCheckGrpc), and classes generated by grpc-osgi-generator (HealthCheckService interface).  All of these classes are generated via the protoc and plugins compile/generation against [src/main/proto/health.proto](https://github.com/ECF/grpc-RemoteServicesProvider/blob/master/examples/org.eclipse.ecf.examples.provider.grpc.health.api/src/main/proto/health.proto).
 
-For an understanding of how to setup maven to support service code generation see the [grpc-osgi-generator README.md](https://github.com/ECF/grpc-osgi-generator) and the maven configuration defined for building the healthcheck api example bundle [here](https://github.com/ECF/grpc-RemoteServicesProvider/blob/master/pom.xml).
+For a full understanding of how to setup maven to support service code generation see the [grpc-osgi-generator README.md](https://github.com/ECF/grpc-osgi-generator) and the maven configuration defined for building the healthcheck api example bundle [here](https://github.com/ECF/grpc-RemoteServicesProvider/blob/master/pom.xml).
 
 ## Service Implementation and Service Consumer Creation
 
 Running (via maven) the protobuf+grpc-java+grpc-osgi-generator creates the Java **service api**.  Once done, all that needs to complete the api bundle is to export the appropriate package in the bundle manifest.mf so that the implementation bundle and the consumer bundle can import the needed classes.  The completed example [health check service api bundle is here](https://github.com/ECF/grpc-RemoteServicesProvider/tree/master/examples/org.eclipse.ecf.examples.provider.grpc.health.api).  Note that the [HealthCheckService class](https://github.com/ECF/grpc-RemoteServicesProvider/blob/master/examples/org.eclipse.ecf.examples.provider.grpc.health.api/src/main/java/io/grpc/health/v1/HealthCheckService.java) is the service interface for this example and that this class was generated by the grpc-osgi-generator protobuf plugin.
 
-The service implementation can now be created in a separate bundle that will run on the service host.  For reference, a [completed healthcheck implementation bundle is here](https://github.com/ECF/grpc-RemoteServicesProvider/tree/master/examples/org.eclipse.ecf.examples.provider.grpc.health.impl).  Note that the [HealthServiceImpl class](https://github.com/ECF/grpc-RemoteServicesProvider/blob/master/examples/org.eclipse.ecf.examples.provider.grpc.health.impl/src/org/eclipse/ecf/examples/provider/grpc/health/impl/HealthServiceImpl.java) implements the [HealthCheckService class](https://github.com/ECF/grpc-RemoteServicesProvider/blob/master/examples/org.eclipse.ecf.examples.provider.grpc.health.api/src/main/java/io/grpc/health/v1/HealthCheckService.java), and extends the [RxHealthCheckGrpc](https://github.com/ECF/grpc-RemoteServicesProvider/blob/master/examples/org.eclipse.ecf.examples.provider.grpc.health.api/src/main/java/io/grpc/health/v1/RxHealthCheckGrpc.java), which was generated by the reactive-grpc protoc plugin.
+The service implementation can now be created in an additional bundle that will run only on the service host.  For reference, a [completed healthcheck implementation bundle is here](https://github.com/ECF/grpc-RemoteServicesProvider/tree/master/examples/org.eclipse.ecf.examples.provider.grpc.health.impl).  Note that the [HealthServiceImpl class](https://github.com/ECF/grpc-RemoteServicesProvider/blob/master/examples/org.eclipse.ecf.examples.provider.grpc.health.impl/src/org/eclipse/ecf/examples/provider/grpc/health/impl/HealthServiceImpl.java) implements the [HealthCheckService class](https://github.com/ECF/grpc-RemoteServicesProvider/blob/master/examples/org.eclipse.ecf.examples.provider.grpc.health.api/src/main/java/io/grpc/health/v1/HealthCheckService.java), and extends the [RxHealthCheckGrpc](https://github.com/ECF/grpc-RemoteServicesProvider/blob/master/examples/org.eclipse.ecf.examples.provider.grpc.health.api/src/main/java/io/grpc/health/v1/RxHealthCheckGrpc.java), which was generated by the reactive-grpc protoc plugin.
 
-Finally, the health check [service consumer is here](https://github.com/ECF/grpc-RemoteServicesProvider/blob/master/examples/org.eclipse.ecf.examples.provider.grpc.health.consumer/src/org/eclipse/ecf/examples/provider/grpc/health/consumer/HealthServiceConsumer.java) and it uses an injected instance of the HealthCheckService (the RSA-created proxy) to access the service/call it's **check** method which has io.reactivex.Single types for both the HealthCheckRequest and the HealthCheckResponse.  For reference, the [completed healthcheck consumer bundle is here](https://github.com/ECF/grpc-RemoteServicesProvider/tree/master/examples/org.eclipse.ecf.examples.provider.grpc.health.consumer).
+The health check [service consumer is here](https://github.com/ECF/grpc-RemoteServicesProvider/blob/master/examples/org.eclipse.ecf.examples.provider.grpc.health.consumer/src/org/eclipse/ecf/examples/provider/grpc/health/consumer/HealthServiceConsumer.java) and it uses an injected instance of the HealthCheckService (the RSA-created proxy) to access the service/call it's **check** method which has io.reactivex.Single types for both the HealthCheckRequest and the HealthCheckResponse.  For reference, the [completed healthcheck consumer bundle is here](https://github.com/ECF/grpc-RemoteServicesProvider/tree/master/examples/org.eclipse.ecf.examples.provider.grpc.health.consumer).
 # Installing and Running the Example on Apache Karaf
 ## Install the gRPC Remote Services Distribution Provider
 1. Start Karaf
@@ -122,6 +122,8 @@ In console type:
 karaf@root()> feature:install -v ecf-rs-examples-grpc-healthcheck-impl
 ```
 The source code for this HealthCheckService implementation is [here](https://github.com/ECF/grpc-RemoteServicesProvider/blob/master/examples/org.eclipse.ecf.examples.provider.grpc.health.impl/src/org/eclipse/ecf/examples/provider/grpc/health/impl/HealthServiceImpl.java) in [this project](https://github.com/ECF/grpc-RemoteServicesProvider/tree/master/examples/org.eclipse.ecf.examples.provider.grpc.health.impl)
+
+Note that in this example, do network-based discovery provider is installed, so for automatic network discovery one of the [ECF Discovery Providers](https://wiki.eclipse.org/Discovery_Providers) will need to be installed.   Another option is to used the [RSA **importservice**](https://wiki.eclipse.org/RSA_Console_Commands#Remote_Service_Import) console command to import the service in the consumer without automatic network discovery.
 
 ## Install and Start the HealthCheck Example Consumer (Client)
 In console type:

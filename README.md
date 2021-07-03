@@ -141,31 +141,4 @@ got health check response=status: SERVING
 ```
 The text of the bottom line 'got health check response=status: SERVING' is produced by the consumer implementation class [here](https://github.com/ECF/grpc-RemoteServicesProvider/blob/master/examples/org.eclipse.ecf.examples.provider.grpc.health.consumer/src/org/eclipse/ecf/examples/provider/grpc/health/consumer/HealthServiceConsumer.java) located in [this project](https://github.com/ECF/grpc-RemoteServicesProvider/tree/master/examples/org.eclipse.ecf.examples.provider.grpc.health.consumer).   Note that SERVING is the server's response to the consumer's invoking the check remote service method on the declarative-services-injected HealthCheckService instance. 
 
-# Installing in Eclipse
-
-First the ECF Remote Services SDK must be installed.   See [here](https://www.eclipse.org/ecf/downloads.php) under *Install via p2 Repository*
-
-Then add the ECF Remote Services Distribution Provider and tooling repo:
-
-1. In Eclipse goto menu:  *Help->Install New Software...*
-2. Click *Add...* button on right of dialog
-
-  > Name:  ECF gRPC Distribution Provider and Tooling
-  > 
-  > Location:  https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/
-
-3. Uncheck the 'Group Items by Category' radio button near bottom
-
-This should display 3 features, each listed twice
-
-ECF Grpc Remote Services Provider Feature (actual distribution provider)
-ECF Grpc Remote Services Provider Feature  (source code)
-ECF Grpc Remote Services Provider Tooling Feature (Eclipse editor for .proto file editing with syntax coloring)
-ECF Grpc Remote Services Provider Tooling Feature (source code)
-ECF Grpc Remote Services Examples Feature (HealthCheck API, IMpl, Consumer bundles)
-ECF Grpc Remote Services Examples Feature (source code)
-
-Only the first feature is required to use the distribution provider.
-
-Once the desired feature is selected, continue through the feature installation process to complete the install.
 

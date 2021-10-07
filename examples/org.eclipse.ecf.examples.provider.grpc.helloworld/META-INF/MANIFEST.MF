@@ -9,5 +9,6 @@ Import-Package: com.google.common.util.concurrent,
  com.google.protobuf,
  io.grpc,
  io.grpc.protobuf,
- io.grpc.stub
+ io.grpc.stub,
+ javax.annotation;version="6.0.53"
 Export-Package: io.grpc.examples.helloworld

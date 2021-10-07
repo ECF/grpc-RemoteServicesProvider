@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.ecf.provider.grpc.feature"
       label="%featureName"
-      version="1.4.3.qualifier"
+      version="1.4.4.qualifier"
       provider-name="%providerName">
 
    <description url="https://github.com/ECF/grpc-RemoteServicesProvider/README.md">
@@ -13,11 +13,11 @@
    </description>
 
    <copyright>
-   	%copyright
+      %copyright
    </copyright>
 
    <license url="https://github.com/ECF/grpc-RemoteServicesProvider/LICENSE">
-      							Apache License
+      Apache License
                            Version 2.0, January 2004
                         http://www.apache.org/licenses/
 
@@ -194,10 +194,6 @@
 
    END OF TERMS AND CONDITIONS
    </license>
-
-   <requires>
-      <import feature="org.eclipse.ecf.remoteservice.sdk.feature" version="3.14.7" match="compatible"/>
-   </requires>
 
    <plugin
          id="org.eclipse.ecf.provider.grpc"

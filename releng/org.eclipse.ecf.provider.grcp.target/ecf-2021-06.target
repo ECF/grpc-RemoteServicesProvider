@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?>
+<target name="Grpc Provider 2021-06 Target" sequenceNumber="43">
+<locations>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.license.feature.group" version="1.0.1.v20140414-1359"/>
+<repository location="http://download.eclipse.org/cbi/updates/license/1.0.1.v20140414-1359"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.emf.edit.ui.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.emf.edit.ui.source.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.pde.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.pde.source.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.platform.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.platform.source.feature.group" version="0.0.0"/>
+<repository location="http://download.eclipse.org/releases/2021-06"/>
+</location>
+	<location includeSource="true" missingManifest="generate" type="Maven">
+		<groupId>com.salesforce.servicelibs</groupId>
+		<artifactId>reactive-grpc-common</artifactId>
+		<version>1.2.0</version>
+		<type>jar</type>
+	</location>
+	<location includeSource="true" missingManifest="generate" type="Maven">
+		<groupId>com.salesforce.servicelibs</groupId>
+		<artifactId>rx3grpc-stub</artifactId>
+		<version>1.2.0</version>
+		<type>jar</type>
+	</location>
+	<location includeSource="true" missingManifest="error" type="Maven">
+		<groupId>io.reactivex.rxjava3</groupId>
+		<artifactId>rxjava</artifactId>
+		<version>3.1.1</version>
+		<type>jar</type>
+	</location>
+	<location includeSource="true" missingManifest="generate" type="Maven">
+		<groupId>io.reactivex.rxjava2</groupId>
+		<artifactId>rxjava</artifactId>
+		<version>2.2.19</version>
+		<type>jar</type>
+	</location>
+	<location includeSource="true" missingManifest="generate" type="Maven">
+		<groupId>org.reactivestreams</groupId>
+		<artifactId>reactive-streams</artifactId>
+		<version>1.0.3</version>
+		<type>jar</type>
+	</location>
+	<location includeSource="true" missingManifest="generate" type="Maven">
+		<groupId>com.google.guava</groupId>
+		<artifactId>failureaccess</artifactId>
+		<version>1.0.1</version>
+		<type>jar</type>
+	</location>
+	<location includeSource="true" missingManifest="generate" type="Maven">
+		<groupId>com.google.code.gson</groupId>
+		<artifactId>gson</artifactId>
+		<version>2.8.6</version>
+		<type>jar</type>
+	</location>
+	<location includeSource="true" missingManifest="generate" type="Maven">
+		<groupId>com.google.guava</groupId>
+		<artifactId>guava</artifactId>
+		<version>30.1-android</version>
+		<type>jar</type>
+	</location>
+	<location includeSource="true" missingManifest="generate" type="Maven">
+		<groupId>io.netty</groupId>
+		<artifactId>netty-buffer</artifactId>
+		<version>4.1.68.Final</version>
+		<type>jar</type>
+	</location>
+	<location includeSource="true" missingManifest="generate" type="Maven">
+		<groupId>io.netty</groupId>
+		<artifactId>netty-codec</artifactId>
+		<version>4.1.68.Final</version>
+		<type>jar</type>
+	</location>
+	<location includeSource="true" missingManifest="generate" type="Maven">
+		<groupId>io.netty</groupId>
+		<artifactId>netty-codec-http2</artifactId>
+		<version>4.1.68.Final</version>
+		<type>jar</type>
+	</location>
+	<location includeSource="true" missingManifest="generate" type="Maven">
+		<groupId>io.netty</groupId>
+		<artifactId>netty-codec-http</artifactId>
+		<version>4.1.68.Final</version>
+		<type>jar</type>
+	</location>
+	<location includeSource="true" missingManifest="generate" type="Maven">
+		<groupId>io.netty</groupId>
+		<artifactId>netty-codec-socks</artifactId>
+		<version>4.1.68.Final</version>
+		<type>jar</type>
+	</location>
+	<location includeSource="true" missingManifest="generate" type="Maven">
+		<groupId>io.netty</groupId>
+		<artifactId>netty-common</artifactId>
+		<version>4.1.68.Final</version>
+		<type>jar</type>
+	</location>
+	<location includeSource="true" missingManifest="generate" type="Maven">
+		<groupId>io.netty</groupId>
+		<artifactId>netty-handler</artifactId>
+		<version>4.1.68.Final</version>
+		<type>jar</type>
+	</location>
+	<location includeSource="true" missingManifest="generate" type="Maven">
+		<groupId>io.netty</groupId>
+		<artifactId>netty-handler-proxy</artifactId>
+		<version>4.1.68.Final</version>
+		<type>jar</type>
+	</location>
+	<location includeSource="true" missingManifest="generate" type="Maven">
+		<groupId>io.netty</groupId>
+		<artifactId>netty-resolver</artifactId>
+		<version>4.1.68.Final</version>
+		<type>jar</type>
+	</location>
+	<location includeSource="true" missingManifest="generate" type="Maven">
+		<groupId>io.netty</groupId>
+		<artifactId>netty-transport</artifactId>
+		<version>4.1.68.Final</version>
+		<type>jar</type>
+	</location>
+	<location includeSource="true" missingManifest="generate" type="Maven">
+		<groupId>com.google.protobuf</groupId>
+		<artifactId>protobuf-java</artifactId>
+		<version>4.0.0-rc-2</version>
+		<type>jar</type>
+	</location>
+	<location includeSource="true" missingManifest="generate" type="Maven">
+		<groupId>com.salesforce.servicelibs</groupId>
+		<artifactId>rxgrpc-stub</artifactId>
+		<version>1.2.0</version>
+		<type>jar</type>
+	</location>
+	<location includeSource="true" missingManifest="generate" type="Maven">
+		<groupId>org.eclipse.ecf</groupId>
+		<artifactId>org.eclipse.ecf</artifactId>
+		<version>3.10.0</version>
+		<type>jar</type>
+	</location>
+	<location includeSource="true" missingManifest="generate" type="Maven">
+		<groupId>org.eclipse.ecf</groupId>
+		<artifactId>org.eclipse.ecf.identity</artifactId>
+		<version>3.9.402</version>
+		<type>jar</type>
+	</location>
+	<location includeSource="true" missingManifest="generate" type="Maven">
+		<groupId>org.eclipse.ecf</groupId>
+		<artifactId>org.eclipse.ecf.sharedobject</artifactId>
+		<version>2.6.200</version>
+		<type>jar</type>
+	</location>
+	<location includeSource="true" missingManifest="generate" type="Maven">
+		<groupId>org.eclipse.ecf</groupId>
+		<artifactId>org.eclipse.ecf.discovery</artifactId>
+		<version>5.1.1</version>
+		<type>jar</type>
+	</location>
+	<location includeSource="true" missingManifest="generate" type="Maven">
+		<groupId>org.eclipse.ecf</groupId>
+		<artifactId>org.eclipse.ecf.remoteservice.asyncproxy</artifactId>
+		<version>2.1.200</version>
+		<type>jar</type>
+	</location>
+	<location includeSource="true" missingManifest="generate" type="Maven">
+		<groupId>org.eclipse.ecf</groupId>
+		<artifactId>org.eclipse.ecf.remoteservice</artifactId>
+		<version>8.14.0</version>
+		<type>jar</type>
+	</location>
+	<location includeSource="true" missingManifest="generate" type="Maven">
+		<groupId>org.eclipse.ecf</groupId>
+		<artifactId>org.eclipse.ecf.console</artifactId>
+		<version>1.3.100</version>
+		<type>jar</type>
+	</location>
+	<location includeSource="true" missingManifest="generate" type="Maven">
+		<groupId>org.eclipse.ecf</groupId>
+		<artifactId>org.eclipse.ecf.osgi.services.remoteserviceadmin.console</artifactId>
+		<version>1.3.0</version>
+		<type>jar</type>
+	</location>
+	<location includeSource="true" missingManifest="generate" type="Maven">
+		<groupId>org.eclipse.ecf</groupId>
+		<artifactId>org.eclipse.osgi.services.remoteserviceadmin</artifactId>
+		<version>1.6.300</version>
+		<type>jar</type>
+	</location>
+	<location includeSource="true" missingManifest="generate" type="Maven">
+		<groupId>org.eclipse.ecf</groupId>
+		<artifactId>org.eclipse.ecf.osgi.services.remoteserviceadmin.proxy</artifactId>
+		<version>1.0.101</version>
+		<type>jar</type>
+	</location>
+	<location includeSource="true" missingManifest="generate" type="Maven">
+		<groupId>org.eclipse.ecf</groupId>
+		<artifactId>org.eclipse.ecf.osgi.services.remoteserviceadmin</artifactId>
+		<version>4.9.1</version>
+		<type>jar</type>
+	</location>
+	<location includeSource="true" missingManifest="generate" type="Maven">
+		<groupId>org.eclipse.ecf</groupId>
+		<artifactId>org.eclipse.ecf.osgi.services.distribution</artifactId>
+		<version>2.1.600</version>
+		<type>jar</type>
+	</location>
+	<location includeSource="true" missingManifest="generate" type="Maven">
+		<groupId>org.eclipse.ecf</groupId>
+		<artifactId>org.eclipse.ecf.provider.jmdns</artifactId>
+		<version>4.3.301</version>
+		<type>jar</type>
+	</location>
+
+</locations>
+</target>

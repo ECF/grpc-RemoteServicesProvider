@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.ecf.provider.grpc.tooling.feature"
       label="%featureName"
-      version="1.4.3.qualifier"
+      version="1.4.4.qualifier"
       provider-name="%providerName">
 
    <description url="http://www.example.com/description">
@@ -18,7 +18,7 @@
    </copyright>
 
    <license url="https://www.apache.org/licenses/LICENSE-2.0">
-                                Apache License
+      Apache License
                            Version 2.0, January 2004
                         http://www.apache.org/licenses/
 

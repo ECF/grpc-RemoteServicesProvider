@@ -17,74 +17,46 @@
  ******************************************************************************/
 package org.eclipse.ecf.provider.grpc.client;
 
-import java.lang.reflect.Method;
-import java.net.URI;
+import java.util.Dictionary;
+import java.util.Map;
 import java.util.UUID;
 
+import org.eclipse.ecf.core.identity.ID;
 import org.eclipse.ecf.core.identity.URIID;
-import org.eclipse.ecf.provider.grpc.GRPCConstants;
 import org.eclipse.ecf.provider.grpc.identity.GRPCNamespace;
 import org.eclipse.ecf.remoteservice.IRemoteService;
 import org.eclipse.ecf.remoteservice.client.AbstractRSAClientContainer;
+import org.eclipse.ecf.remoteservice.client.IRemoteCallable;
 import org.eclipse.ecf.remoteservice.client.RemoteServiceClientRegistration;
 
-import io.grpc.ManagedChannel;
-import io.grpc.ManagedChannelBuilder;
-
 public class GRPCClientContainer extends AbstractRSAClientContainer {
-
-	private ManagedChannel channel;
 
 	public GRPCClientContainer() {
 		super(GRPCNamespace.getInstance().createInstance(new Object[] { "uuid:" + UUID.randomUUID().toString() }));
 	}
 
-	protected Method findNewStubStaticMethod(Class<?> grpcClass, String methodName)
-			throws NoSuchMethodException, SecurityException {
-		// Get 'newBlockingStub' static method
-		return grpcClass.getMethod(methodName, io.grpc.Channel.class);
-	}
-
-	protected Class<?> loadGrpcStubClass(RemoteServiceClientRegistration registration) throws ClassNotFoundException {
-		// Get grcpStubClassname from properties
-		String grcpClassname = (String) registration.getProperty(GRPCConstants.GRPC_STUB_CLASS_PROP);
-		// Load grcpStubClass
-		return Class.forName(grcpClassname, true, this.getClass().getClassLoader());
-	}
-
-	protected ManagedChannel createChannel(String host, int port) {
-		return ManagedChannelBuilder.forAddress(host, port).usePlaintext().build();
-	}
-
-	@SuppressWarnings({ "rawtypes" })
+	@SuppressWarnings({ })
 	@Override
 	protected IRemoteService createRemoteService(final RemoteServiceClientRegistration registration) {
-		try {
-			// Get URI from connected ID
-			URI uri = ((URIID) getConnectedID()).toURI();
-			Method method = findNewStubStaticMethod(loadGrpcStubClass(registration),
-					GRPCConstants.GRPC_STUB_METHOD_NAME);
-			if (method == null) {
-				throw new NoSuchMethodError("No method=" + GRPCConstants.GRPC_STUB_METHOD_NAME);
-			}
-			this.channel = createChannel(uri.getHost(), uri.getPort());
-			// Invoke method with channel to get stub
-			io.grpc.stub.AbstractStub stub = (io.grpc.stub.AbstractStub) method.invoke(null, channel);
-			// Prepare a new client service
-			return new GRPCClientService(this, registration, stub);
-		} catch (final Exception ex) {
-			// TODO: log exception
-			ex.printStackTrace();
-			// Return null in case of error
-			return null;
-		}
+		return new GRPCClientService(this, registration, ((URIID) getConnectedID()).toURI());
 	}
 
-	@Override
-	public void dispose() {
-		if (channel != null && !channel.isShutdown()) {
-			channel.shutdown();
-			channel = null;
+	public class GRPCClientRegistration extends RSAClientRegistration {
+
+		public GRPCClientRegistration(ID targetID, String[] classNames, IRemoteCallable[][] restCalls,
+				Dictionary<?, ?> properties) {
+			super(targetID, classNames, restCalls, properties);
 		}
+		
+		public void setClassLoader(ClassLoader cl) {
+			super.setClassLoader(cl);
+		}
+	}
+	
+	@Override
+	protected RemoteServiceClientRegistration createRSAClientRegistration(ID targetID, String[] interfaces,
+			Map<String, Object> endpointDescriptionProperties) {
+		Dictionary<?, ?> d = createRegistrationProperties(endpointDescriptionProperties);
+		return new GRPCClientRegistration(targetID, interfaces, createRegistrationCallables(targetID, interfaces, d), d);
 	}
 }

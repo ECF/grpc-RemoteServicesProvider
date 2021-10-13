@@ -7,27 +7,6 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="src" path="src/"/>
-	<classpathentry exported="true" kind="lib" path="lib/deps/animal-sniffer-annotations-1.19.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/deps/annotations-4.1.1.4.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/deps/annotations-api-6.0.53.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/deps/checker-compat-qual-2.5.5.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/deps/error_prone_annotations-2.4.0.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/deps/j2objc-annotations-1.3.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/deps/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/deps/perfmark-api-0.23.0.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/deps/proto-google-common-protos-2.0.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/grpc-1.31.1/grpc-api-1.36.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/grpc-1.31.1/grpc-context-1.36.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/grpc-1.31.1/grpc-core-1.36.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/grpc-1.31.1/grpc-netty-1.36.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/grpc-1.31.1/grpc-protobuf-1.36.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/grpc-1.31.1/grpc-protobuf-lite-1.36.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/grpc-1.31.1/grpc-services-1.36.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/grpc-1.31.1/grpc-stub-1.36.1.jar"/>
-	<classpathentry kind="src" path=".apt_generated">
-		<attributes>
-			<attribute name="optional" value="true"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="src" path=".apt_generated/"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

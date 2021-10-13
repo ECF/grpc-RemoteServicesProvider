@@ -46,6 +46,8 @@
         <setEntry value="javax.inject.source"/>
         <setEntry value="javax.servlet.jsp.source"/>
         <setEntry value="org.apache.ant.source"/>
+        <setEntry value="org.apache.aries.spifly.dynamic.bundle@default:default"/>
+        <setEntry value="org.apache.aries.util@default:default"/>
         <setEntry value="org.apache.batik.constants.source"/>
         <setEntry value="org.apache.batik.css.source"/>
         <setEntry value="org.apache.batik.i18n.source"/>
@@ -307,8 +309,15 @@
         <setEntry value="org.junit.platform.suite.api.source"/>
         <setEntry value="org.junit.source"/>
         <setEntry value="org.junit.vintage.engine.source"/>
-        <setEntry value="org.objectweb.asm.source"/>
-        <setEntry value="org.objectweb.asm.tree.source"/>
+        <setEntry value="org.objectweb.asm*9.2.0@default:default"/>
+        <setEntry value="org.objectweb.asm.commons@default:default"/>
+        <setEntry value="org.objectweb.asm.source*9.1.0.v20210209-1849"/>
+        <setEntry value="org.objectweb.asm.source*9.2.0"/>
+        <setEntry value="org.objectweb.asm.tree*9.2.0@default:default"/>
+        <setEntry value="org.objectweb.asm.tree.analysis@default:default"/>
+        <setEntry value="org.objectweb.asm.tree.source*9.1.0.v20210209-1849"/>
+        <setEntry value="org.objectweb.asm.tree.source*9.2.0"/>
+        <setEntry value="org.objectweb.asm.util@default:default"/>
         <setEntry value="org.opentest4j.source"/>
         <setEntry value="org.reactivestreams.reactive-streams@default:default"/>
         <setEntry value="org.tukaani.xz.source"/>
@@ -316,6 +325,19 @@
         <setEntry value="org.w3c.dom.events.source"/>
         <setEntry value="org.w3c.dom.smil.source"/>
         <setEntry value="org.w3c.dom.svg.source"/>
+        <setEntry value="wrapped.com.google.errorprone.error_prone_annotations@default:default"/>
+        <setEntry value="wrapped.com.google.j2objc.j2objc-annotations@default:default"/>
+        <setEntry value="wrapped.io.grpc.grpc-api@default:default"/>
+        <setEntry value="wrapped.io.grpc.grpc-context@default:default"/>
+        <setEntry value="wrapped.io.grpc.grpc-core@default:default"/>
+        <setEntry value="wrapped.io.grpc.grpc-netty@default:default"/>
+        <setEntry value="wrapped.io.grpc.grpc-protobuf-lite@default:default"/>
+        <setEntry value="wrapped.io.grpc.grpc-protobuf@default:default"/>
+        <setEntry value="wrapped.io.grpc.grpc-services@default:default"/>
+        <setEntry value="wrapped.io.grpc.grpc-stub@default:default"/>
+        <setEntry value="wrapped.io.perfmark.perfmark-api@default:default"/>
+        <setEntry value="wrapped.org.apache.tomcat.annotations-api@default:default"/>
+        <setEntry value="wrapped.org.codehaus.mojo.animal-sniffer-annotations@default:default"/>
     </setAttribute>
     <setAttribute key="selected_workspace_bundles">
         <setEntry value="org.eclipse.ecf.examples.provider.grpc.health.api@default:default"/>

@@ -25,20 +25,27 @@ import org.eclipse.ecf.core.ContainerCreateException;
 import org.eclipse.ecf.core.ContainerTypeDescription;
 import org.eclipse.ecf.core.IContainer;
 import org.eclipse.ecf.core.identity.Namespace;
+import org.eclipse.ecf.core.util.BundleStarter;
 import org.eclipse.ecf.provider.grpc.client.GRPCClientContainer;
 import org.eclipse.ecf.provider.grpc.host.GRPCHostContainer;
 import org.eclipse.ecf.provider.grpc.identity.GRPCNamespace;
 import org.eclipse.ecf.remoteservice.provider.IRemoteServiceDistributionProvider;
 import org.eclipse.ecf.remoteservice.provider.RemoteServiceContainerInstantiator;
 import org.eclipse.ecf.remoteservice.provider.RemoteServiceDistributionProvider;
+import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
 public class Activator implements BundleActivator {
 
+	private static final String[] GRPC_BUNDLES_TO_ACTIVATE = System
+			.getProperty("org.eclipse.ecf.provider.grpc.bundlesToActivate", "org.apache.aries.spifly.dynamic.bundle")
+			.split(",");
+
 	@Override
 	public void start(BundleContext context) throws Exception {
 		// Register GRPCNamespace
+		BundleStarter.startDependents(context, GRPC_BUNDLES_TO_ACTIVATE, Bundle.RESOLVED);
 		context.registerService(Namespace.class, new GRPCNamespace(), null);
 		context.registerService(IRemoteServiceDistributionProvider.class,
 				new RemoteServiceDistributionProvider.Builder().setName(GRPCConstants.SERVER_PROVIDER_CONFIG_TYPE)

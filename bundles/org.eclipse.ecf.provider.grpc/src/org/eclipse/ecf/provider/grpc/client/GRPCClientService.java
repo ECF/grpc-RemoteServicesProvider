@@ -17,7 +17,9 @@
  ******************************************************************************/
 package org.eclipse.ecf.provider.grpc.client;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -27,27 +29,80 @@ import java.util.stream.Collectors;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.ecf.core.util.ECFException;
+import org.eclipse.ecf.provider.grpc.GRPCConstants;
 import org.eclipse.ecf.remoteservice.client.AbstractClientContainer;
 import org.eclipse.ecf.remoteservice.client.AbstractRSAClientService;
 import org.eclipse.ecf.remoteservice.client.RemoteServiceClientRegistration;
 import org.eclipse.equinox.concurrent.future.IExecutor;
 import org.eclipse.equinox.concurrent.future.IProgressRunnable;
 
+import io.grpc.ManagedChannel;
+import io.grpc.ManagedChannelBuilder;
 import io.grpc.stub.AbstractStub;
 
+@SuppressWarnings("unused")
 public class GRPCClientService extends AbstractRSAClientService {
 
+	private URI uri;
+	private ManagedChannel channel;
 	@SuppressWarnings("rawtypes")
-	private final io.grpc.stub.AbstractStub stub;
+	private io.grpc.stub.AbstractStub stub;
 	private final List<Method> stubMethods = new ArrayList<Method>();
 
-	public GRPCClientService(AbstractClientContainer container, RemoteServiceClientRegistration registration,
-			@SuppressWarnings("rawtypes") AbstractStub blockingStub) {
+	public GRPCClientService(AbstractClientContainer container, RemoteServiceClientRegistration registration, URI uri) {
 		super(container, registration);
-		this.stub = blockingStub;
-		Arrays.asList(blockingStub.getClass().getDeclaredMethods()).forEach(m -> stubMethods.add(m));
+		this.uri = uri;
+	}
+	
+	@Override
+	public void dispose() {
+		super.dispose();
+		if (channel != null && !channel.isShutdown()) {
+			channel.shutdown();
+			channel = null;
+		}
+	}
+	
+	protected Class<?> loadGrpcStubClass(RemoteServiceClientRegistration registration) throws ClassNotFoundException {
+		// Get grcpStubClassname from properties
+		String grcpClassname = (String) registration.getProperty(GRPCConstants.GRPC_STUB_CLASS_PROP);
+		// Load grcpStubClass
+		ClassLoader cl = this.registration.getClassLoader();
+		if (cl == null) cl = this.getClass().getClassLoader();
+		return Class.forName(grcpClassname, true, cl);
 	}
 
+	@SuppressWarnings("rawtypes")
+	@Override
+	protected Object createProxy(ClassLoader cl, Class[] classes) {
+		((GRPCClientContainer.GRPCClientRegistration) this.registration).setClassLoader(cl);
+		// Get URI from connected ID
+		Method method = null;
+		try {
+			method = loadGrpcStubClass(registration).getMethod(GRPCConstants.GRPC_STUB_METHOD_NAME, io.grpc.Channel.class);
+		} catch (Exception e) {
+			throw new RuntimeException("Could not load Grpc Stub class or get stub method from class",e);
+		}
+		this.channel = ManagedChannelBuilder.forAddress(uri.getHost(), uri.getPort()).usePlaintext().build();
+		// Invoke method with channel to get stub
+		try {
+			this.stub = (io.grpc.stub.AbstractStub) method.invoke(null, channel);
+		} catch (Exception e) {
+			closeChannel(); 
+			throw new RuntimeException("Could not create grpc stub for channel", e);
+		}
+		// setup stubMethods with the public methods on this.stub class
+		Arrays.asList(this.stub.getClass().getDeclaredMethods()).forEach(m -> stubMethods.add(m));
+		return super.createProxy(cl, classes);
+	}
+
+	private void closeChannel() {
+		if (this.channel != null && !this.channel.isShutdown()) {
+			this.channel.shutdown();
+			this.channel = null;
+		}
+	}
+	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	protected Object invokeAsync(RSARemoteCall remoteCall) throws ECFException {
@@ -107,7 +162,7 @@ public class GRPCClientService extends AbstractRSAClientService {
 	@Override
 	protected Object invokeSync(RSARemoteCall remoteCall) throws ECFException {
 		try {
-			return findInvokeMethod(remoteCall).invoke(stub, remoteCall.getParameters());
+			return findInvokeMethod(remoteCall).invoke(this.stub, remoteCall.getParameters());
 		} catch (Exception e) {
 			ECFException ee = new ECFException("Cannot invoke method on grcp stub=" + stub, e);
 			ee.setStackTrace(e.getStackTrace());

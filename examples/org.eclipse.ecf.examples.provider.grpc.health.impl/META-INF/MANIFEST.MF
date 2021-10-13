@@ -6,8 +6,9 @@ Bundle-Version: 1.2.0.qualifier
 Bundle-Vendor: Eclipse.org - ECF
 Automatic-Module-Name: org.eclipse.ecf.examples.provider.grpc.health.impl
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Import-Package: io.grpc,
- io.grpc.health.v1,
+Import-Package: io.grpc;version="1.39.0",
+ io.grpc.health.v1;version="1.100.0",
+ io.grpc.stub;version="1.39.0",
  io.reactivex;version="2.2.19",
  io.reactivex.annotations;version="2.2.19",
  io.reactivex.disposables;version="2.2.19",
@@ -25,6 +26,4 @@ Import-Package: io.grpc,
  org.osgi.service.component.annotations;version="1.2.0";resolution:=optional,
  org.reactivestreams;version="1.0.3"
 Bundle-ActivationPolicy: lazy
-Require-Bundle: org.eclipse.ecf.provider.grpc,
- com.google.protobuf;bundle-version="3.9.0"
 Service-Component: OSGI-INF/org.eclipse.ecf.examples.provider.grpc.health.impl.HealthServiceImpl.xml

@@ -14,7 +14,7 @@
 		<bundle>mvn:com.google.code.gson/gson/2.8.6</bundle>
 		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/wrapped.com.google.errorprone.error_prone_annotations_2.9.0.jar</bundle>
 		<bundle>mvn:com.google.guava/failureaccess/1.0.1</bundle>
-		<bundle>mvn:com.google.guava/guava/30.1.0.android</bundle>
+		<bundle>mvn:com.google.guava/guava/30.1-android</bundle>
 		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/wrapped.com.google.j2objc.j2objc-annotations_1.3.0.jar</bundle>
 		<bundle>mvn:com.google.protobuf/protobuf-java/4.0.0.rc-2</bundle>
 		<bundle>mvn:com.salesforce.servicelibs/reactive-grpc-common/1.2.3</bundle>

@@ -9,45 +9,58 @@
 		description="ECF Remote Services Grpc Distribution Provider. See https://github.com/ECF/grpc-RemoteServicesProvider">
 		<feature>ecf-rs-rsa</feature>
 		<feature>ecf-rs-console</feature>
-		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/com.google.gson_2.8.6.jar
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/wrapped.com.google.api.grpc.proto-google-common-protos_2.0.1.jar</bundle>
+		
+		<bundle>mvn:com.google.code.gson/gson/2.8.6</bundle>
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/wrapped.com.google.errorprone.error_prone_annotations_2.9.0.jar</bundle>
+		<bundle>mvn:com.google.guava/failureaccess/1.0.1</bundle>
+		<bundle>mvn:com.google.guava/guava/30.1.0.android</bundle>
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/wrapped.com.google.j2objc.j2objc-annotations_1.3.0.jar</bundle>
+		<bundle>mvn:com.google.protobuf/protobuf-java/4.0.0.rc-2</bundle>
+		<bundle>mvn:com.salesforce.servicelibs/reactive-grpc-common/1.2.3</bundle>
+		<bundle>mvn:com.salesforce.servicelibs/rxgrpc-stub/1.2.3</bundle>
+		<bundle>mvn:com.salesforce.servicelibs/rx3grpc-stub/1.2.3</bundle>
+		<!-- grpc 1.39.0 -->
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/wrapped.io.grpc.grpc-api_1.39.0.jar</bundle>
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/wrapped.io.grpc.grpc-context_1.39.0.jar</bundle>
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/wrapped.io.grpc.grpc-core_1.39.0.jar</bundle>
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/wrapped.io.grpc.grpc-netty_1.39.0.jar</bundle>
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/wrapped.io.grpc.grpc-protobuf_1.39.0.jar</bundle>
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/wrapped.io.grpc.grpc-protobuf-lite_1.39.0.jar</bundle>
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/wrapped.io.grpc.grpc-services_1.39.0.jar</bundle>
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/wrapped.io.grpc.grpc-stub_1.39.0.jar</bundle>
+
+		<bundle>mvn:io.netty/io.netty.buffer/4.1.68.Final</bundle>
+		<bundle>mvn:io.netty/netty-codec/4.1.68.Final</bundle>
+		<bundle>mvn:io.netty/netty-codec-http/4.1.68.Final</bundle>
+		<bundle>mvn:io.netty/netty-codec-http2/4.1.68.Final</bundle>
+		<bundle>mvn:io.netty/netty-codec-socks/4.1.68.Final</bundle>
+		<bundle>mvn:io.netty/netty-common/4.1.68.Final</bundle>
+		<bundle>mvn:io.netty/netty-handler/4.1.68.Final</bundle>
+		<bundle>mvn:io.netty/netty-handler-proxy/4.1.68.Final</bundle>
+		<bundle>mvn:io.netty/netty-resolver/4.1.68.Final</bundle>
+		<bundle>mvn:io.netty/netty-transport/4.1.68.Final</bundle>
+
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/wrapped.io.perfmark.perfmark-api_0.23.0.jar</bundle>
+		<bundle>mvn:io.reactivex.rxjava2/rxjava/2.2.21</bundle>
+		<bundle>mvn:io.reactivex.rxjava3/rxjava/3.3.1</bundle>
+
+		<bundle>mvn:org.apache.aries/org.apache.aries.util/1.1.3</bundle>
+		<bundle start-level="50">mvn:org.apache.aries.spifly/org.apache.aries.spifly.dynamic.bundle/1.3.4</bundle>
+
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/wrapped.org.apache.tomcat.annotations-api_6.0.53.jar</bundle>
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/wrapped.org.codehaus.mojo.animal-sniffer-annotations_1.19.0.jar</bundle>
+		<bundle>mvn:org.ow2.asm/asm/9.2</bundle>
+		<bundle>mvn:org.ow2.asm/asm-analysis/9.2</bundle>
+		<bundle>mvn:org.ow2.asm/asm-commons/9.2</bundle>
+		<bundle>mvn:org.ow2.asm/asm-tree/9.2</bundle>
+		<bundle>mvn:org.ow2.asm/asm-util/9.2</bundle>
+		
+		<bundle>mvn:org.reactivestreams/reactive-streams/1.0.3</bundle>
+		
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.eclipse.ecf.provider.grpc_1.5.0.202110131727.jar
 		</bundle>
-		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/com.google.guava_30.1.0.android.jar
-		</bundle>
-		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/com.google.guava.failureaccess_1.0.1.jar
-		</bundle>
-		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/com.google.protobuf_4.0.0.rc-2.jar
-		</bundle>
-		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/com.salesforce.servicelibs.reactive-grpc-common_1.2.0.jar
-		</bundle>
-		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/com.salesforce.servicelibs.rxgrpc-stub_1.2.0.jar
-		</bundle>
-		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/io.netty.buffer_4.1.68.Final.jar
-		</bundle>
-		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/io.netty.codec_4.1.68.Final.jar
-		</bundle>
-		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/io.netty.codec-http_4.1.68.Final.jar
-		</bundle>
-		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/io.netty.codec-http2_4.1.68.Final.jar
-		</bundle>
-		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/io.netty.codec-socks_4.1.68.Final.jar
-		</bundle>
-		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/io.netty.common_4.1.68.Final.jar
-		</bundle>
-		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/io.netty.handler_4.1.68.Final.jar
-		</bundle>
-		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/io.netty.handler-proxy_4.1.68.Final.jar
-		</bundle>
-		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/io.netty.resolver_4.1.68.Final.jar
-		</bundle>
-		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/io.netty.transport_4.1.68.Final.jar
-		</bundle>
-		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/io.reactivex.rxjava2.rxjava_2.2.19.jar
-		</bundle>
-		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.reactivestreams.reactive-streams_1.0.3.jar
-		</bundle>
-		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.eclipse.ecf.provider.grpc_1.4.0.202110042322.jar
-		</bundle>
-		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.eclipse.ecf.provider.grpc.console_1.0.3.202110042322.jar
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.eclipse.ecf.provider.grpc.console_1.0.3.202110131727.jar
 		</bundle>
 	</feature>
 
@@ -55,7 +68,7 @@
 		version="1.5.0"
 		description="ECF Remote Services Grpc HealthCheck Example Service API.  See https://github.com/ECF/grpc-RemoteServicesProvider">
 		<feature version="1.5.0">ecf-rs-distribution-grpc</feature>
-		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.eclipse.ecf.examples.provider.grpc.health.api_1.3.0.202110042322.jar
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.eclipse.ecf.examples.provider.grpc.health.api_1.3.0.202110131727.jar
 		</bundle>
 	</feature>
 
@@ -63,7 +76,7 @@
 		version="1.5.0"
 		description="ECF Remote Services Grpc HealthCheck Example Service Impl.  See https://github.com/ECF/grpc-RemoteServicesProvider">
 		<feature version="1.5.0">ecf-rs-examples-grpc-healthcheck-api</feature>
-		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.eclipse.ecf.examples.provider.grpc.health.impl_1.2.0.202110042322.jar
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.eclipse.ecf.examples.provider.grpc.health.impl_1.2.0.202110131727.jar
 		</bundle>
 	</feature>
 
@@ -71,7 +84,7 @@
 		version="1.5.0"
 		description="ECF Remote Services Grpc HealthCheck Example Service Consumer.  See https://github.com/ECF/grpc-RemoteServicesProvider">
 		<feature version="1.5.0">ecf-rs-examples-grpc-healthcheck-api</feature>
-		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.eclipse.ecf.examples.provider.grpc.health.consumer_1.2.0.202110042322.jar
+		<bundle>https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/plugins/org.eclipse.ecf.examples.provider.grpc.health.consumer_1.2.0.202110131727.jar
 		</bundle>
 	</feature>
 

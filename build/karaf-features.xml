@@ -1,7 +1,7 @@
 <features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0"
 	name="ecf-remoteservices-grpc-1.5.0">
 
-	<repository>http://download.eclipse.org/rt/ecf/RELEASE/site.p2/karaf-features.xml
+	<repository>https://download.eclipse.org/rt/ecf/RELEASE/site.p2/karaf-features.xml
 	</repository>
 
 	<feature name="ecf-rs-distribution-grpc"

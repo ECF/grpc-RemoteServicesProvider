@@ -13,7 +13,7 @@
 	<artifactId>org.eclipse.ecf.examples.provider.grpc.rx3.health.api
 	</artifactId>
 	<packaging>eclipse-plugin</packaging>
-	<version>1.3.0-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 
 	<build>
 		<plugins>

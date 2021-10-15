@@ -9,21 +9,8 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: io.grpc;version="1.39.0",
  io.grpc.health.v1;version="1.100.0",
  io.grpc.stub;version="1.39.0",
- io.reactivex;version="2.2.19",
- io.reactivex.annotations;version="2.2.19",
- io.reactivex.disposables;version="2.2.19",
- io.reactivex.exceptions;version="2.2.19",
- io.reactivex.flowables;version="2.2.19",
- io.reactivex.functions;version="2.2.19",
- io.reactivex.observables;version="2.2.19",
- io.reactivex.observers;version="2.2.19",
- io.reactivex.parallel;version="2.2.19",
- io.reactivex.plugins;version="2.2.19",
- io.reactivex.processors;version="2.2.19",
- io.reactivex.schedulers;version="2.2.19",
- io.reactivex.subjects;version="2.2.19",
- io.reactivex.subscribers;version="2.2.19",
  org.osgi.service.component.annotations;version="1.2.0";resolution:=optional,
  org.reactivestreams;version="1.0.3"
 Bundle-ActivationPolicy: lazy
 Service-Component: OSGI-INF/org.eclipse.ecf.examples.provider.grpc.health.impl.HealthServiceImpl.xml
+Require-Bundle: io.reactivex.rxjava2.rxjava;bundle-version="2.2.21"

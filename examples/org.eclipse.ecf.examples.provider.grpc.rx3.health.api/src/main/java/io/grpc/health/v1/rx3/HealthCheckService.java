@@ -1,7 +1,7 @@
-package io.grpc.health.v1;
+package io.grpc.health.v1.rx3;
 
-import io.reactivex.Single;
-import io.reactivex.Flowable;
+import io.reactivex.rxjava3.core.Single;
+import io.reactivex.rxjava3.core.Flowable;
 
 @javax.annotation.Generated(
 value = "by grpc-osgi-generator (REACTIVEX) - A protoc plugin for ECF's grpc remote services distribution provider at https://github.com/ECF/grpc-RemoteServiceSProvider ",
@@ -14,7 +14,7 @@ public interface HealthCheckService {
      *  Unary method
      * </pre>
      */
-    default Single<io.grpc.health.v1.HealthCheckResponse> check(Single<io.grpc.health.v1.HealthCheckRequest> requests)  {
+    default Single<io.grpc.health.v1.rx3.HealthCheckResponse> check(Single<io.grpc.health.v1.rx3.HealthCheckRequest> requests)  {
         return null;
     }
     
@@ -23,7 +23,7 @@ public interface HealthCheckService {
      *  Server streaming method
      * </pre>
      */
-    default Flowable<io.grpc.health.v1.HealthCheckResponse> watchServer(Single<io.grpc.health.v1.HealthCheckRequest> requests)  {
+    default Flowable<io.grpc.health.v1.rx3.HealthCheckResponse> watchServer(Single<io.grpc.health.v1.rx3.HealthCheckRequest> requests)  {
         return null;
     }
     
@@ -32,7 +32,7 @@ public interface HealthCheckService {
      *  Client streaming method
      * </pre>
      */
-    default Single<io.grpc.health.v1.HealthCheckResponse> watchClient(Flowable<io.grpc.health.v1.HealthCheckRequest> requests)  {
+    default Single<io.grpc.health.v1.rx3.HealthCheckResponse> watchClient(Flowable<io.grpc.health.v1.rx3.HealthCheckRequest> requests)  {
         return null;
     }
     
@@ -41,7 +41,7 @@ public interface HealthCheckService {
      *  bidi streaming method
      * </pre>
      */
-    default Flowable<io.grpc.health.v1.HealthCheckResponse> watchBidi(Flowable<io.grpc.health.v1.HealthCheckRequest> requests)  {
+    default Flowable<io.grpc.health.v1.rx3.HealthCheckResponse> watchBidi(Flowable<io.grpc.health.v1.rx3.HealthCheckRequest> requests)  {
         return null;
     }
 }

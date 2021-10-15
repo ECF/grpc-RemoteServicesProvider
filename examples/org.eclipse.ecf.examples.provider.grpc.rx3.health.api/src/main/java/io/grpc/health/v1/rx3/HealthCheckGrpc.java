@@ -1,4 +1,4 @@
-package io.grpc.health.v1;
+package io.grpc.health.v1.rx3;
 
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 
@@ -14,29 +14,29 @@ public final class HealthCheckGrpc {
   public static final String SERVICE_NAME = "grpc.health.v1.HealthCheck";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<io.grpc.health.v1.HealthCheckRequest,
-      io.grpc.health.v1.HealthCheckResponse> getCheckMethod;
+  private static volatile io.grpc.MethodDescriptor<io.grpc.health.v1.rx3.HealthCheckRequest,
+      io.grpc.health.v1.rx3.HealthCheckResponse> getCheckMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "Check",
-      requestType = io.grpc.health.v1.HealthCheckRequest.class,
-      responseType = io.grpc.health.v1.HealthCheckResponse.class,
+      requestType = io.grpc.health.v1.rx3.HealthCheckRequest.class,
+      responseType = io.grpc.health.v1.rx3.HealthCheckResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<io.grpc.health.v1.HealthCheckRequest,
-      io.grpc.health.v1.HealthCheckResponse> getCheckMethod() {
-    io.grpc.MethodDescriptor<io.grpc.health.v1.HealthCheckRequest, io.grpc.health.v1.HealthCheckResponse> getCheckMethod;
+  public static io.grpc.MethodDescriptor<io.grpc.health.v1.rx3.HealthCheckRequest,
+      io.grpc.health.v1.rx3.HealthCheckResponse> getCheckMethod() {
+    io.grpc.MethodDescriptor<io.grpc.health.v1.rx3.HealthCheckRequest, io.grpc.health.v1.rx3.HealthCheckResponse> getCheckMethod;
     if ((getCheckMethod = HealthCheckGrpc.getCheckMethod) == null) {
       synchronized (HealthCheckGrpc.class) {
         if ((getCheckMethod = HealthCheckGrpc.getCheckMethod) == null) {
           HealthCheckGrpc.getCheckMethod = getCheckMethod =
-              io.grpc.MethodDescriptor.<io.grpc.health.v1.HealthCheckRequest, io.grpc.health.v1.HealthCheckResponse>newBuilder()
+              io.grpc.MethodDescriptor.<io.grpc.health.v1.rx3.HealthCheckRequest, io.grpc.health.v1.rx3.HealthCheckResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "Check"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  io.grpc.health.v1.HealthCheckRequest.getDefaultInstance()))
+                  io.grpc.health.v1.rx3.HealthCheckRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  io.grpc.health.v1.HealthCheckResponse.getDefaultInstance()))
+                  io.grpc.health.v1.rx3.HealthCheckResponse.getDefaultInstance()))
               .setSchemaDescriptor(new HealthCheckMethodDescriptorSupplier("Check"))
               .build();
         }
@@ -45,29 +45,29 @@ public final class HealthCheckGrpc {
     return getCheckMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<io.grpc.health.v1.HealthCheckRequest,
-      io.grpc.health.v1.HealthCheckResponse> getWatchServerMethod;
+  private static volatile io.grpc.MethodDescriptor<io.grpc.health.v1.rx3.HealthCheckRequest,
+      io.grpc.health.v1.rx3.HealthCheckResponse> getWatchServerMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "WatchServer",
-      requestType = io.grpc.health.v1.HealthCheckRequest.class,
-      responseType = io.grpc.health.v1.HealthCheckResponse.class,
+      requestType = io.grpc.health.v1.rx3.HealthCheckRequest.class,
+      responseType = io.grpc.health.v1.rx3.HealthCheckResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
-  public static io.grpc.MethodDescriptor<io.grpc.health.v1.HealthCheckRequest,
-      io.grpc.health.v1.HealthCheckResponse> getWatchServerMethod() {
-    io.grpc.MethodDescriptor<io.grpc.health.v1.HealthCheckRequest, io.grpc.health.v1.HealthCheckResponse> getWatchServerMethod;
+  public static io.grpc.MethodDescriptor<io.grpc.health.v1.rx3.HealthCheckRequest,
+      io.grpc.health.v1.rx3.HealthCheckResponse> getWatchServerMethod() {
+    io.grpc.MethodDescriptor<io.grpc.health.v1.rx3.HealthCheckRequest, io.grpc.health.v1.rx3.HealthCheckResponse> getWatchServerMethod;
     if ((getWatchServerMethod = HealthCheckGrpc.getWatchServerMethod) == null) {
       synchronized (HealthCheckGrpc.class) {
         if ((getWatchServerMethod = HealthCheckGrpc.getWatchServerMethod) == null) {
           HealthCheckGrpc.getWatchServerMethod = getWatchServerMethod =
-              io.grpc.MethodDescriptor.<io.grpc.health.v1.HealthCheckRequest, io.grpc.health.v1.HealthCheckResponse>newBuilder()
+              io.grpc.MethodDescriptor.<io.grpc.health.v1.rx3.HealthCheckRequest, io.grpc.health.v1.rx3.HealthCheckResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "WatchServer"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  io.grpc.health.v1.HealthCheckRequest.getDefaultInstance()))
+                  io.grpc.health.v1.rx3.HealthCheckRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  io.grpc.health.v1.HealthCheckResponse.getDefaultInstance()))
+                  io.grpc.health.v1.rx3.HealthCheckResponse.getDefaultInstance()))
               .setSchemaDescriptor(new HealthCheckMethodDescriptorSupplier("WatchServer"))
               .build();
         }
@@ -76,29 +76,29 @@ public final class HealthCheckGrpc {
     return getWatchServerMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<io.grpc.health.v1.HealthCheckRequest,
-      io.grpc.health.v1.HealthCheckResponse> getWatchClientMethod;
+  private static volatile io.grpc.MethodDescriptor<io.grpc.health.v1.rx3.HealthCheckRequest,
+      io.grpc.health.v1.rx3.HealthCheckResponse> getWatchClientMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "WatchClient",
-      requestType = io.grpc.health.v1.HealthCheckRequest.class,
-      responseType = io.grpc.health.v1.HealthCheckResponse.class,
+      requestType = io.grpc.health.v1.rx3.HealthCheckRequest.class,
+      responseType = io.grpc.health.v1.rx3.HealthCheckResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
-  public static io.grpc.MethodDescriptor<io.grpc.health.v1.HealthCheckRequest,
-      io.grpc.health.v1.HealthCheckResponse> getWatchClientMethod() {
-    io.grpc.MethodDescriptor<io.grpc.health.v1.HealthCheckRequest, io.grpc.health.v1.HealthCheckResponse> getWatchClientMethod;
+  public static io.grpc.MethodDescriptor<io.grpc.health.v1.rx3.HealthCheckRequest,
+      io.grpc.health.v1.rx3.HealthCheckResponse> getWatchClientMethod() {
+    io.grpc.MethodDescriptor<io.grpc.health.v1.rx3.HealthCheckRequest, io.grpc.health.v1.rx3.HealthCheckResponse> getWatchClientMethod;
     if ((getWatchClientMethod = HealthCheckGrpc.getWatchClientMethod) == null) {
       synchronized (HealthCheckGrpc.class) {
         if ((getWatchClientMethod = HealthCheckGrpc.getWatchClientMethod) == null) {
           HealthCheckGrpc.getWatchClientMethod = getWatchClientMethod =
-              io.grpc.MethodDescriptor.<io.grpc.health.v1.HealthCheckRequest, io.grpc.health.v1.HealthCheckResponse>newBuilder()
+              io.grpc.MethodDescriptor.<io.grpc.health.v1.rx3.HealthCheckRequest, io.grpc.health.v1.rx3.HealthCheckResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "WatchClient"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  io.grpc.health.v1.HealthCheckRequest.getDefaultInstance()))
+                  io.grpc.health.v1.rx3.HealthCheckRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  io.grpc.health.v1.HealthCheckResponse.getDefaultInstance()))
+                  io.grpc.health.v1.rx3.HealthCheckResponse.getDefaultInstance()))
               .setSchemaDescriptor(new HealthCheckMethodDescriptorSupplier("WatchClient"))
               .build();
         }
@@ -107,29 +107,29 @@ public final class HealthCheckGrpc {
     return getWatchClientMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<io.grpc.health.v1.HealthCheckRequest,
-      io.grpc.health.v1.HealthCheckResponse> getWatchBidiMethod;
+  private static volatile io.grpc.MethodDescriptor<io.grpc.health.v1.rx3.HealthCheckRequest,
+      io.grpc.health.v1.rx3.HealthCheckResponse> getWatchBidiMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "WatchBidi",
-      requestType = io.grpc.health.v1.HealthCheckRequest.class,
-      responseType = io.grpc.health.v1.HealthCheckResponse.class,
+      requestType = io.grpc.health.v1.rx3.HealthCheckRequest.class,
+      responseType = io.grpc.health.v1.rx3.HealthCheckResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
-  public static io.grpc.MethodDescriptor<io.grpc.health.v1.HealthCheckRequest,
-      io.grpc.health.v1.HealthCheckResponse> getWatchBidiMethod() {
-    io.grpc.MethodDescriptor<io.grpc.health.v1.HealthCheckRequest, io.grpc.health.v1.HealthCheckResponse> getWatchBidiMethod;
+  public static io.grpc.MethodDescriptor<io.grpc.health.v1.rx3.HealthCheckRequest,
+      io.grpc.health.v1.rx3.HealthCheckResponse> getWatchBidiMethod() {
+    io.grpc.MethodDescriptor<io.grpc.health.v1.rx3.HealthCheckRequest, io.grpc.health.v1.rx3.HealthCheckResponse> getWatchBidiMethod;
     if ((getWatchBidiMethod = HealthCheckGrpc.getWatchBidiMethod) == null) {
       synchronized (HealthCheckGrpc.class) {
         if ((getWatchBidiMethod = HealthCheckGrpc.getWatchBidiMethod) == null) {
           HealthCheckGrpc.getWatchBidiMethod = getWatchBidiMethod =
-              io.grpc.MethodDescriptor.<io.grpc.health.v1.HealthCheckRequest, io.grpc.health.v1.HealthCheckResponse>newBuilder()
+              io.grpc.MethodDescriptor.<io.grpc.health.v1.rx3.HealthCheckRequest, io.grpc.health.v1.rx3.HealthCheckResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "WatchBidi"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  io.grpc.health.v1.HealthCheckRequest.getDefaultInstance()))
+                  io.grpc.health.v1.rx3.HealthCheckRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  io.grpc.health.v1.HealthCheckResponse.getDefaultInstance()))
+                  io.grpc.health.v1.rx3.HealthCheckResponse.getDefaultInstance()))
               .setSchemaDescriptor(new HealthCheckMethodDescriptorSupplier("WatchBidi"))
               .build();
         }
@@ -191,8 +191,8 @@ public final class HealthCheckGrpc {
      * Unary method
      * </pre>
      */
-    public void check(io.grpc.health.v1.HealthCheckRequest request,
-        io.grpc.stub.StreamObserver<io.grpc.health.v1.HealthCheckResponse> responseObserver) {
+    public void check(io.grpc.health.v1.rx3.HealthCheckRequest request,
+        io.grpc.stub.StreamObserver<io.grpc.health.v1.rx3.HealthCheckResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCheckMethod(), responseObserver);
     }
 
@@ -201,8 +201,8 @@ public final class HealthCheckGrpc {
      * Server streaming method
      * </pre>
      */
-    public void watchServer(io.grpc.health.v1.HealthCheckRequest request,
-        io.grpc.stub.StreamObserver<io.grpc.health.v1.HealthCheckResponse> responseObserver) {
+    public void watchServer(io.grpc.health.v1.rx3.HealthCheckRequest request,
+        io.grpc.stub.StreamObserver<io.grpc.health.v1.rx3.HealthCheckResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getWatchServerMethod(), responseObserver);
     }
 
@@ -211,8 +211,8 @@ public final class HealthCheckGrpc {
      * Client streaming method
      * </pre>
      */
-    public io.grpc.stub.StreamObserver<io.grpc.health.v1.HealthCheckRequest> watchClient(
-        io.grpc.stub.StreamObserver<io.grpc.health.v1.HealthCheckResponse> responseObserver) {
+    public io.grpc.stub.StreamObserver<io.grpc.health.v1.rx3.HealthCheckRequest> watchClient(
+        io.grpc.stub.StreamObserver<io.grpc.health.v1.rx3.HealthCheckResponse> responseObserver) {
       return io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall(getWatchClientMethod(), responseObserver);
     }
 
@@ -221,8 +221,8 @@ public final class HealthCheckGrpc {
      * bidi streaming method
      * </pre>
      */
-    public io.grpc.stub.StreamObserver<io.grpc.health.v1.HealthCheckRequest> watchBidi(
-        io.grpc.stub.StreamObserver<io.grpc.health.v1.HealthCheckResponse> responseObserver) {
+    public io.grpc.stub.StreamObserver<io.grpc.health.v1.rx3.HealthCheckRequest> watchBidi(
+        io.grpc.stub.StreamObserver<io.grpc.health.v1.rx3.HealthCheckResponse> responseObserver) {
       return io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall(getWatchBidiMethod(), responseObserver);
     }
 
@@ -232,29 +232,29 @@ public final class HealthCheckGrpc {
             getCheckMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                io.grpc.health.v1.HealthCheckRequest,
-                io.grpc.health.v1.HealthCheckResponse>(
+                io.grpc.health.v1.rx3.HealthCheckRequest,
+                io.grpc.health.v1.rx3.HealthCheckResponse>(
                   this, METHODID_CHECK)))
           .addMethod(
             getWatchServerMethod(),
             io.grpc.stub.ServerCalls.asyncServerStreamingCall(
               new MethodHandlers<
-                io.grpc.health.v1.HealthCheckRequest,
-                io.grpc.health.v1.HealthCheckResponse>(
+                io.grpc.health.v1.rx3.HealthCheckRequest,
+                io.grpc.health.v1.rx3.HealthCheckResponse>(
                   this, METHODID_WATCH_SERVER)))
           .addMethod(
             getWatchClientMethod(),
             io.grpc.stub.ServerCalls.asyncClientStreamingCall(
               new MethodHandlers<
-                io.grpc.health.v1.HealthCheckRequest,
-                io.grpc.health.v1.HealthCheckResponse>(
+                io.grpc.health.v1.rx3.HealthCheckRequest,
+                io.grpc.health.v1.rx3.HealthCheckResponse>(
                   this, METHODID_WATCH_CLIENT)))
           .addMethod(
             getWatchBidiMethod(),
             io.grpc.stub.ServerCalls.asyncBidiStreamingCall(
               new MethodHandlers<
-                io.grpc.health.v1.HealthCheckRequest,
-                io.grpc.health.v1.HealthCheckResponse>(
+                io.grpc.health.v1.rx3.HealthCheckRequest,
+                io.grpc.health.v1.rx3.HealthCheckResponse>(
                   this, METHODID_WATCH_BIDI)))
           .build();
     }
@@ -279,8 +279,8 @@ public final class HealthCheckGrpc {
      * Unary method
      * </pre>
      */
-    public void check(io.grpc.health.v1.HealthCheckRequest request,
-        io.grpc.stub.StreamObserver<io.grpc.health.v1.HealthCheckResponse> responseObserver) {
+    public void check(io.grpc.health.v1.rx3.HealthCheckRequest request,
+        io.grpc.stub.StreamObserver<io.grpc.health.v1.rx3.HealthCheckResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getCheckMethod(), getCallOptions()), request, responseObserver);
     }
@@ -290,8 +290,8 @@ public final class HealthCheckGrpc {
      * Server streaming method
      * </pre>
      */
-    public void watchServer(io.grpc.health.v1.HealthCheckRequest request,
-        io.grpc.stub.StreamObserver<io.grpc.health.v1.HealthCheckResponse> responseObserver) {
+    public void watchServer(io.grpc.health.v1.rx3.HealthCheckRequest request,
+        io.grpc.stub.StreamObserver<io.grpc.health.v1.rx3.HealthCheckResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncServerStreamingCall(
           getChannel().newCall(getWatchServerMethod(), getCallOptions()), request, responseObserver);
     }
@@ -301,8 +301,8 @@ public final class HealthCheckGrpc {
      * Client streaming method
      * </pre>
      */
-    public io.grpc.stub.StreamObserver<io.grpc.health.v1.HealthCheckRequest> watchClient(
-        io.grpc.stub.StreamObserver<io.grpc.health.v1.HealthCheckResponse> responseObserver) {
+    public io.grpc.stub.StreamObserver<io.grpc.health.v1.rx3.HealthCheckRequest> watchClient(
+        io.grpc.stub.StreamObserver<io.grpc.health.v1.rx3.HealthCheckResponse> responseObserver) {
       return io.grpc.stub.ClientCalls.asyncClientStreamingCall(
           getChannel().newCall(getWatchClientMethod(), getCallOptions()), responseObserver);
     }
@@ -312,8 +312,8 @@ public final class HealthCheckGrpc {
      * bidi streaming method
      * </pre>
      */
-    public io.grpc.stub.StreamObserver<io.grpc.health.v1.HealthCheckRequest> watchBidi(
-        io.grpc.stub.StreamObserver<io.grpc.health.v1.HealthCheckResponse> responseObserver) {
+    public io.grpc.stub.StreamObserver<io.grpc.health.v1.rx3.HealthCheckRequest> watchBidi(
+        io.grpc.stub.StreamObserver<io.grpc.health.v1.rx3.HealthCheckResponse> responseObserver) {
       return io.grpc.stub.ClientCalls.asyncBidiStreamingCall(
           getChannel().newCall(getWatchBidiMethod(), getCallOptions()), responseObserver);
     }
@@ -338,7 +338,7 @@ public final class HealthCheckGrpc {
      * Unary method
      * </pre>
      */
-    public io.grpc.health.v1.HealthCheckResponse check(io.grpc.health.v1.HealthCheckRequest request) {
+    public io.grpc.health.v1.rx3.HealthCheckResponse check(io.grpc.health.v1.rx3.HealthCheckRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getCheckMethod(), getCallOptions(), request);
     }
@@ -348,8 +348,8 @@ public final class HealthCheckGrpc {
      * Server streaming method
      * </pre>
      */
-    public java.util.Iterator<io.grpc.health.v1.HealthCheckResponse> watchServer(
-        io.grpc.health.v1.HealthCheckRequest request) {
+    public java.util.Iterator<io.grpc.health.v1.rx3.HealthCheckResponse> watchServer(
+        io.grpc.health.v1.rx3.HealthCheckRequest request) {
       return io.grpc.stub.ClientCalls.blockingServerStreamingCall(
           getChannel(), getWatchServerMethod(), getCallOptions(), request);
     }
@@ -374,8 +374,8 @@ public final class HealthCheckGrpc {
      * Unary method
      * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<io.grpc.health.v1.HealthCheckResponse> check(
-        io.grpc.health.v1.HealthCheckRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<io.grpc.health.v1.rx3.HealthCheckResponse> check(
+        io.grpc.health.v1.rx3.HealthCheckRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getCheckMethod(), getCallOptions()), request);
     }
@@ -404,12 +404,12 @@ public final class HealthCheckGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_CHECK:
-          serviceImpl.check((io.grpc.health.v1.HealthCheckRequest) request,
-              (io.grpc.stub.StreamObserver<io.grpc.health.v1.HealthCheckResponse>) responseObserver);
+          serviceImpl.check((io.grpc.health.v1.rx3.HealthCheckRequest) request,
+              (io.grpc.stub.StreamObserver<io.grpc.health.v1.rx3.HealthCheckResponse>) responseObserver);
           break;
         case METHODID_WATCH_SERVER:
-          serviceImpl.watchServer((io.grpc.health.v1.HealthCheckRequest) request,
-              (io.grpc.stub.StreamObserver<io.grpc.health.v1.HealthCheckResponse>) responseObserver);
+          serviceImpl.watchServer((io.grpc.health.v1.rx3.HealthCheckRequest) request,
+              (io.grpc.stub.StreamObserver<io.grpc.health.v1.rx3.HealthCheckResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -423,10 +423,10 @@ public final class HealthCheckGrpc {
       switch (methodId) {
         case METHODID_WATCH_CLIENT:
           return (io.grpc.stub.StreamObserver<Req>) serviceImpl.watchClient(
-              (io.grpc.stub.StreamObserver<io.grpc.health.v1.HealthCheckResponse>) responseObserver);
+              (io.grpc.stub.StreamObserver<io.grpc.health.v1.rx3.HealthCheckResponse>) responseObserver);
         case METHODID_WATCH_BIDI:
           return (io.grpc.stub.StreamObserver<Req>) serviceImpl.watchBidi(
-              (io.grpc.stub.StreamObserver<io.grpc.health.v1.HealthCheckResponse>) responseObserver);
+              (io.grpc.stub.StreamObserver<io.grpc.health.v1.rx3.HealthCheckResponse>) responseObserver);
         default:
           throw new AssertionError();
       }
@@ -439,7 +439,7 @@ public final class HealthCheckGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return io.grpc.health.v1.HealthProto.getDescriptor();
+      return io.grpc.health.v1.rx3.HealthProto.getDescriptor();
     }
 
     @java.lang.Override

@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ECF Remote Services Grpc Rx3 Health Example Impl
+Bundle-SymbolicName: org.eclipse.ecf.examples.provider.grpc.rx3.health.impl
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: org.eclipse.ecf.examples.provider.grpc.rx3.health.impl
+Bundle-Vendor: Eclipse.org - ECF
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: io.grpc;version="1.39.0",
+ io.grpc.health.v1.rx3;version="1.0.0",
+ io.grpc.stub;version="1.39.0",
+ org.osgi.service.component.annotations;version="1.2.0";resolution:=optional,
+ org.reactivestreams;version="1.0.3"
+Bundle-ActivationPolicy: lazy
+Service-Component: OSGI-INF/org.eclipse.ecf.examples.provider.grpc.rx3.health.impl.HealthServiceImpl.xml
+Require-Bundle: io.reactivex.rxjava3.rxjava;bundle-version="3.1.1"

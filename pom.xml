@@ -108,6 +108,8 @@
 		<module>examples/org.eclipse.ecf.examples.provider.grpc.health.consumer</module>
 		-->
 		<module>examples/org.eclipse.ecf.examples.provider.grpc.rx3.health.api</module>
+		<module>examples/org.eclipse.ecf.examples.provider.grpc.rx3.health.impl</module>
+		<module>examples/org.eclipse.ecf.examples.provider.grpc.rx3.health.consumer</module>
 		<module>features/org.eclipse.ecf.examples.grpc.feature</module>
 		<module>features/org.eclipse.ecf.provider.grpc.tooling.feature</module>
 	</modules>

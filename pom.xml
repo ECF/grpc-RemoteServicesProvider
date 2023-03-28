@@ -102,6 +102,7 @@
 		<module>bundles/org.eclipse.ecf.provider.grpc</module>
 		<module>bundles/org.eclipse.ecf.provider.grpc.console</module>
 		<module>tooling/org.eclipse.ecf.provider.grpc.proto.editor</module>
+		<module>tooling/org.eclipse.ecf.bndtools.grpc.ui</module>
 		<module>examples/org.eclipse.ecf.examples.provider.grpc.health.api</module>
 		<module>examples/org.eclipse.ecf.examples.provider.grpc.health.impl</module>
 		<module>examples/org.eclipse.ecf.examples.provider.grpc.health.consumer</module>

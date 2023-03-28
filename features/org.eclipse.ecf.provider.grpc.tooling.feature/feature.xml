@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.ecf.provider.grpc.tooling.feature"
       label="%featureName"
-      version="1.5.0.qualifier"
+      version="1.6.0.qualifier"
       provider-name="%providerName">
 
    <description url="http://www.example.com/description">
@@ -198,6 +198,13 @@
 
    <plugin
          id="org.eclipse.ecf.provider.grpc.proto.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.bndtools.grpc.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"

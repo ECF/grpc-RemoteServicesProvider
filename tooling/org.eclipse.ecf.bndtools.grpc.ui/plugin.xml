@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="org.eclipse.ecf.remoteservices"
+            class="org.eclipse.ecf.bndtools.grpc.ui.NewBndGrpcServiceWizardFactory"
+            finalPerspective="bndtools.perspective"
+            icon="icons/bricks.png"
+            id="org.eclipse.ecf.bndtools.grpc.ui.wizard1"
+            name="Remote Service (gRPC)"
+            preferredPerspectives="bndtools.perspective"
+            project="false">
+      </wizard>
+      <category
+            id="org.eclipse.ecf.remoteservices"
+            name="Remote Services">
+      </category>
+   </extension>
+
+</plugin>

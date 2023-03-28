@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="activate" immediate="true" name="org.eclipse.ecf.examples.provider.grpc.helloworld.consumer.GreeterComponent">
-   <reference bind="bindGreeterService" cardinality="1..1" interface="io.grpc.examples.helloworld.GreeterService" name="GreeterService" policy="dynamic" unbind="unbindGreeterService"/>
+   <reference bind="bindGreeterService" interface="io.grpc.examples.helloworld.GreeterService" name="GreeterService" policy="dynamic" unbind="unbindGreeterService"/>
    <implementation class="org.eclipse.ecf.examples.provider.grpc.helloworld.consumer.GreeterComponent"/>
 </scr:component>

@@ -11,7 +11,7 @@ rr
    <service>
       <provide interface="org.eclipse.ecf.provider.grpc.console.GrpcCommand"/>
    </service>
-   <reference bind="bindContainerManager" interface="IContainerManager" name="ContainerManager" unbind="unbindContainerManager"/>
-   <reference bind="bindIdentityFactory" interface="IIDFactory" name="IdentityFactory" unbind="unbindIdentityFactory"/>
+   <reference bind="bindContainerManager" interface="org.eclipse.ecf.core.IContainerManager" name="ContainerManager" unbind="unbindContainerManager"/>
+   <reference bind="bindIdentityFactory" interface="org.eclipse.ecf.core.identity.IIDFactory" name="IdentityFactory" unbind="unbindIdentityFactory"/>
    <implementation class="org.eclipse.ecf.provider.grpc.console.GrpcCommand"/>
 </scr:component>

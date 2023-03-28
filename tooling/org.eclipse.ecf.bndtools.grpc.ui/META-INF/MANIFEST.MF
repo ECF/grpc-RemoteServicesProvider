@@ -2,18 +2,16 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ECF gRPC Ui Tooling
 Bundle-SymbolicName: org.eclipse.ecf.bndtools.grpc.ui;singleton:=true
-Bundle-Version: 1.1.1.qualifier
+Bundle-Version: 1.1.2.qualifier
 Import-Package: org.bndtools.templating;version="2.0.0",
  org.bndtools.templating.util;version="1.0.0",
  org.bndtools.versioncontrol.ignores.manager.api;version="1.0.0",
  org.osgi.util.promise;version="1.2.0"
-Require-Bundle: bndtools.core,
- bndtools.api,
+Require-Bundle: bndtools.api,
  org.eclipse.core.resources,
  org.eclipse.core.runtime,
  org.eclipse.jface,
  org.bndtools.headless.build.manager,
- biz.aQute.bndlib;bundle-version="7.0.0",
  org.eclipse.ui.workbench,
  org.eclipse.osgi.services,
  org.eclipse.ui.ide,
@@ -22,7 +20,9 @@ Require-Bundle: bndtools.core,
  org.eclipse.ui.forms,
  org.eclipse.jface.text,
  org.eclipse.jdt.core,
- org.eclipse.jdt.ui
+ org.eclipse.jdt.ui,
+ biz.aQute.bndlib;bundle-version="7.0.0",
+ bndtools.core;bundle-version="7.0.0"
 Automatic-Module-Name: org.eclipse.ecf.bndtools.grpc.ui
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-16

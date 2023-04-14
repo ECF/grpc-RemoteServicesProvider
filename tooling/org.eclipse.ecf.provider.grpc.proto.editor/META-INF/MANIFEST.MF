@@ -14,4 +14,4 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources,
  org.eclipse.ui.workbench,
  org.eclipse.ui.ide
-Bundle-Activator: org.eclipse.ecf.provider.grpc.proto.editor.Activator
+Bundle-Activator: org.eclipse.ecf.bndtools.grpc.ui.editors.Activator

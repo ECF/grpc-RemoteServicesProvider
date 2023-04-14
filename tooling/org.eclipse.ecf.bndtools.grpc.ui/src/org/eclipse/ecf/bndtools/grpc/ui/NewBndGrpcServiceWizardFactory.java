@@ -1,5 +1,8 @@
 package org.eclipse.ecf.bndtools.grpc.ui;
 
+import org.bndtools.core.ui.wizards.service.NewBndServiceWizard;
+import org.bndtools.core.ui.wizards.service.NewBndServiceWizardPageOne;
+import org.bndtools.core.ui.wizards.service.NewBndServiceWizardPageTwo;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExecutableExtension;
@@ -13,11 +16,11 @@ public class NewBndGrpcServiceWizardFactory implements IExecutableExtension, IEx
 
 	@SuppressWarnings("restriction")
 	@Override
-	public NewBndServicetWizard create() throws CoreException {
+	public NewBndServiceWizard create() throws CoreException {
 		NewBndServiceWizardPageOne pageOne = new NewBndServiceWizardPageOne();
-		NewBndProjectWizardPageTwo pageTwo = new NewBndProjectWizardPageTwo(pageOne);
+		NewBndServiceWizardPageTwo pageTwo = new NewBndServiceWizardPageTwo(pageOne);
 
-		NewBndServicetWizard wizard = new NewBndServicetWizard(pageOne, pageTwo);
+		NewBndServiceWizard wizard = new NewBndServiceWizard(pageOne, pageTwo, "grpc");
 		wizard.setInitializationData(config, propertyName, data);
 
 		return wizard;

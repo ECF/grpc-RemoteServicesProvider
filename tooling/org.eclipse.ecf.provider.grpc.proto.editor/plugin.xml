@@ -5,10 +5,10 @@
    <extension
          point="org.eclipse.ui.editors">
       <editor
-            class="org.eclipse.ecf.provider.grpc.proto.editor.Editor"
+            class="org.eclipse.ecf.bndtools.grpc.ui.editors.Editor"
             contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
             extensions="proto"
-            id="org.eclipse.ecf.provider.grpc.proto.editor.Editor"
+            id="org.eclipse.ecf.bndtools.grpc.ui.editors.Editor"
             name="grpc/protobuf Editor">
       </editor>
    </extension>
@@ -16,7 +16,7 @@
   <extension
          point="org.eclipse.core.runtime.preferences">
       <initializer
-            class="org.eclipse.ecf.provider.grpc.proto.editor.EditorPreferenceInitializer">
+            class="org.eclipse.ecf.bndtools.grpc.ui.editors.EditorPreferenceInitializer">
       </initializer>
   </extension>
 

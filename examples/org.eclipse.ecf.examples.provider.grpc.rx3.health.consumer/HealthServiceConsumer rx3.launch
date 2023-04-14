@@ -12,6 +12,7 @@
     <intAttribute key="default_start_level" value="4"/>
     <setAttribute key="deselected_workspace_bundles"/>
     <booleanAttribute key="includeOptional" value="false"/>
+    <booleanAttribute key="org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING" value="false"/>
     <booleanAttribute key="org.eclipse.jdt.launching.ATTR_ATTR_USE_ARGFILE" value="false"/>
     <booleanAttribute key="org.eclipse.jdt.launching.ATTR_SHOW_CODEDETAILS_IN_EXCEPTION_MESSAGES" value="true"/>
     <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_START_ON_FIRST_THREAD" value="true"/>
@@ -44,7 +45,6 @@
         <setEntry value="javax.annotation.source"/>
         <setEntry value="javax.el.source"/>
         <setEntry value="javax.inject.source"/>
-        <setEntry value="javax.servlet.jsp.source"/>
         <setEntry value="org.apache.ant.source"/>
         <setEntry value="org.apache.aries.spifly.dynamic.bundle@default:default"/>
         <setEntry value="org.apache.aries.util@default:default"/>
@@ -52,10 +52,7 @@
         <setEntry value="org.apache.batik.css.source"/>
         <setEntry value="org.apache.batik.i18n.source"/>
         <setEntry value="org.apache.batik.util.source"/>
-        <setEntry value="org.apache.commons.codec.source"/>
-        <setEntry value="org.apache.commons.io.source"/>
         <setEntry value="org.apache.commons.jxpath.source"/>
-        <setEntry value="org.apache.commons.logging.source"/>
         <setEntry value="org.apache.felix.gogo.command.source"/>
         <setEntry value="org.apache.felix.gogo.command@default:default"/>
         <setEntry value="org.apache.felix.gogo.runtime.source"/>
@@ -64,14 +61,11 @@
         <setEntry value="org.apache.felix.gogo.shell@default:default"/>
         <setEntry value="org.apache.felix.scr.source"/>
         <setEntry value="org.apache.felix.scr@1:true"/>
-        <setEntry value="org.apache.httpcomponents.httpclient.source"/>
-        <setEntry value="org.apache.httpcomponents.httpcore.source"/>
         <setEntry value="org.apache.jasper.glassfish.source"/>
         <setEntry value="org.apache.lucene.analyzers-common.source"/>
         <setEntry value="org.apache.lucene.analyzers-smartcn.source"/>
         <setEntry value="org.apache.lucene.core.source"/>
         <setEntry value="org.apache.xmlgraphics.source"/>
-        <setEntry value="org.apiguardian.source"/>
         <setEntry value="org.eclipse.ant.core.source"/>
         <setEntry value="org.eclipse.ant.launching.source"/>
         <setEntry value="org.eclipse.ant.ui.source"/>
@@ -118,12 +112,10 @@
         <setEntry value="org.eclipse.e4.ui.workbench.source"/>
         <setEntry value="org.eclipse.e4.ui.workbench.swt.source"/>
         <setEntry value="org.eclipse.e4.ui.workbench3.source"/>
-        <setEntry value="org.eclipse.ecf*3.10.0.v20210925-0032@default:default"/>
         <setEntry value="org.eclipse.ecf.console.source"/>
         <setEntry value="org.eclipse.ecf.console@default:default"/>
         <setEntry value="org.eclipse.ecf.discovery.source"/>
         <setEntry value="org.eclipse.ecf.discovery@default:default"/>
-        <setEntry value="org.eclipse.ecf.filetransfer.source"/>
         <setEntry value="org.eclipse.ecf.identity.source"/>
         <setEntry value="org.eclipse.ecf.identity@default:default"/>
         <setEntry value="org.eclipse.ecf.osgi.services.distribution.source"/>
@@ -134,22 +126,13 @@
         <setEntry value="org.eclipse.ecf.osgi.services.remoteserviceadmin.proxy@default:default"/>
         <setEntry value="org.eclipse.ecf.osgi.services.remoteserviceadmin.source"/>
         <setEntry value="org.eclipse.ecf.osgi.services.remoteserviceadmin@default:default"/>
-        <setEntry value="org.eclipse.ecf.provider.filetransfer.source"/>
-        <setEntry value="org.eclipse.ecf.provider.filetransfer.ssl.source"/>
         <setEntry value="org.eclipse.ecf.provider.jmdns@default:default"/>
         <setEntry value="org.eclipse.ecf.remoteservice.asyncproxy@default:default"/>
         <setEntry value="org.eclipse.ecf.remoteservice.source"/>
         <setEntry value="org.eclipse.ecf.remoteservice@default:default"/>
         <setEntry value="org.eclipse.ecf.sharedobject.source"/>
-        <setEntry value="org.eclipse.ecf.source*3.10.0.v20210925-0032"/>
-        <setEntry value="org.eclipse.ecf.source*3.9.102.v20210409-2301"/>
-        <setEntry value="org.eclipse.ecf.ssl.source"/>
-        <setEntry value="org.eclipse.emf.common.source"/>
-        <setEntry value="org.eclipse.emf.common.ui.source"/>
-        <setEntry value="org.eclipse.emf.ecore.change.source"/>
-        <setEntry value="org.eclipse.emf.ecore.source"/>
-        <setEntry value="org.eclipse.emf.ecore.xmi.source"/>
-        <setEntry value="org.eclipse.emf.edit.source"/>
+        <setEntry value="org.eclipse.ecf.source"/>
+        <setEntry value="org.eclipse.ecf@default:default"/>
         <setEntry value="org.eclipse.emf.edit.ui.source"/>
         <setEntry value="org.eclipse.equinox.app.source"/>
         <setEntry value="org.eclipse.equinox.bidi.source"/>
@@ -252,9 +235,7 @@
         <setEntry value="org.eclipse.pde.core.source"/>
         <setEntry value="org.eclipse.pde.ds.annotations.source"/>
         <setEntry value="org.eclipse.pde.ds.core.source"/>
-        <setEntry value="org.eclipse.pde.ds.lib.source"/>
         <setEntry value="org.eclipse.pde.ds.ui.source"/>
-        <setEntry value="org.eclipse.pde.ds1_2.lib.source"/>
         <setEntry value="org.eclipse.pde.genericeditor.extension.source"/>
         <setEntry value="org.eclipse.pde.junit.runtime.source"/>
         <setEntry value="org.eclipse.pde.launching.source"/>
@@ -298,26 +279,14 @@
         <setEntry value="org.eclipse.ui.workbench.texteditor.source"/>
         <setEntry value="org.eclipse.update.configurator.source"/>
         <setEntry value="org.hamcrest.core.source"/>
-        <setEntry value="org.junit.jupiter.api.source"/>
-        <setEntry value="org.junit.jupiter.engine.source"/>
-        <setEntry value="org.junit.jupiter.migrationsupport.source"/>
-        <setEntry value="org.junit.jupiter.params.source"/>
-        <setEntry value="org.junit.platform.commons.source"/>
-        <setEntry value="org.junit.platform.engine.source"/>
-        <setEntry value="org.junit.platform.launcher.source"/>
-        <setEntry value="org.junit.platform.runner.source"/>
-        <setEntry value="org.junit.platform.suite.api.source"/>
         <setEntry value="org.junit.source"/>
-        <setEntry value="org.junit.vintage.engine.source"/>
-        <setEntry value="org.objectweb.asm*9.2.0@default:default"/>
         <setEntry value="org.objectweb.asm.commons@default:default"/>
-        <setEntry value="org.objectweb.asm.source*9.1.0.v20210209-1849"/>
-        <setEntry value="org.objectweb.asm.source*9.2.0"/>
-        <setEntry value="org.objectweb.asm.tree*9.2.0@default:default"/>
+        <setEntry value="org.objectweb.asm.source"/>
         <setEntry value="org.objectweb.asm.tree.analysis@default:default"/>
-        <setEntry value="org.objectweb.asm.tree.source*9.1.0.v20210209-1849"/>
-        <setEntry value="org.objectweb.asm.tree.source*9.2.0"/>
+        <setEntry value="org.objectweb.asm.tree.source"/>
+        <setEntry value="org.objectweb.asm.tree@default:default"/>
         <setEntry value="org.objectweb.asm.util@default:default"/>
+        <setEntry value="org.objectweb.asm@default:default"/>
         <setEntry value="org.opentest4j.source"/>
         <setEntry value="org.reactivestreams.reactive-streams@default:default"/>
         <setEntry value="org.tukaani.xz.source"/>

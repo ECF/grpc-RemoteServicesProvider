@@ -17,7 +17,7 @@ public class NewBndGrpcServiceWizardFactory implements IExecutableExtension, IEx
 	@SuppressWarnings("restriction")
 	@Override
 	public NewBndServiceWizard create() throws CoreException {
-		NewBndServiceWizardPageOne pageOne = new NewBndServiceWizardPageOne();
+		NewBndServiceWizardPageOne pageOne = new NewBndServiceWizardPageOne("grpc");
 		NewBndServiceWizardPageTwo pageTwo = new NewBndServiceWizardPageTwo(pageOne);
 
 		NewBndServiceWizard wizard = new NewBndServiceWizard(pageOne, pageTwo, "grpc");

@@ -4,7 +4,7 @@
    <extension
          point="org.eclipse.ui.newWizards">
       <wizard
-            category="org.eclipse.ecf.remoteservices"
+            category="bndtools.serviceWizardCategory/org.eclipse.ecf.remoteservices.category"
             finalPerspective="bndtools.perspective"
             class="org.eclipse.ecf.bndtools.grpc.ui.NewBndGrpcServiceWizardFactory"
             icon="icons/bricks.png"
@@ -14,7 +14,7 @@
             project="true">
       </wizard>
       <category
-            id="org.eclipse.ecf.remoteservices"
+            id="org.eclipse.ecf.remoteservices.category"
             name="Remote Services"
             parentCategory="bndtools.serviceWizardCategory">
       </category>

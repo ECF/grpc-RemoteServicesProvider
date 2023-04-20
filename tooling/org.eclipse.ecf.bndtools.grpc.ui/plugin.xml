@@ -6,7 +6,7 @@
       <wizard
             category="bndtools.serviceWizardCategory/org.eclipse.ecf.remoteservices.category"
             finalPerspective="bndtools.perspective"
-            class="org.eclipse.ecf.bndtools.grpc.ui.NewBndGrpcServiceWizardFactory"
+            class="org.bndtools.core.ui.wizards.service.NewBndTemplateBasedServiceWizard:grpc"
             icon="icons/bricks.png"
             id="org.eclipse.ecf.bndtools.grpc.ui.wizard1"
             name="gRPC Remote Service"

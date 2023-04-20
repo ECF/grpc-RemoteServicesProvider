@@ -119,8 +119,21 @@ public final class Rx3HealthCheckGrpc {
 
     public static abstract class HealthCheckImplBase implements io.grpc.BindableService {
 
+        public io.reactivex.rxjava3.core.Single<io.grpc.health.v1.rx3.HealthCheckResponse> check(io.grpc.health.v1.rx3.HealthCheckRequest request) {
+            return check(io.reactivex.rxjava3.core.Single.just(request));
+        }
+
         public io.reactivex.rxjava3.core.Single<io.grpc.health.v1.rx3.HealthCheckResponse> check(io.reactivex.rxjava3.core.Single<io.grpc.health.v1.rx3.HealthCheckRequest> request) {
             throw new io.grpc.StatusRuntimeException(io.grpc.Status.UNIMPLEMENTED);
+        }
+
+        /**
+         * <pre>
+         *  Server streaming method
+         * </pre>
+         */
+        public io.reactivex.rxjava3.core.Flowable<io.grpc.health.v1.rx3.HealthCheckResponse> watchServer(io.grpc.health.v1.rx3.HealthCheckRequest request) {
+            return watchServer(io.reactivex.rxjava3.core.Single.just(request));
         }
 
         /**
@@ -132,6 +145,7 @@ public final class Rx3HealthCheckGrpc {
             throw new io.grpc.StatusRuntimeException(io.grpc.Status.UNIMPLEMENTED);
         }
 
+
         /**
          * <pre>
          *  Client streaming method
@@ -140,6 +154,7 @@ public final class Rx3HealthCheckGrpc {
         public io.reactivex.rxjava3.core.Single<io.grpc.health.v1.rx3.HealthCheckResponse> watchClient(io.reactivex.rxjava3.core.Flowable<io.grpc.health.v1.rx3.HealthCheckRequest> request) {
             throw new io.grpc.StatusRuntimeException(io.grpc.Status.UNIMPLEMENTED);
         }
+
 
         /**
          * <pre>
@@ -187,6 +202,10 @@ public final class Rx3HealthCheckGrpc {
             return null;
         }
 
+        protected Throwable onErrorMap(Throwable throwable) {
+            return com.salesforce.rx3grpc.stub.ServerCalls.prepareError(throwable);
+        }
+
     }
 
     public static final int METHODID_CHECK = 0;
@@ -214,22 +233,22 @@ public final class Rx3HealthCheckGrpc {
                 case METHODID_CHECK:
                     com.salesforce.rx3grpc.stub.ServerCalls.oneToOne((io.grpc.health.v1.rx3.HealthCheckRequest) request,
                             (io.grpc.stub.StreamObserver<io.grpc.health.v1.rx3.HealthCheckResponse>) responseObserver,
-                            new com.salesforce.reactivegrpc.common.Function<io.reactivex.rxjava3.core.Single<io.grpc.health.v1.rx3.HealthCheckRequest>, io.reactivex.rxjava3.core.Single<io.grpc.health.v1.rx3.HealthCheckResponse>>() {
+                            new com.salesforce.reactivegrpc.common.Function<io.grpc.health.v1.rx3.HealthCheckRequest, io.reactivex.rxjava3.core.Single<io.grpc.health.v1.rx3.HealthCheckResponse>>() {
                                 @java.lang.Override
-                                public io.reactivex.rxjava3.core.Single<io.grpc.health.v1.rx3.HealthCheckResponse> apply(io.reactivex.rxjava3.core.Single<io.grpc.health.v1.rx3.HealthCheckRequest> single) {
+                                public io.reactivex.rxjava3.core.Single<io.grpc.health.v1.rx3.HealthCheckResponse> apply(io.grpc.health.v1.rx3.HealthCheckRequest single) {
                                     return serviceImpl.check(single);
                                 }
-                            });
+                            }, serviceImpl::onErrorMap);
                     break;
                 case METHODID_WATCH_SERVER:
                     com.salesforce.rx3grpc.stub.ServerCalls.oneToMany((io.grpc.health.v1.rx3.HealthCheckRequest) request,
                             (io.grpc.stub.StreamObserver<io.grpc.health.v1.rx3.HealthCheckResponse>) responseObserver,
-                            new com.salesforce.reactivegrpc.common.Function<io.reactivex.rxjava3.core.Single<io.grpc.health.v1.rx3.HealthCheckRequest>, io.reactivex.rxjava3.core.Flowable<io.grpc.health.v1.rx3.HealthCheckResponse>>() {
+                            new com.salesforce.reactivegrpc.common.Function<io.grpc.health.v1.rx3.HealthCheckRequest, io.reactivex.rxjava3.core.Flowable<io.grpc.health.v1.rx3.HealthCheckResponse>>() {
                                 @java.lang.Override
-                                public io.reactivex.rxjava3.core.Flowable<io.grpc.health.v1.rx3.HealthCheckResponse> apply(io.reactivex.rxjava3.core.Single<io.grpc.health.v1.rx3.HealthCheckRequest> single) {
+                                public io.reactivex.rxjava3.core.Flowable<io.grpc.health.v1.rx3.HealthCheckResponse> apply(io.grpc.health.v1.rx3.HealthCheckRequest single) {
                                     return serviceImpl.watchServer(single);
                                 }
-                            });
+                            }, serviceImpl::onErrorMap);
                     break;
                 default:
                     throw new java.lang.AssertionError();
@@ -243,11 +262,11 @@ public final class Rx3HealthCheckGrpc {
                 case METHODID_WATCH_CLIENT:
                     return (io.grpc.stub.StreamObserver<Req>) com.salesforce.rx3grpc.stub.ServerCalls.manyToOne(
                             (io.grpc.stub.StreamObserver<io.grpc.health.v1.rx3.HealthCheckResponse>) responseObserver,
-                            serviceImpl::watchClient, serviceImpl.getCallOptions(methodId));
+                            serviceImpl::watchClient, serviceImpl::onErrorMap, serviceImpl.getCallOptions(methodId));
                 case METHODID_WATCH_BIDI:
                     return (io.grpc.stub.StreamObserver<Req>) com.salesforce.rx3grpc.stub.ServerCalls.manyToMany(
                             (io.grpc.stub.StreamObserver<io.grpc.health.v1.rx3.HealthCheckResponse>) responseObserver,
-                            serviceImpl::watchBidi, serviceImpl.getCallOptions(methodId));
+                            serviceImpl::watchBidi, serviceImpl::onErrorMap, serviceImpl.getCallOptions(methodId));
                 default:
                     throw new java.lang.AssertionError();
             }

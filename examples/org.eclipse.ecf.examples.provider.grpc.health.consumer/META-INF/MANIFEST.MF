@@ -2,10 +2,10 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ECF Remote Services Grpc Health Example Consumer
 Bundle-SymbolicName: org.eclipse.ecf.examples.provider.grpc.health.consumer
-Bundle-Version: 1.2.0.qualifier
+Bundle-Version: 1.2.1.qualifier
 Bundle-Vendor: Eclipse.org - ECF
 Automatic-Module-Name: org.eclipse.ecf.examples.provider.grpc.health.consumer
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Bundle-ActivationPolicy: lazy
 Import-Package: io.grpc.health.v1;version="1.100.0",
  org.osgi.service.component.annotations;version="1.3.0";resolution:=optional,

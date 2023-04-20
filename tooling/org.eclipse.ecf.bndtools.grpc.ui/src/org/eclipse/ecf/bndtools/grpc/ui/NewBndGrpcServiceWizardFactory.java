@@ -17,12 +17,14 @@ public class NewBndGrpcServiceWizardFactory implements IExecutableExtension, IEx
 	@SuppressWarnings("restriction")
 	@Override
 	public NewBndServiceWizard create() throws CoreException {
-		NewBndServiceWizardPageOne pageOne = new NewBndServiceWizardPageOne("grpc");
-		NewBndServiceWizardPageTwo pageTwo = new NewBndServiceWizardPageTwo(pageOne);
-
-		NewBndServiceWizard wizard = new NewBndServiceWizard(pageOne, pageTwo, "grpc");
+		String templateName = null;
+		if (this.data instanceof String) {
+			templateName = (String) this.data;
+		}
+		NewBndServiceWizardPageOne pageOne = new NewBndServiceWizardPageOne(templateName);
+		NewBndServiceWizard wizard = new NewBndServiceWizard(pageOne, new NewBndServiceWizardPageTwo(pageOne),
+			templateName);
 		wizard.setInitializationData(config, propertyName, data);
-
 		return wizard;
 	}
 

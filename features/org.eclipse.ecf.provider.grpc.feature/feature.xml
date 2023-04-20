@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.ecf.provider.grpc.feature"
       label="%featureName"
-      version="1.5.0.qualifier"
+      version="1.6.0.qualifier"
       provider-name="%providerName">
 
    <description url="https://github.com/ECF/grpc-RemoteServicesProvider/README.md">
@@ -210,21 +210,7 @@
          unpack="false"/>
 
    <plugin
-         id="com.google.protobuf"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="com.salesforce.servicelibs.reactive-grpc-common"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.reactivestreams.reactive-streams"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -364,21 +350,7 @@
          unpack="false"/>
 
    <plugin
-         id="wrapped.io.grpc.grpc-context"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="wrapped.io.grpc.grpc-core"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="wrapped.io.grpc.grpc-netty"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -491,6 +463,118 @@
 
    <plugin
          id="com.google.guava"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="reactive-streams"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="wrapped.io.grpc.grpc-netty"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="wrapped.io.grpc.grpc-context"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="wrapped.com.google.api.grpc.proto-google-common-protos.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="wrapped.com.google.errorprone.error_prone_annotations.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="wrapped.com.google.j2objc.j2objc-annotations.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="wrapped.io.grpc.grpc-api.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="wrapped.io.grpc.grpc-context.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="wrapped.io.grpc.grpc-core.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="wrapped.io.grpc.grpc-netty.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="wrapped.io.grpc.grpc-protobuf-lite.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="wrapped.io.grpc.grpc-protobuf.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="wrapped.io.grpc.grpc-services.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="wrapped.io.grpc.grpc-stub.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="wrapped.io.perfmark.perfmark-api.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="wrapped.org.codehaus.mojo.animal-sniffer-annotations.source"
          download-size="0"
          install-size="0"
          version="0.0.0"

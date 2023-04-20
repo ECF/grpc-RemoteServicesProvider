@@ -2,12 +2,12 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.eclipse.ecf.provider.grpc</groupId>
   <artifactId>healthcheck.consumer.javaapp</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.2-SNAPSHOT</version>
   
       <properties>
-        <rxjava.version>2.1.10</rxjava.version>
-        <reactive.grpc.version>1.0.0</reactive.grpc.version>
-        <grpc.version>1.36.1</grpc.version>
+        <rxjava.version>2.2.21</rxjava.version>
+        <reactive.grpc.version>1.2.4</reactive.grpc.version>
+        <grpc.version>1.54.0</grpc.version>
     </properties>
 
     <dependencies>

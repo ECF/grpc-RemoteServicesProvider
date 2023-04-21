@@ -557,16 +557,6 @@ Provide-Capability:    osgi.serviceloader="io.grpc.LoadBalancerProvider"; regist
 	<location includeDependencyDepth="none" includeDependencyScopes="compile" includeSource="true" missingManifest="generate" type="Maven">
 		<dependencies>
 			<dependency>
-				<groupId>com.google.protobuf</groupId>
-				<artifactId>protobuf-java</artifactId>
-				<version>4.0.0-rc-2</version>
-				<type>jar</type>
-			</dependency>
-		</dependencies>
-	</location>
-	<location includeDependencyDepth="none" includeDependencyScopes="compile" includeSource="true" missingManifest="generate" type="Maven">
-		<dependencies>
-			<dependency>
 				<groupId>io.grpc</groupId>
 				<artifactId>grpc-api</artifactId>
 				<version>1.54.0</version>
@@ -590,6 +580,16 @@ DynamicImport-Package: *
 				<groupId>io.grpc</groupId>
 				<artifactId>grpc-context</artifactId>
 				<version>1.54.0</version>
+				<type>jar</type>
+			</dependency>
+		</dependencies>
+	</location>
+	<location includeDependencyDepth="none" includeDependencyScopes="compile" includeSource="true" missingManifest="generate" type="Maven">
+		<dependencies>
+			<dependency>
+				<groupId>com.google.protobuf</groupId>
+				<artifactId>protobuf-java</artifactId>
+				<version>3.22.2</version>
 				<type>jar</type>
 			</dependency>
 		</dependencies>

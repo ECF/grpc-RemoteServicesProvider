@@ -26,54 +26,6 @@ private static final long serialVersionUID = 0L;
     return new HealthCheckResponse();
   }
 
-  @java.lang.Override
-  public final com.google.protobuf.UnknownFieldSet
-  getUnknownFields() {
-    return this.unknownFields;
-  }
-  private HealthCheckResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            status_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.grpc.health.v1.rx3.HealthProto.internal_static_grpc_health_v1_HealthCheckResponse_descriptor;
@@ -222,7 +174,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATUS_FIELD_NUMBER = 1;
-  private int status_;
+  private int status_ = 0;
   /**
    * <code>.grpc.health.v1.HealthCheckResponse.ServingStatus status = 1;</code>
    * @return The enum numeric value on the wire for status.
@@ -235,8 +187,7 @@ private static final long serialVersionUID = 0L;
    * @return The status.
    */
   @java.lang.Override public io.grpc.health.v1.rx3.HealthCheckResponse.ServingStatus getStatus() {
-    @SuppressWarnings("deprecation")
-    io.grpc.health.v1.rx3.HealthCheckResponse.ServingStatus result = io.grpc.health.v1.rx3.HealthCheckResponse.ServingStatus.valueOf(status_);
+    io.grpc.health.v1.rx3.HealthCheckResponse.ServingStatus result = io.grpc.health.v1.rx3.HealthCheckResponse.ServingStatus.forNumber(status_);
     return result == null ? io.grpc.health.v1.rx3.HealthCheckResponse.ServingStatus.UNRECOGNIZED : result;
   }
 
@@ -257,7 +208,7 @@ private static final long serialVersionUID = 0L;
     if (status_ != io.grpc.health.v1.rx3.HealthCheckResponse.ServingStatus.UNKNOWN.getNumber()) {
       output.writeEnum(1, status_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -270,7 +221,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(1, status_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -286,7 +237,7 @@ private static final long serialVersionUID = 0L;
     io.grpc.health.v1.rx3.HealthCheckResponse other = (io.grpc.health.v1.rx3.HealthCheckResponse) obj;
 
     if (status_ != other.status_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -299,7 +250,7 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + STATUS_FIELD_NUMBER;
     hash = (53 * hash) + status_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -416,24 +367,19 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.grpc.health.v1.rx3.HealthCheckResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       status_ = 0;
-
       return this;
     }
 
@@ -460,43 +406,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.grpc.health.v1.rx3.HealthCheckResponse buildPartial() {
       io.grpc.health.v1.rx3.HealthCheckResponse result = new io.grpc.health.v1.rx3.HealthCheckResponse(this);
-      result.status_ = status_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
     }
 
-    @java.lang.Override
-    public Builder clone() {
-      return super.clone();
+    private void buildPartial0(io.grpc.health.v1.rx3.HealthCheckResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.status_ = status_;
+      }
     }
-    @java.lang.Override
-    public Builder setField(
-        com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
-      return super.setField(field, value);
-    }
-    @java.lang.Override
-    public Builder clearField(
-        com.google.protobuf.Descriptors.FieldDescriptor field) {
-      return super.clearField(field);
-    }
-    @java.lang.Override
-    public Builder clearOneof(
-        com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-      return super.clearOneof(oneof);
-    }
-    @java.lang.Override
-    public Builder setRepeatedField(
-        com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
-      return super.setRepeatedField(field, index, value);
-    }
-    @java.lang.Override
-    public Builder addRepeatedField(
-        com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
-      return super.addRepeatedField(field, value);
-    }
+
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
       if (other instanceof io.grpc.health.v1.rx3.HealthCheckResponse) {
@@ -512,7 +433,7 @@ private static final long serialVersionUID = 0L;
       if (other.status_ != 0) {
         setStatusValue(other.getStatusValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -527,19 +448,38 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.grpc.health.v1.rx3.HealthCheckResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              status_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.grpc.health.v1.rx3.HealthCheckResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int status_ = 0;
     /**
@@ -555,8 +495,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStatusValue(int value) {
-      
       status_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -566,8 +506,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.grpc.health.v1.rx3.HealthCheckResponse.ServingStatus getStatus() {
-      @SuppressWarnings("deprecation")
-      io.grpc.health.v1.rx3.HealthCheckResponse.ServingStatus result = io.grpc.health.v1.rx3.HealthCheckResponse.ServingStatus.valueOf(status_);
+      io.grpc.health.v1.rx3.HealthCheckResponse.ServingStatus result = io.grpc.health.v1.rx3.HealthCheckResponse.ServingStatus.forNumber(status_);
       return result == null ? io.grpc.health.v1.rx3.HealthCheckResponse.ServingStatus.UNRECOGNIZED : result;
     }
     /**
@@ -579,7 +518,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       status_ = value.getNumber();
       onChanged();
       return this;
@@ -589,7 +528,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStatus() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       status_ = 0;
       onChanged();
       return this;
@@ -627,7 +566,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new HealthCheckResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

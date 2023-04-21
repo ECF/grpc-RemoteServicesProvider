@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.eclipse.ecf.provider.grpc.feature"
-      label="%featureName"
-      version="1.6.0.qualifier"
-      provider-name="%providerName">
+      label="ECF gRPC Remote Services Provider Feature"
+      version="1.6.1.qualifier"
+      provider-name="Eclipse.org - ECF">
 
    <description url="https://github.com/ECF/grpc-RemoteServicesProvider/README.md">
       This feature provides a Remote Services distribution provider based upon Google RPC for 
@@ -575,6 +575,20 @@
 
    <plugin
          id="wrapped.org.codehaus.mojo.animal-sniffer-annotations.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="wrapped.com.google.protobuf.protobuf-java"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="wrapped.com.google.protobuf.protobuf-java.source"
          download-size="0"
          install-size="0"
          version="0.0.0"

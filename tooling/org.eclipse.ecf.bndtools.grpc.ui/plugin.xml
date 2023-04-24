@@ -7,9 +7,9 @@
             category="bndtools.serviceWizardCategory/org.eclipse.ecf.remoteservices.category"
             finalPerspective="bndtools.perspective"
             class="org.bndtools.core.ui.wizards.service.NewBndTemplateBasedServiceWizard:grpc"
-            icon="icons/bricks.png"
+            icon="icons/grpc16x16.gif"
             id="org.eclipse.ecf.bndtools.grpc.ui.wizard1"
-            name="gRPC Remote Service"
+            name="gRPC Remote Service (api, impl, consumer)"
             preferredPerspectives="bndtools.perspective"
             project="true">
       </wizard>
@@ -26,6 +26,7 @@
             class="org.eclipse.ecf.bndtools.grpc.ui.editors.Editor"
             contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
             extensions="proto"
+            icon="icons/grpc16x16.gif"
             id="org.eclipse.ecf.bndtools.grpc.ui.editors.Editor"
             name="gRPC/protobuf Editor">
       </editor>

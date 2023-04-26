@@ -18,7 +18,7 @@
 </location>
 	<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 		<repository location="https://bndtools.jfrog.io/bndtools/update-snapshot"/>
-		<unit id="bndtools.main.feature.feature.group" version="7.0.0.DEV-202304190443-ga13e8e1"/>
+		<unit id="bndtools.main.feature.feature.group" version="7.0.0.DEV-202304241817-gb79f9bb"/>
 	</location>
 	<location includeDependencyDepth="none" includeDependencyScopes="compile" includeSource="true" missingManifest="generate" type="Maven">
 		<dependencies>

@@ -3,21 +3,56 @@
 <plugin>
    <extension
          point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.ecf.remoteservices.category"
+            name="ECF Remote Services"
+            parentCategory="bndtools.serviceWizardCategory">
+      </category>
+
+      <wizard
+            category="bndtools.serviceWizardCategory/org.eclipse.ecf.remoteservices.category"
+            finalPerspective="bndtools.perspective"
+            class="org.bndtools.core.ui.wizards.service.NewBndTemplateBasedServiceWizard:rs"
+            icon="icons/bricks.png"
+            id="org.eclipse.ecf.bndtools.template.wizard.rs"
+            name="Synchronous Remote Service (api, impl, consumer)"
+            preferredPerspectives="bndtools.perspective"
+            project="true">
+      </wizard>
+
+      <wizard
+            category="bndtools.serviceWizardCategory/org.eclipse.ecf.remoteservices.category"
+            finalPerspective="bndtools.perspective"
+            class="org.bndtools.core.ui.wizards.service.NewBndTemplateBasedServiceWizard:rsasync"
+            icon="icons/bricks.png"
+            id="org.eclipse.ecf.bndtools.template.wizard.rsasync"
+            name="Asynchronous Remote Service (api, impl, consumer)"
+            preferredPerspectives="bndtools.perspective"
+            project="true">
+      </wizard>
+
       <wizard
             category="bndtools.serviceWizardCategory/org.eclipse.ecf.remoteservices.category"
             finalPerspective="bndtools.perspective"
             class="org.bndtools.core.ui.wizards.service.NewBndTemplateBasedServiceWizard:grpc"
             icon="icons/grpc16x16.gif"
-            id="org.eclipse.ecf.bndtools.grpc.ui.wizard1"
-            name="gRPC Remote Service (api, impl, consumer)"
+            id="org.eclipse.ecf.bndtools.grpc.ui.grpc"
+            name="gRPC Remote Service (generated api, impl, consumer)"
             preferredPerspectives="bndtools.perspective"
             project="true">
       </wizard>
-      <category
-            id="org.eclipse.ecf.remoteservices.category"
-            name="Remote Services"
-            parentCategory="bndtools.serviceWizardCategory">
-      </category>
+      
+      <wizard
+            category="bndtools.serviceWizardCategory/org.eclipse.ecf.remoteservices.category"
+            finalPerspective="bndtools.perspective"
+            class="org.bndtools.core.ui.wizards.service.NewBndTemplateBasedServiceWizard:jaxrs"
+            icon="icons/bricks.png"
+            id="org.eclipse.ecf.bndtools.template.wizard.jaxrs"
+            name="JaxRS Remote Service (api, impl, consumer)"
+            preferredPerspectives="bndtools.perspective"
+            project="true">
+      </wizard>
+      
    </extension>
 
    <extension
@@ -28,7 +63,7 @@
             extensions="proto"
             icon="icons/grpc16x16.gif"
             id="org.eclipse.ecf.bndtools.grpc.ui.editors.Editor"
-            name="gRPC/protobuf Editor">
+            name="gRPC/proto File Editor">
       </editor>
    </extension>
 

@@ -11,6 +11,7 @@
 package org.eclipse.ecf.bndtools.grpc.ui.editors;
 
 import org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer;
+import org.eclipse.ecf.bndtools.grpc.ui.Activator;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.preference.PreferenceConverter;
 

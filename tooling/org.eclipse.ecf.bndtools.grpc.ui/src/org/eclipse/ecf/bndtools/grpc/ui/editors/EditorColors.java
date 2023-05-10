@@ -13,6 +13,7 @@ package org.eclipse.ecf.bndtools.grpc.ui.editors;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.ecf.bndtools.grpc.ui.Activator;
 import org.eclipse.jface.preference.PreferenceConverter;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.RGB;

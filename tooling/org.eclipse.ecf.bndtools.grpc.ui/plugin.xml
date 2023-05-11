@@ -5,7 +5,7 @@
          point="org.eclipse.ui.newWizards">
       <category
             id="org.eclipse.ecf.remoteservices.category"
-            name="ECF Remote Services"
+            name="Remote Services"
             parentCategory="bndtools.serviceWizardCategory">
       </category>
 
@@ -13,7 +13,7 @@
             category="bndtools.serviceWizardCategory/org.eclipse.ecf.remoteservices.category"
             finalPerspective="bndtools.perspective"
             class="org.bndtools.core.ui.wizards.service.NewBndTemplateBasedServiceWizard:rs"
-            icon="icons/bricks.png"
+            icon="platform:/plugin/bndtools.core/icons/service.png"
             id="org.eclipse.ecf.bndtools.template.wizard.rs"
             name="Synchronous Remote Service (api, impl, consumer)"
             preferredPerspectives="bndtools.perspective"
@@ -24,7 +24,7 @@
             category="bndtools.serviceWizardCategory/org.eclipse.ecf.remoteservices.category"
             finalPerspective="bndtools.perspective"
             class="org.bndtools.core.ui.wizards.service.NewBndTemplateBasedServiceWizard:rsasync"
-            icon="icons/bricks.png"
+            icon="platform:/plugin/bndtools.core/icons/service.png"
             id="org.eclipse.ecf.bndtools.template.wizard.rsasync"
             name="Asynchronous Remote Service (api, impl, consumer)"
             preferredPerspectives="bndtools.perspective"
@@ -46,7 +46,7 @@
             category="bndtools.serviceWizardCategory/org.eclipse.ecf.remoteservices.category"
             finalPerspective="bndtools.perspective"
             class="org.bndtools.core.ui.wizards.service.NewBndTemplateBasedServiceWizard:jaxrs"
-            icon="icons/bricks.png"
+            icon="platform:/plugin/bndtools.core/icons/service.png"
             id="org.eclipse.ecf.bndtools.template.wizard.jaxrs"
             name="JaxRS Remote Service (api, impl, consumer)"
             preferredPerspectives="bndtools.perspective"

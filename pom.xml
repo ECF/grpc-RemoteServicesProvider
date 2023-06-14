@@ -80,7 +80,7 @@
 		<grpc.contrib.version>0.8.1</grpc.contrib.version>
 		
 		<grpc.version>1.54.0</grpc.version>
-		<guava.version>31.1-android</guava.version>
+		<guava.version>32.0.0-android</guava.version>
 		<protoc.version>3.22.2</protoc.version>
 		<jprotoc.version>1.0.1</jprotoc.version>
 		<netty.version>4.1.68.Final</netty.version>

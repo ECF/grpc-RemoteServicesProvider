@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde version="3.8"?>
-<target name="Grpc Provider 2021-06 Target" sequenceNumber="43">
+<target includeMode="feature" name="Grpc Provider 2021-06 Target" sequenceNumber="43">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.license.feature.group" version="1.0.1.v20140414-1359"/>
@@ -18,7 +18,7 @@
 </location>
 	<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 		<repository location="https://bndtools.jfrog.io/bndtools/update-snapshot"/>
-		<unit id="bndtools.main.feature.feature.group" version="7.0.0.DEV-202304241817-gb79f9bb"/>
+		<unit id="bndtools.main.feature.feature.group" version="7.0.0.DEV-202307250933-gb32e1f1"/>
 	</location>
 	<location includeDependencyDepth="none" includeDependencyScopes="compile" includeSource="true" missingManifest="generate" type="Maven">
 		<dependencies>
@@ -593,6 +593,18 @@ DynamicImport-Package: *
 				<type>jar</type>
 			</dependency>
 		</dependencies>
+	</location>
+	<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+		<repository location="https://download.eclipse.org/rt/ecf/snapshot/site.p2"/>
+		<unit id="com.sun.syndication" version="0.9.0.v200803061811"/>
+		<unit id="org.apache.hadoop.zookeeper" version="3.3.3.v201105210832"/>
+		<unit id="org.apache.log4j" version="1.2.24.v20221221-2012"/>
+		<unit id="org.eclipse.ecf.core.feature.group" version="3.14.40.v20230728-2232"/>
+		<unit id="org.eclipse.ecf.core.source.feature.group" version="3.14.40.v20230728-2232"/>
+		<unit id="org.jdom" version="1.1.1.v201101151400"/>
+		<unit id="org.json" version="1.0.0.v201011060100"/>
+		<unit id="org.objectweb.asm" version="9.5.0"/>
+		<unit id="org.xbill.dns" version="2.0.8.v201112050911"/>
 	</location>
 </locations>
 

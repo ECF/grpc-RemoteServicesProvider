@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.ecf.provider.grpc.tooling.feature"
       label="ECF Remote Services Tooling Feature"
-      version="1.10.1.qualifier"
+      version="1.11.0.qualifier"
       provider-name="Eclipse.org - ECF">
 
    <description url="http://www.example.com/description">
@@ -198,6 +198,20 @@
 
    <plugin
          id="org.eclipse.ecf.bndtools.grpc.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.remoteservices.tooling.bndtools"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.remoteservices.tooling.bndtools.source"
          download-size="0"
          install-size="0"
          version="0.0.0"

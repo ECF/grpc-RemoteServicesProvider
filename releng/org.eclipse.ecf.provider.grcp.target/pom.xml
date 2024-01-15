@@ -27,14 +27,9 @@
             <configuration>
               <artifacts>
                 <artifact>
-                  <file>ecf-2020-06.target</file>
+                  <file>ecf-2024-01.target</file>
                   <type>target</type>
-                  <classifier>ecf-2020-06</classifier>
-                </artifact>
-                <artifact>
-                  <file>ecf-photon.target</file>
-                  <type>target</type>
-                  <classifier>ecf-photon</classifier>
+                  <classifier>ecf-2024-01</classifier>
                 </artifact>
               </artifacts>
             </configuration>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?>
+<target includeMode="feature" name="Grpc Provider 2024-01 Target" sequenceNumber="43">
+<locations>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.license.feature.group" version="1.0.1.v20140414-1359"/>
+<repository location="http://download.eclipse.org/cbi/updates/license/1.0.1.v20140414-1359"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.emf.edit.ui.feature.group" version="2.24.0.v20220619-0533"/>
+<unit id="org.eclipse.emf.edit.ui.source.feature.group" version="2.24.0.v20220619-0533"/>
+<unit id="org.eclipse.pde.feature.group" version="3.14.1400.v20221123-1800"/>
+<unit id="org.eclipse.pde.source.feature.group" version="3.14.1400.v20221123-1800"/>
+<unit id="org.eclipse.platform.feature.group" version="4.26.0.v20221123-2302"/>
+<unit id="org.eclipse.platform.source.feature.group" version="4.26.0.v20221123-2302"/>
+<repository location="http://download.eclipse.org/releases/2022-12"/>
+	<unit id="org.eclipse.jdt.feature.group" version="3.18.1400.v20221123-1800"/>
+</location>
+	<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+		<repository location="https://bndtools.jfrog.io/bndtools/update-snapshot"/>
+		<unit id="bndtools.main.feature.feature.group" version="7.0.0.DEV-202307250933-gb32e1f1"/>
+	</location>
+	<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+		<repository location="http://download.eclipse.org/rt/ecf/3.14.41/site.p2"/>
+		<unit id="org.eclipse.ecf.remoteservice.sdk.examples.feature.feature.group" version="1.1.1.v20231114-1017"/>
+		<unit id="org.eclipse.ecf.remoteservice.sdk.examples.feature.source.feature.group" version="1.1.1.v20231114-1017"/>
+		<unit id="org.eclipse.ecf.remoteservice.sdk.feature.feature.group" version="3.14.41.v20231202-2253"/>
+		<unit id="org.eclipse.ecf.remoteservice.sdk.feature.source.feature.group" version="3.14.41.v20231202-2253"/>
+		<unit id="org.eclipse.ecf.remoteservices.tooling.bndtools.feature.feature.group" version="1.1.0.v20240113-2337"/>
+	</location>
+</locations>
+
+</target>

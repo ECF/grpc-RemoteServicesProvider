@@ -27,9 +27,9 @@
             <configuration>
               <artifacts>
                 <artifact>
-                  <file>ecf-2024-01.target</file>
+                  <file>ecf-2023-06.target</file>
                   <type>target</type>
-                  <classifier>ecf-2024-01</classifier>
+                  <classifier>ecf-2023-06</classifier>
                 </artifact>
               </artifacts>
             </configuration>

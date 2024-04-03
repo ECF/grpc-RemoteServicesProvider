@@ -1,20 +1,23 @@
+NEW: Bndtools 7.1/Eclipse Plugin:  gRPC Remote Services Tooling Feature 
+
+This feature in the p2 repository in this repo here:  [https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/](https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/) is a Eclipse feature with name:  ECF Remote Services Tooling Feature and id: org.eclipse.ecf.provider.grpc.tooling.feature.
+
+To install this feature into Bndtools 7.1/Eclipse using p2 goto Help -> Install New Software...->Add...
+
+*Name*:  ECF Remote Services Tooling Feature
+
+*URL*:  https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/
+
+Once added, select the added repository and *uncheck* the Group items by category checkbox in lower left.  Then add the feature named: ECF Remote Services Tooling Feature.
+
+NOTE:  Once this Bndtools/Eclipse plugin is installed, to use the wizard it's necessary to create a new bndtools workspace using the [ECF Remote Services Bndtools Workspace Template](https://github.com/ECF/bndtools.workspace).
+
 # gRPC-RemoteServicesProvider
 This project provides an [ECF Remote Services](https://wiki.eclipse.org/ECF) [Distribution Provider](https://wiki.eclipse.org/Distribution_Providers) based upon [Google RPC for Java (grpc-java)](https://github.com/grpc/grpc-java).   See http://www.grpc.io, https://github.com/grpc, and https://github.com/grpc/grpc-java for information on grpc-java, and https://wiki.eclipse.org/ECF for information about ECF's implentation of OSGi Remote Services.
 
 This distribution provider uses grpc-java to export (server) and import (clients) OSGi Remote Services and make them available for remote access as full OSGi services; with all of the service dynamics, versioning, async, security, management, extensibility, and other features that come with the [OSGi Remote Services](https://docs.osgi.org/specification/osgi.cmpn/7.0.0/service.remoteservices.html) and [OSGi Remote Service Admin](https://docs.osgi.org/specification/osgi.cmpn/7.0.0/service.remoteserviceadmin.html).   
 
 NEW:  Videos Tutorials.  This is a video tutorial showing how to use this workspace for gRPC development.  In 4 parts: [Part 1 - API Generation](https://www.youtube.com/watch?v=289BGznS_so), [Part 2 - Remote Service Implementation](https://www.youtube.com/watch?v=58ZU_KIKUAo), [Part 3 - Remote Service Consumer](https://www.youtube.com/watch?v=c4tMPbDPiVw), [Part 4 - Remote Service Debugging](https://www.youtube.com/watch?v=9Q2qfiL8QMA)
-
-NEW:  Proto3 Editor for Eclipse
-
-Present in the p2 repository here:  [https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/](https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/) is a Eclipse plugin with an editor for proto3 file syntax.  This editor may be used to create and update proto3 files
-within Eclipse.   To install into Eclipse goto Help -> Install New Software...->Add...
-
-*Name*:  ECF gRPC Distribution Provider and Tooling
-
-*URL*:  https://raw.githubusercontent.com/ECF/grpc-RemoteServicesProvider/master/build/
-
-Once added, select the added repository and *uncheck* the Group items by category checkbox in lower left.  Then add (at least) the feature named: ECF gRPC Remote Services Tooling Feature, and if desired the other two features.
 
 ## New and Noteworthy ##
 

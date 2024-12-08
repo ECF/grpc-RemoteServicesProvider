@@ -83,7 +83,7 @@
 		<guava.version>31.1-android</guava.version>
 		<protoc.version>3.22.2</protoc.version>
 		<jprotoc.version>1.0.1</jprotoc.version>
-		<netty.version>4.1.68.Final</netty.version>
+		<netty.version>4.1.94.Final</netty.version>
 		<reactive.grpc.version>1.2.4</reactive.grpc.version>
 		
 		<grpc.osgi.generator.version>1.8.0</grpc.osgi.generator.version>
